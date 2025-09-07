@@ -1,10 +1,16 @@
-#Pasos para instalar utilizar VITE 
-Van a projects --> init y luego:
-npm install => instala dependencias
-npm run dev => para empezar a codear
+#Pasos para instalar utilizar VITE
+1) Instalar NodeJs
+  - https://nodejs.org/es/download
 
-Luego les va a aparecer un localhost y lo abren en el navegador.
-Cada vez que van a coder, tienen que ir hasta init y luego: 
-npm run dev
+2) Van a projects --> init y luego:
+
+  a. npm install => instala dependencias
+  b. npm install react-router-dom => librería de react para enrutar
+  c. npm run dev => para empezar a codear
+  
+3) Les va a aparecer un localhost, lo copian y lo pegan en el navegador y listo.
+
+4) Y cada vez que van a codear, tienen que ir hasta init y luego: 
+  - npm run dev
 
 
