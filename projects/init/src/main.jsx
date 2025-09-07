@@ -1,12 +1,10 @@
-import { Fragment } from 'react'
-import { createRoot } from 'react-dom/client'
+import React from "react"
+import ReactDOM from "react-dom/client"
+import App from "./App.jsx"
+//import "./index.css"
 
-//punto de entrada a nuestra aplicación
-const root = createRoot(document.getElementById('root'))
-root.render(
-  <Fragment>
-    <button>
-      HOLA, SOY UN BUTTON
-    </button>
-  </Fragment>
+ReactDOM.createRoot(document.getElementById("root")).render(
+
+    <App />
 )
+
