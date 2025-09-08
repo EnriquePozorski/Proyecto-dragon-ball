@@ -1,11 +1,16 @@
-function CharacterCard({ name, race, image }) {
+import React from "react";
+import "./CharacterCardStyle.css";
+
+function CharacterCard({ name, description, image }) {
   return (
-    <div className="border p-4 rounded-md shadow-md">
-      <img src={image} alt={name} className="w-32 h-32 object-cover" />
-      <h3 className="text-xl font-bold">{name}</h3>
-      <p>{race}</p>
+    <div className="card-content">
+      <h3 className="card-title">{name}</h3>
+      <img src={image} alt={name} className="card-img" />
+      <div className="card-footer">
+      <p className="card-description">{description}</p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default CharacterCard
+export default CharacterCard;

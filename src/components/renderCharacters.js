@@ -14,6 +14,7 @@ async function renderCharacters() {
         card.innerHTML = `
             <img src="${character.image}" alt="${character.name}" class="card-image"/>
             <h2 class="card-name">${character.name}</h2>
+            <p class="card-description">${character.description}</p>
         `;
         container.appendChild(card);
     });

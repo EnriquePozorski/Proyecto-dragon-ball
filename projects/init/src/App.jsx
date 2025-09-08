@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import Home from "./pages/Home.jsx"
 import Characters from "./pages/Characters.jsx"
 import Sagas from "./pages/Sagas.jsx"
-
+import "./app.css"
 function App() {
   return (
     <BrowserRouter>
@@ -11,6 +11,7 @@ function App() {
         <Link to="/characters">Personajes</Link>
         <Link to="/sagas">Sagas</Link>
       </nav>
+     
 
       <Routes>
         <Route path="/" element={<Home />} />
