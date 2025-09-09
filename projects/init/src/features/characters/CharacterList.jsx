@@ -1,31 +1,31 @@
-import { useEffect, useState } from "react"
-import { fetchCharacters } from "../../services/characterService"
-import CharacterCard from "./CharacterCard.jsx"
-import "./CharacterCardStyle.css"
+import { useEffect, useState } from "react";
+import { fetchCharacters } from "../../services/characterService";
+import CharacterCard from "./CharacterCard.jsx";
+import "./CharacterCardStyle.css";
 
-function CharacterList() {
-  const [characters, setCharacters] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [page, setPage] = useState(1)
-  const [hasMore, setHasMore] = useState(true)
+function CharacterList({ filter = ""  }) {
+  const [characters, setCharacters] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     async function loadCharacters() {
-      if (!hasMore) return
-      setLoading(true)
+      if (!hasMore) return;
+      setLoading(true);
       try {
-        const data = await fetchCharacters(page) // 👈 pasamos la página
-        setCharacters((prev) => [...prev, ...data.items]) // acumulamos
-        setHasMore(!!data.links.next) // si hay siguiente página
+        const data = await fetchCharacters(page); // 👈 pasamos la página
+        setCharacters((prev) => [...prev, ...data.items]); // acumulamos
+        setHasMore(!!data.links.next); // si hay siguiente página
       } catch (err) {
-        setError(err.message)
+        setError(err.message);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     }
-    loadCharacters()
-  }, [page])
+    loadCharacters();
+  }, [page]);
 
   // Detecta cuando se scrollea al final de la ventana
   useEffect(() => {
@@ -36,19 +36,22 @@ function CharacterList() {
         !loading &&
         hasMore
       ) {
-        setPage((prev) => prev + 1)
+        setPage((prev) => prev + 1);
       }
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [loading, hasMore])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading, hasMore]);
 
-  if (error) return <p>Error: {error}</p>
+  if (error) return <p>Error: {error}</p>;
 
-  return (
-    <>
-      <div className="card-wrapper">
-        {characters.map((c) => (
+ return (
+    <div className="card-wrapper">
+      {characters
+        .filter((c) =>
+          c.name.toLowerCase().includes(filter.toLowerCase()) // protegemos toLowerCase
+        )
+        .map((c) => (
           <CharacterCard
             key={c.id}
             name={c.name}
@@ -56,11 +59,11 @@ function CharacterList() {
             image={c.image}
           />
         ))}
-      </div>
-      {loading && <p>Cargando más personajes...</p>}
-      
-    </>
-  )
+      {loading && <p>Cargando personajes...</p>}
+      {!hasMore && <p>No hay más personajes.</p>}
+    </div>
+    
+  );
 }
 
-export default CharacterList
+export default CharacterList;

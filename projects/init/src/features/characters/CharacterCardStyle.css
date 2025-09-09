@@ -1,6 +1,7 @@
 
 body{
-    background: linear-gradient(to bottom, #ff7d03, #774503);
+    background: linear-gradient(to bottom, #9F2705
+, #774503);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -59,5 +60,3 @@ body{
   font-size: 0.9em;
 }
 
-.card-content:hover .card-description {
-}
