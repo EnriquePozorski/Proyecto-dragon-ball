@@ -3,6 +3,8 @@ import Home from "./pages/Home.jsx"
 import Characters from "./pages/Characters.jsx"
 import Sagas from "./pages/Sagas.jsx"
 import "./app.css"
+import Header from "./components/Header.jsx"
+
 function LayoutWithNav({ children }) {
   return (
     <div>
@@ -22,6 +24,7 @@ function LayoutWithoutNav({ children }) {
 function App() {
   return (
     <BrowserRouter>
+    <Header />
       <Routes>
         <Route path="/" element={<LayoutWithNav><Home /></LayoutWithNav>} />
         <Route path="/sagas" element={<LayoutWithNav><Sagas /></LayoutWithNav>} />

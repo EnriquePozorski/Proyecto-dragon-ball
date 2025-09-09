@@ -1,0 +1,36 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f15a24;
+  color: white;
+}
+
+#hd-logo {
+  border-radius: 10%;
+}
+
+.hd-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hd-nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hd-nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.hd-nav-links a:hover {
+  color: #ffe600;
+}
