@@ -11,12 +11,11 @@ function Characters() {
       <h1 className="title">Dragon Ball</h1>
       <div className="hero">
         <img src={dragonballImg} className="img-character" alt="Dragon Ball Z" />
-        <div className="overlay"></div> {/* 👈 el degradado */}
+        <div className="overlay"></div> 
       </div>
       <div className="divider">
         <nav></nav>
         <h1 className="title-character">Personajes</h1>
-           {/* Input de búsqueda */}
         <div className="filters">
           <input
             type="text"

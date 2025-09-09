@@ -4,15 +4,12 @@ import Characters from "./pages/Characters.jsx"
 import Sagas from "./pages/Sagas.jsx"
 import "./app.css"
 import Header from "./components/Header.jsx"
+import Footer from "./components/Footer.jsx"
 
 function LayoutWithNav({ children }) {
   return (
     <div>
-      <nav style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
-        <Link to="/">Inicio</Link>
-        <Link to="/characters">Personajes</Link>
-        <Link to="/sagas">Sagas</Link>
-      </nav>
+      
       {children}
     </div>
   )
@@ -24,13 +21,15 @@ function LayoutWithoutNav({ children }) {
 function App() {
   return (
     <BrowserRouter>
-    <Header />
+      <Header />
       <Routes>
         <Route path="/" element={<LayoutWithNav><Home /></LayoutWithNav>} />
         <Route path="/sagas" element={<LayoutWithNav><Sagas /></LayoutWithNav>} />
         <Route path="/characters" element={<LayoutWithoutNav><Characters /></LayoutWithoutNav>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
+    
   )
 }
 

@@ -31,11 +31,12 @@ body{
   margin: 0;
   color: #ffffff;
   background-color: #000000;
+  height: 10%;
 }
 
 .card-img {
    width: 100%;
-  height: 100%;
+  height: 60%;
   object-fit: contain;
   background: linear-gradient(to bottom, #ff7d03, #774503);
 }
@@ -47,6 +48,7 @@ body{
   color: #000000;
   font-weight: bold;
   border: #000000 solid 2px;
+  height: 30%;
 }
 
 .card-description{
