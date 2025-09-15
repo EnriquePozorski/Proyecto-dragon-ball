@@ -1,0 +1,41 @@
+.filters-aside {
+  width: 250px;
+  background-color: #f4f4f9;
+  border-right: 2px solid #ddd;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.filters-aside h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #444;
+}
+
+.filter-group select {
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #0077ff;
+  box-shadow: 0 0 3px rgba(0, 119, 255, 0.5);
+}

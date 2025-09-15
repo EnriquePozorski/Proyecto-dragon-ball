@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchCharacters } from "../../services/characterService";
+import { characterService } from "../../services/characterService";
 import CharacterCard from "./CharacterCard.jsx";
 import "./CharacterCardStyle.css";
 
@@ -15,7 +15,7 @@ function CharacterList({ filter = ""  }) {
       if (!hasMore) return;
       setLoading(true);
       try {
-        const data = await fetchCharacters(page); // 👈 pasamos la página
+        const data = await characterService.getAll(page, 10) // 👈 pasamos la página
         setCharacters((prev) => [...prev, ...data.items]); // acumulamos
         setHasMore(!!data.links.next); // si hay siguiente página
       } catch (err) {
