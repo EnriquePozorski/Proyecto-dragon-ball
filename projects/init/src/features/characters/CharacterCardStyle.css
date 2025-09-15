@@ -7,6 +7,51 @@
   width: 220px;
 }
 
+.card {
+  background: linear-gradient(145deg, #ff9d2f, #ff6126);
+  /* resto de estilos */
+}
+
+.card.Saiyan {
+  background: linear-gradient(135deg, #ff9d2f, #ff6126);
+}
+
+.card.Human {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.card.Namekian {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.card.Android {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+.card.Majin {
+  background: linear-gradient(135deg, #da22ff, #9733ee);
+}
+.card.Frieza.Race {
+  background: linear-gradient(135deg, #dad3d3, #d8c3c7);
+}
+.card.God {
+  background: linear-gradient(135deg, #666666, #d8c3c7);
+}
+.card.Angel {
+  background: linear-gradient(145deg, #ffc17a, #ffdf51);
+}
+.card.Nucleico {
+  background: linear-gradient(145deg, #efcafa, #da8ff1);
+}
+.card.Evil {
+  background: linear-gradient(145deg, #885656, #942d2d);
+}
+.card.Nucleico.benigno {
+  background: linear-gradient(145deg, #c683c9, #9522c2);
+}
+.card.default {
+  background: linear-gradient(145deg, #ff9d2f, #ff6126);
+}
+
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
@@ -36,7 +81,7 @@
   opacity: 0.9;
 }
 
-.card-ki {
+.card-ki, .card-max-ki {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   background: rgba(255,255,255,0.15);
@@ -44,3 +89,4 @@
   border-radius: 1rem;
   display: inline-block;
 }
+

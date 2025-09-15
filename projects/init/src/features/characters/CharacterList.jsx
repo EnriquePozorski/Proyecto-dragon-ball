@@ -67,6 +67,7 @@ export default function CharacterList({ filter }) {
             image={c.image}
             race={c.race}
             ki={c.ki}
+            maxKi={c.maxKi}
           />
         ))}
       </div>
