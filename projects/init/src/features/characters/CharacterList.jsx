@@ -1,73 +1,86 @@
-import { useEffect, useState, useRef } from "react"
-import CharacterCard from "./CharacterCard"
-import "./CharacterList.css"
+import { useEffect, useState, useRef } from "react";
+import CharacterCard from "./CharacterCard";
+import "./CharacterList.css";
+import CharacterModal from "../characterInformation/modalInformation.jsx";
+import { fetchCharacters, fetchCharacterById } from "../../services/characterService.js";
 
 export default function CharacterList({ filter }) {
-  const [characters, setCharacters] = useState([])
-  const [page, setPage] = useState(1)
-  const [loading, setLoading] = useState(false)
-  const [totalPages, setTotalPages] = useState(null)
-  const loaderRef = useRef(null)
-  const observerRef = useRef(null)
+  const [characters, setCharacters] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [totalPages, setTotalPages] = useState(null);
+  const loaderRef = useRef(null);
+  const observerRef = useRef(null);
 
-  // Fetch de personajes
-  const fetchCharacters = async () => {
-    if (loading) return
-    setLoading(true)
+  const [selectedCharacter, setSelectedCharacter] = useState(null); 
+  
+  // Cargar personajes
+  const loadCharacters = async () => {
+    if (loading) return;
+    setLoading(true);
     try {
-      const res = await fetch(`https://dragonball-api.com/api/characters?page=${page}`)
-      const data = await res.json()
-
+      const data = await fetchCharacters(page);
       if (data.meta && totalPages === null) {
-        setTotalPages(data.meta.totalPages)
+        setTotalPages(data.meta.totalPages);
       }
-
-      setCharacters(prev => [...prev, ...(data.items || [])])
+      setCharacters(prev => [...prev, ...(data.items || [])]);
     } catch (err) {
-      console.error(err)
+      console.error(err);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
+
 
   useEffect(() => {
-    fetchCharacters()
-  }, [page]) // cada vez que cambia la página, cargamos personajes
+    loadCharacters();
+  }, [page]);
 
   // Intersection Observer
   useEffect(() => {
-    if (observerRef.current) observerRef.current.disconnect()
+    if (observerRef.current) observerRef.current.disconnect();
 
-    observerRef.current = new IntersectionObserver(entries => {
-      const entry = entries[0]
-      if (entry.isIntersecting && !loading && (totalPages === null || page < totalPages)) {
-        setPage(p => p + 1)
+    observerRef.current = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (
+        entry.isIntersecting &&
+        !loading &&
+        (totalPages === null || page < totalPages)
+      ) {
+        setPage((p) => p + 1);
       }
-    })
+    });
 
-    if (loaderRef.current) observerRef.current.observe(loaderRef.current)
+    if (loaderRef.current) observerRef.current.observe(loaderRef.current);
 
     return () => {
-      if (observerRef.current) observerRef.current.disconnect()
+      if (observerRef.current) observerRef.current.disconnect();
+    };
+  }, [loading, page, totalPages]);
+
+  // Manejar selección de personaje
+   const handleSelectCharacter = async (id) => {
+    try {
+      const character = await fetchCharacterById(id);
+      setSelectedCharacter(character);
+    } catch (err) {
+      console.error(err);
     }
-  }, [loading, page, totalPages])
+  };
 
   // Filtrado por nombre
-  const filteredCharacters = characters.filter(c =>
+  const filteredCharacters = characters.filter((c) =>
     c.name.toLowerCase().includes(filter.toLowerCase())
-  )
+  );
 
   return (
     <div className="list-wrapper">
       <div className="grid">
-        {filteredCharacters.map(c => (
+        {filteredCharacters.map((c) => (
           <CharacterCard
-            key={c.id}
-            name={c.name}
-            image={c.image}
-            race={c.race}
-            ki={c.ki}
-            maxKi={c.maxKi}
+          key={c.id}
+    character={c} 
+    onSelectCharacter={handleSelectCharacter}
           />
         ))}
       </div>
@@ -80,6 +93,12 @@ export default function CharacterList({ filter }) {
           </p>
         )}
       </div>
+
+      {/* Modal */}
+      <CharacterModal
+        character={selectedCharacter}
+        onClose={() => setSelectedCharacter(null)}
+      />
     </div>
-  )
+  );
 }

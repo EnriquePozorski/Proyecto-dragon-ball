@@ -1,15 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 .card {
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(145deg, #ff9d2f, #ff6126);
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   width: 220px;
-}
-
-.card {
-  background: linear-gradient(145deg, #ff9d2f, #ff6126);
-  /* resto de estilos */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card.Saiyan {
@@ -31,7 +30,7 @@
   background: linear-gradient(135deg, #da22ff, #9733ee);
 }
 .card.Frieza.Race {
-  background: linear-gradient(135deg, #dad3d3, #d8c3c7);
+  background: linear-gradient(135deg, #b8b8d0, #8f8fb8);
 }
 .card.God {
   background: linear-gradient(135deg, #666666, #d8c3c7);
@@ -58,35 +57,39 @@
 }
 
 .card-img {
-  width: 100%;
-  height: 250px;
+  width: 100%; 
+  height: 250px; 
   object-fit: contain;
-  background: #fff2;
+  
 }
 
 .card-content {
   padding: 1rem;
-  text-align: center;
+  text-align: start;
   color: #fff;
 }
 
 .card-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
+  font-weight: 700; 
+  font-size: 1.3rem;
+  margin-bottom: 0.15rem;
 }
 
 .card-subtitle {
+  font-weight: 400; 
   font-size: 0.9rem;
-  opacity: 0.9;
+  opacity: 0.85;
+  margin-bottom: 0.75rem;
+  letter-spacing: 2px;
 }
 
 .card-ki, .card-max-ki {
   margin-top: 0.5rem;
   font-size: 0.85rem;
+  letter-spacing: 1px;
   background: rgba(255,255,255,0.15);
   padding: 0.3rem 0.5rem;
   border-radius: 1rem;
-  display: inline-block;
+  display: block;
 }
 

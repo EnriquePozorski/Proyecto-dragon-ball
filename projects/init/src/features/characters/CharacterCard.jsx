@@ -1,11 +1,15 @@
 import "./CharacterCardStyle.css"
 
 
-export default function CharacterCard({ name, image, race, ki, maxKi }) {
+export default function CharacterCard({ character, onSelectCharacter }) {
+   if (!character) return null;
+  const { name, image, race, ki, maxKi } = character
 
 
   return (
-    <div className={`card ${race || "default"}`}>
+    <div className={`card ${race || "default"}`} onClick={() => onSelectCharacter(character.id)}>
+
+    
       <img src={image} alt={name} className="card-img" />
       <div className="card-content">
         <h3 className="card-title">{name}</h3>
