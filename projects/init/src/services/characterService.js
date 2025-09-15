@@ -42,3 +42,15 @@ export class CharacterService{
 }
 
 export const characterService = new CharacterService();
+
+export async function fetchCharacterById(id) {
+  const URL = `https://dragonball-api.com/api/characters/${id}`;
+  try {
+    const response = await fetch(URL);
+    if (!response.ok) throw new Error("Network response was not ok");
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching character:", error);
+    throw error;
+  }
+}

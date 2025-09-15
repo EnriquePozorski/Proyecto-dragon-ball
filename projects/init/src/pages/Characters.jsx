@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CharacterList from "../features/characters/CharacterList";
 import "./CharacterStyle.css";
-import dragonballImg from "../assets/dragon-ball-z-3840x2160.jpg";
+import dragonballImg from "../assets/img/dragon-ball-z-3840x2160.jpg";
 
 function Characters() {
   const [filter, setFilter] = useState("");

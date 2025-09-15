@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./FiltersAside.css";
+import "./Aside.css";
 
 const FiltersAside = ({ onFilterChange }) => {
   const [filters, setFilters] = useState({
