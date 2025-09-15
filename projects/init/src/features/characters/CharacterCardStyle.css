@@ -1,60 +1,93 @@
-
-body{
-    background: linear-gradient(to bottom, #9F2705
-, #774503);
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-.card-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 10px;
-  margin: 10px;
-}
-.card-content {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid #000000;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-  margin: 0 auto 10px;
-  width: 250px;
-  height: 500px;
-  background-color: white;
-    position: relative; /* importante para que la descripción se posicione dentro */
+.card {
+  background: linear-gradient(145deg, #ff9d2f, #ff6126);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 220px;
 }
-.card-title {
-  font-size: 1.5em;
-  margin: 0;
-  color: #ffffff;
-  background-color: #000000;
+
+.card {
+  background: linear-gradient(145deg, #ff9d2f, #ff6126);
+  /* resto de estilos */
+}
+
+.card.Saiyan {
+  background: linear-gradient(135deg, #ff9d2f, #ff6126);
+}
+
+.card.Human {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.card.Namekian {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.card.Android {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+.card.Majin {
+  background: linear-gradient(135deg, #da22ff, #9733ee);
+}
+.card.Frieza.Race {
+  background: linear-gradient(135deg, #dad3d3, #d8c3c7);
+}
+.card.God {
+  background: linear-gradient(135deg, #666666, #d8c3c7);
+}
+.card.Angel {
+  background: linear-gradient(145deg, #ffc17a, #ffdf51);
+}
+.card.Nucleico {
+  background: linear-gradient(145deg, #efcafa, #da8ff1);
+}
+.card.Evil {
+  background: linear-gradient(145deg, #885656, #942d2d);
+}
+.card.Nucleico.benigno {
+  background: linear-gradient(145deg, #c683c9, #9522c2);
+}
+.card.default {
+  background: linear-gradient(145deg, #ff9d2f, #ff6126);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
 }
 
 .card-img {
-   width: 100%;
-  height: 100%;
+  width: 100%;
+  height: 250px;
   object-fit: contain;
-  background: linear-gradient(to bottom, #ff7d03, #774503);
+  background: #fff2;
 }
 
-.card-footer{
-  background-color: rgb(255, 123, 0);
-  padding: 10px;
-  font-size: 1em;
-  color: #000000;
+.card-content {
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.card-title {
+  font-size: 1.2rem;
   font-weight: bold;
-  border: #000000 solid 2px;
+
+  margin-bottom: 0.25rem;
 }
 
-.card-description{
- overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* number of lines to show */
-  -webkit-box-orient: vertical;
-  font-size: 0.9em;
+.card-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.card-ki, .card-max-ki {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  background: rgba(255,255,255,0.15);
+  padding: 0.3rem 0.5rem;
+  border-radius: 1rem;
+  display: inline-block;
 }
 
