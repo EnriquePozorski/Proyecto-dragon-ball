@@ -1,53 +1,75 @@
-import React, { useState } from "react";
-import "./Aside.css";
+import "./aside.css";
 
-const FiltersAside = ({ onFilterChange }) => {
-  const [filters, setFilters] = useState({
-    isDestroyed: "",
-    race: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    const newFilters = { ...filters, [name]: value };
-    setFilters(newFilters);
-    onFilterChange(newFilters); // callback al padre
-  };
-
+function Aside({ filter, setFilter }) {
   return (
-    <aside className="filters-aside">
-      <h2>Filtros</h2>
+    <aside className="aside">
+      <h2 className="aside-title">Busqueda</h2>
 
-      <div className="filter-group">
-        <label htmlFor="isDestroyed">Estado del planeta</label>
-        <select
-          id="isDestroyed"
-          name="isDestroyed"
-          value={filters.isDestroyed}
-          onChange={handleChange}
-        >
-          <option value="">Todos</option>
-          <option value="true">Destruido</option>
-          <option value="false">Activo</option>
-        </select>
+      {/* Barra de búsqueda */}
+      <div className="aside-search">
+        <input
+          type="text"
+          placeholder="Buscar personaje..."
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        />
       </div>
 
-      <div className="filter-group">
-        <label htmlFor="race">Raza</label>
-        <select
-          id="race"
-          name="race"
-          value={filters.race}
-          onChange={handleChange}
-        >
-          <option value="">Todas</option>
-          <option value="Saiyan">Saiyan</option>
-          <option value="Namekian">Namekiano</option>
-          <option value="Human">Humano</option>
-        </select>
+      {/* Filtros */}
+      <div className="aside-filters">
+        <div className="filter-group">
+            <label htmlFor="gender">Género:</label>
+            <select id="gender" name="gender">
+                <option value="">Todos</option>
+                <option value="Male">Masculino</option>
+                <option value="Female">Femenino</option>
+                <option value="Unknown">Desconocido</option>
+            </select>
+        </div>
+
+
+        <div className="filter-group">
+            <label htmlFor="race">Raza:</label>
+            <select id="race" name="race">
+                <option value="">Todas</option>
+                <option value="Human">Humano</option>
+                <option value="Saiyan">Saiyan</option>
+                <option value="Namekian">Namekiano</option>
+                <option value="Majin">Majin</option>
+                <option value="Frieza Race">Raza de Freezer</option>
+                <option value="Android">Android</option>
+                <option value="Jiren Race">Raza de Jiren</option>
+                <option value="God">Dios</option>
+                <option value="Angel">Ángel</option>
+                <option value="Evil">Maligno</option>
+                <option value="Nucleico">Nucleico</option>
+                <option value="Nucleico benigno">Nucleico benigno</option>
+                <option value="Unknown">Desconocido</option>
+            </select>
+        </div>
+
+
+        <div className="filter-group">
+            <label htmlFor="affiliation">Afiliación:</label>
+            <select id="affiliation" name="affiliation">
+                <option value="">Todas</option>
+                <option value="Z Fighter">Guerrero Z</option>
+                <option value="Red Ribbon Army">Ejército Red Ribbon</option>
+                <option value="Namekian Warrior">Guerrero Namekiano</option>
+                <option value="Freelancer">Mercenario</option>
+                <option value="Army of Frieza">Ejército de Freezer</option>
+                <option value="Pride Troopers">Tropa del Orgullo</option>
+                <option value="Assistant of Vermoud">Asistente de Vermoud</option>
+                <option value="God">Dios</option>
+                <option value="Assistant of Beerus">Asistente de Beerus</option>
+                <option value="Villain">Villano</option>
+                <option value="Other">Otro</option>
+            </select>
+        </div>
+
       </div>
     </aside>
   );
-};
+}
 
-export default FiltersAside;
+export default Aside;

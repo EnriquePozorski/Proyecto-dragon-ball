@@ -1,41 +1,76 @@
-.filters-aside {
-  width: 250px;
-  background-color: #f4f4f9;
-  border-right: 2px solid #ddd;
+.aside {
+  width: 200px;
+  background-color: #1e1e2f;
+  color: #fff;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  min-height: 100vh; /* ocupa toda la altura */
+  top: 0;
+  left: 0;
 }
 
-.filters-aside h2 {
-  font-size: 18px;
+.aside-title {
+  font-size: 1.2rem;
   margin-bottom: 15px;
-  color: #333;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
 }
 
-.filter-group {
+.aside-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aside-nav li {
+  margin: 10px 0;
+}
+
+.aside-nav a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.aside-nav a:hover {
+  color: #ffcc00;
+}
+
+/* Buscador */
+.aside-search input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: #2a2a3d;
+  color: #fff;
   margin-bottom: 20px;
+}
+
+.aside-search input::placeholder {
+  color: #aaa;
+}
+
+
+
+
+
+.aside-filters {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .filter-group label {
-  font-size: 14px;
+  display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #444;
 }
 
 .filter-group select {
+  width: 100%;
   padding: 6px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.filter-group select:focus {
-  outline: none;
-  border-color: #0077ff;
-  box-shadow: 0 0 3px rgba(0, 119, 255, 0.5);
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }

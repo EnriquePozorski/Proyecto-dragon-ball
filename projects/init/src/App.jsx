@@ -1,36 +1,61 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home.jsx"
 import Characters from "./pages/Characters.jsx"
 import Sagas from "./pages/Sagas.jsx"
 import "./app.css"
 import Header from "./components/Header.jsx"
 import Footer from "./components/Footer.jsx"
+import Aside from "./components/Aside.jsx";
 
-function LayoutWithNav({ children }) {
+function Layout({ children, filter, setFilter }) {
   return (
-    <div>
-      
-      {children}
+    <div className="layout">
+      <Header />
+      <div className="layout-body">
+        <Aside filter={filter} setFilter={setFilter} />
+        <main className="layout-main">
+          {children}
+        </main>
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }
 
-function LayoutWithoutNav({ children }) {
-  return <div>{children}</div>
-}
 function App() {
+  const [filter, setFilter] = useState("");
+
   return (
     <BrowserRouter>
-      <Header />
-        <Routes>
-          <Route path="/" element={<LayoutWithNav><Home /></LayoutWithNav>} />
-          <Route path="/sagas" element={<LayoutWithNav><Sagas /></LayoutWithNav>} />
-          <Route path="/characters" element={<LayoutWithoutNav><Characters /></LayoutWithoutNav>} />
-        </Routes>
-      <Footer />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout filter={filter} setFilter={setFilter}>
+              <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/sagas"
+          element={
+            <Layout filter={filter} setFilter={setFilter}>
+              <Sagas />
+            </Layout>
+          }
+        />
+        <Route
+          path="/characters"
+          element={
+            <Layout filter={filter} setFilter={setFilter}>
+              <Characters filter={filter} />
+            </Layout>
+          }
+        />
+      </Routes>
     </BrowserRouter>
-    
-  )
+  );
 }
 
-export default App
+export default App;

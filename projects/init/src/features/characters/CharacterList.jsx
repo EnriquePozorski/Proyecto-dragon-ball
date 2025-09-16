@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import CharacterCard from "./CharacterCard";
 import "./CharacterList.css";
 import CharacterModal from "../characterInformation/modalInformation.jsx";
-import { characterService, fetchCharacterById } from "../../services/characterService.js";
+import { characterService } from "../../services/characterService.js";
 
 export default function CharacterList({ filter }) {
   const [characters, setCharacters] = useState([]);
@@ -59,9 +59,9 @@ export default function CharacterList({ filter }) {
   }, [loading, page, totalPages]);
 
   // Manejar selección de personaje
-   const handleSelectCharacter = async (id) => {
+  const handleSelectCharacter = async (id) => {
     try {
-      const character = await fetchCharacterById(id);
+      const character = await characterService.getCharacterById(id);
       setSelectedCharacter(character);
     } catch (err) {
       console.error(err);
