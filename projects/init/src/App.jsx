@@ -4,16 +4,18 @@ import Characters from "./pages/Characters.jsx"
 import Sagas from "./pages/Sagas.jsx"
 import "./app.css"
 import Header from "./components/Header.jsx"
+import Comparison from "./components/Comparison.jsx"
 
 function LayoutWithNav({ children }) {
   return (
-    <div>
+    <div id="main">
       <nav style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
         <Link to="/">Inicio</Link>
         <Link to="/characters">Personajes</Link>
         <Link to="/sagas">Sagas</Link>
       </nav>
       {children}
+      <Comparison />
     </div>
   )
 }
