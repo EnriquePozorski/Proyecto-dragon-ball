@@ -1,15 +1,18 @@
 import "./CharacterCardStyle.css"
+import { useContext } from "react";
+import { ComparisonContext } from "../../context/ComparisonContext.jsx";
 
 
+export default function CharacterCard({ character }) {
+    const { addCharacter } = useContext(ComparisonContext);
 
-export default function CharacterCard({ character, onSelectCharacter }) {
-  
    if (!character) return null;
   const { name, image, race, ki, maxKi } = character
 
 
   return (
-    <div className={`card ${race || "default"}`} onClick={() => onSelectCharacter(character.id)}>
+    <div className={`card ${race || "default"}`} 
+    onClick={() => addCharacter(character)}>
 
     
       <img src={image} alt={name} className="card-img" />

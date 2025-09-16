@@ -18,7 +18,7 @@
 .title-character
 {
     text-align: center;
-    color:black;
+    color:rgb(243, 231, 60);
 }
 .characters-wrapper {
   position: relative;
@@ -49,4 +49,11 @@
 .filters {
   margin: 20px 0;
   text-align: center;
+}
+
+.filters input{
+  width: 600px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }

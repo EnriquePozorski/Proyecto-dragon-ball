@@ -6,12 +6,12 @@
   width: 100%;
   height: 15dvh;
   z-index: 1000;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: repeat(12, 1fr);
   align-items: center;
   padding: 1rem 2rem;
   background-color: #f15a24;
   color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 body {
   margin-top: 20dvh; /* ajustá según el alto del header */
@@ -19,11 +19,13 @@ body {
 
 #hd-logo {
   border-radius: 10%;
+  grid-column: 1/5;
 }
 
 .hd-nav {
   display: flex;
   justify-content: flex-end;
+  grid-column: 6/10;
 }
 
 .hd-nav-links {

@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/Dragon-Ball-Emblema.png"
 import "./Header.css"
+import Comparison from "./Comparison.jsx"; 
 
 export default function Header() {
+
   return (
     <header className="header">
       <img src= {logo} alt= "logo-dragon-ball" id= "hd-logo" width="200"/>
@@ -10,9 +12,10 @@ export default function Header() {
         <ul className="hd-nav-links">
           <li><Link to="/">Inicio</Link></li>
           <li><Link to="/characters">Personajes</Link></li>
-          <li><Link to="/planets">Planetas</Link></li>
+          <li><Link to="/planets">Planeta</Link></li>
         </ul>
-      </nav>
+        </nav>
+        <Comparison />
     </header>
   );
 }

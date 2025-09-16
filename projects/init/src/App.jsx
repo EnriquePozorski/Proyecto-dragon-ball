@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home.jsx"
 import Characters from "./pages/Characters.jsx"
 import Sagas from "./pages/Sagas.jsx"
@@ -6,34 +7,60 @@ import "./app.css"
 import Header from "./components/Header.jsx"
 import Comparison from "./components/Comparison.jsx"
 
-function LayoutWithNav({ children }) {
+import Footer from "./components/Footer.jsx"
+import Aside from "./components/Aside.jsx";
+import {ComparisonProvider} from "./context/ComparisonContext.jsx";
+
+function Layout({ children, filter, setFilter }) {
   return (
-    <div id="main">
-      <nav style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
-        <Link to="/">Inicio</Link>
-        <Link to="/characters">Personajes</Link>
-        <Link to="/sagas">Sagas</Link>
-      </nav>
-      {children}
-      <Comparison />
+    <div className="layout">
+      <Header />
+      <div className="layout-body">
+        <Aside filter={filter} setFilter={setFilter} />
+        <main className="layout-main">
+          {children}
+        </main>
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }
 
-function LayoutWithoutNav({ children }) {
-  return <div>{children}</div>
-}
 function App() {
+  const [filter, setFilter] = useState("");
+
   return (
     <BrowserRouter>
-    <Header />
+    <ComparisonProvider>
       <Routes>
-        <Route path="/" element={<LayoutWithNav><Home /></LayoutWithNav>} />
-        <Route path="/sagas" element={<LayoutWithNav><Sagas /></LayoutWithNav>} />
-        <Route path="/characters" element={<LayoutWithoutNav><Characters /></LayoutWithoutNav>} />
+        <Route
+          path="/"
+          element={
+            <Layout filter={filter} setFilter={setFilter}>
+              <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/sagas"
+          element={
+            <Layout filter={filter} setFilter={setFilter}>
+              <Sagas />
+            </Layout>
+          }
+        />
+        <Route
+          path="/characters"
+          element={
+            <Layout filter={filter} setFilter={setFilter}>
+              <Characters filter={filter} />
+            </Layout>
+          }
+        />
       </Routes>
+      </ComparisonProvider>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

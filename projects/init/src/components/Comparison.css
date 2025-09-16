@@ -1,9 +1,13 @@
 .comparison{
-    position: fixed;
     cursor: pointer;
+    grid-column: 10/13;
 }
 .comparison :hover{
     
+}
+.comparison-header{
+    display: grid;
+    justify-items: center;
 }
 .comparison-header img {
     width: 3.5rem;
