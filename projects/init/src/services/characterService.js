@@ -1,44 +1,41 @@
-export class CharacterService{
+export class CharacterService {
+  constructor() {
+    this.URL = "https://dragonball-api.com/api/characters";
+  }
 
-  constructor(){
-        this.URL = "https://dragonball-api.com/api/characters";
+  async getAll(page = 1, limit = 10) {
+    const url = `${this.URL}?page=${page}&limit=${limit}`;
+    const res = await fetch(url);
+    return await res.json(); // ya trae { items, meta, links }
+  }
+
+  async getCharacterById(id) {
+    const url = `${this.URL}/${id}`;
+    const res = await fetch(url);
+    return res.json();
+  }
+
+  async getFiltered(filters) {
+    const params = {};
+    Object.keys(filters).forEach((key) => {
+      if (filters[key]) params[key] = filters[key];
+    });
+
+    const query = new URLSearchParams(params).toString();
+    const url = `${this.URL}?${query}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    // 👇 unificar formato
+    if (Array.isArray(data)) {
+      return { 
+        items: data, 
+        meta: { totalItems: data.length, totalPages: 1, currentPage: 1 } 
+      };
     }
 
-    async getAll(page = 1, limit = 10) {
-      try {
-        const url = `${this.URL}?page=${page}&limit=${limit}`;
-        const res = await fetch(url);
-        return await res.json(); // devuelve { items, meta, links }
-      } catch (error) {
-        console.error('Error:', error);
-        throw error;
-      }
-    }
-
-    async getCharacterById(id) {
-        try {
-            const url = `${this.URL}/${id}`;
-            const data = await fetch(url);
-            return data.json();
-        } 
-        catch (error) {
-            console.error('Error:', error);
-            throw error;
-        }
-    }
-
-    async getFiltered(filters) {
-        try {
-            const query = new URLSearchParams(filters).toString();
-            const url = `${this.URL}?${query}`;
-            
-            const res = await fetch(url);
-            return await res.json();
-        } catch (error) {
-            console.error('Error:', error);
-            throw error;
-        }
-    }
+    return data; // si ya es { items, meta }
+  }
 }
 
 export const characterService = new CharacterService();

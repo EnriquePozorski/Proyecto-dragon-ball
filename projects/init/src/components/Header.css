@@ -1,19 +1,30 @@
 .header {
   display: grid;
-  grid-template-columns: auto 1fr;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  grid-template-columns: repeat(12, 1fr);
   align-items: center;
   padding: 1rem 2rem;
   background-color: #f15a24;
   color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+body {
+  margin-top: 8.9rem;
 }
 
 #hd-logo {
   border-radius: 10%;
+  grid-column: 1/5;
 }
 
 .hd-nav {
   display: flex;
   justify-content: flex-end;
+  grid-column: 6/10;
 }
 
 .hd-nav-links {
@@ -34,3 +45,4 @@
 .hd-nav-links a:hover {
   color: #ffe600;
 }
+

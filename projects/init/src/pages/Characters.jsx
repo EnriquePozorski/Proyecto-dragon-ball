@@ -1,9 +1,15 @@
 import CharacterList from "../features/characters/CharacterList";
 import "./CharacterStyle.css";
-import dragonballImg from "../assets/img/dragon-ball-z-3840x2160.jpg";
+//import dragonballImg from "../assets/img/dragon-ball-z-3840x2160.jpg";
 
-function Characters({ filter }) {
+
+
+
+
+
+function Characters({ filters }) {
   return (
+
     <div className="characters-wrapper">
       {/* <h1 className="title">Dragon Ball</h1>
       <div className="hero">
@@ -13,10 +19,11 @@ function Characters({ filter }) {
       <div className="divider">
         <h1 className="title-character">Personajes</h1>
         {/* 👇 usamos el filtro que viene del Aside */}
-        <CharacterList filter={filter} />
+        <CharacterList filters={filters} />
       </div>
     </div>
   )
 }
 
 export default Characters;
+
