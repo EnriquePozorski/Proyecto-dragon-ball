@@ -6,20 +6,17 @@ import Sagas from "./pages/Sagas.jsx"
 import "./app.css"
 import Header from "./components/Header.jsx"
 import Comparison from "./components/Comparison.jsx"
-
 import Footer from "./components/Footer.jsx"
 import Aside from "./components/Aside.jsx";
 import {ComparisonProvider} from "./context/ComparisonContext.jsx";
 
-function Layout({ children, filter, setFilter }) {
+function Layout({ children, filters, setFilters }) {
   return (
     <div className="layout">
       <Header />
       <div className="layout-body">
-        <Aside filter={filter} setFilter={setFilter} />
-        <main className="layout-main">
-          {children}
-        </main>
+        <Aside filters={filters} setFilters={setFilters} />
+        <main className="layout-main">{children}</main>
       </div>
       <Footer />
     </div>
@@ -27,7 +24,13 @@ function Layout({ children, filter, setFilter }) {
 }
 
 function App() {
-  const [filter, setFilter] = useState("");
+  // 🔹 Estado centralizado de filtros
+  const [filters, setFilters] = useState({
+    name: "",
+    gender: "",
+    race: "",
+    affiliation: "",
+  });
 
   return (
     <BrowserRouter>
@@ -36,15 +39,15 @@ function App() {
         <Route
           path="/"
           element={
-            <Layout filter={filter} setFilter={setFilter}>
-              <Home />
+            <Layout filters={filters} setFilters={setFilters}>
+              <Home filters={filters} />
             </Layout>
           }
         />
         <Route
           path="/sagas"
           element={
-            <Layout filter={filter} setFilter={setFilter}>
+            <Layout filters={filters} setFilters={setFilters}>
               <Sagas />
             </Layout>
           }
@@ -52,8 +55,8 @@ function App() {
         <Route
           path="/characters"
           element={
-            <Layout filter={filter} setFilter={setFilter}>
-              <Characters filter={filter} />
+            <Layout filters={filters} setFilters={setFilters}>
+              <Characters filters={filters} />
             </Layout>
           }
         />
@@ -64,3 +67,4 @@ function App() {
 }
 
 export default App;
+

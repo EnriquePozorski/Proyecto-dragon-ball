@@ -1,5 +1,5 @@
 import "./Comparison.css";
-import versus from "../assets/img/versusCC.jpg";
+import versus from "../assets/img/versus.png";
 import { useState, useContext } from "react";
 import { ComparisonContext  }  from "../context/ComparisonContext.jsx";
 
@@ -32,7 +32,8 @@ export default function Comparison() {
                   <p>Ki: {p.ki}</p>
                   <p>Max Ki: {p.maxKi}</p>
                 </div>
-                <button onClick={() => removeCharacter(p.id)}>❌</button>
+                <button onClick={() => removeCharacter(p.id)}><span class="material-symbols-outlined">close</span></button>
+                
               </li>
             ))}
           </ul>

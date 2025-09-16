@@ -66,10 +66,12 @@ export default function CharacterList({ filters }) {
       if (observerRef.current) observerRef.current.disconnect();
     };
   }, [loading, hasMore]);
+      console.log("se abri1o");
 
   // 👉 Abrir modal con detalle de personaje
   const handleSelectCharacter = async (id) => {
     try {
+      console.log("se abrio");
       const character = await characterService.getCharacterById(id);
       setSelectedCharacter(character);
     } catch (err) {

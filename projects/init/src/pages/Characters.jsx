@@ -6,9 +6,8 @@ import "./CharacterStyle.css";
 
 
 
-function Characters({ filter }) {
-    //const [filter, setFilter] = useState("");
 
+function Characters({ filters }) {
   return (
 
     <div className="characters-wrapper">
@@ -20,10 +19,11 @@ function Characters({ filter }) {
       <div className="divider">
         <h1 className="title-character">Personajes</h1>
         {/* 👇 usamos el filtro que viene del Aside */}
-        <CharacterList filter={filter} />
+        <CharacterList filters={filters} />
       </div>
     </div>
   )
 }
 
 export default Characters;
+
