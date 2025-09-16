@@ -1,69 +1,104 @@
-import { useEffect, useState } from "react";
-import { fetchCharacters } from "../../services/characterService";
-import CharacterCard from "./CharacterCard.jsx";
-import "./CharacterCardStyle.css";
+import { useEffect, useState, useRef } from "react";
+import CharacterCard from "./CharacterCard";
+import "./CharacterList.css";
+import CharacterModal from "../characterInformation/modalInformation.jsx";
+import { characterService } from "../../services/characterService.js";
 
-function CharacterList({ filter = ""  }) {
+export default function CharacterList({ filter }) {
   const [characters, setCharacters] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [totalPages, setTotalPages] = useState(null);
+  const loaderRef = useRef(null);
+  const observerRef = useRef(null);
+
+  const [selectedCharacter, setSelectedCharacter] = useState(null); 
+  
+  // Cargar personajes
+  const loadCharacters = async () => {
+    if (loading) return;
+    setLoading(true);
+    try {
+      const data = await characterService.getAll(page, 10);
+      if (data.meta && totalPages === null) {
+        setTotalPages(data.meta.totalPages);
+      }
+      setCharacters(prev => [...prev, ...(data.items || [])]);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   useEffect(() => {
-    async function loadCharacters() {
-      if (!hasMore) return;
-      setLoading(true);
-      try {
-        const data = await fetchCharacters(page); // 👈 pasamos la página
-        setCharacters((prev) => [...prev, ...data.items]); // acumulamos
-        setHasMore(!!data.links.next); // si hay siguiente página
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
     loadCharacters();
   }, [page]);
 
-  // Detecta cuando se scrollea al final de la ventana
+  // Intersection Observer
   useEffect(() => {
-    function handleScroll() {
+    if (observerRef.current) observerRef.current.disconnect();
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      const entry = entries[0];
       if (
-        window.innerHeight + window.scrollY >=
-          document.documentElement.scrollHeight - 200 &&
+        entry.isIntersecting &&
         !loading &&
-        hasMore
+        (totalPages === null || page < totalPages)
       ) {
-        setPage((prev) => prev + 1);
+        setPage((p) => p + 1);
       }
+    });
+
+    if (loaderRef.current) observerRef.current.observe(loaderRef.current);
+
+    return () => {
+      if (observerRef.current) observerRef.current.disconnect();
+    };
+  }, [loading, page, totalPages]);
+
+  // Manejar selección de personaje
+  const handleSelectCharacter = async (id) => {
+    try {
+      const character = await characterService.getCharacterById(id);
+      setSelectedCharacter(character);
+    } catch (err) {
+      console.error(err);
     }
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [loading, hasMore]);
+  };
 
-  if (error) return <p>Error: {error}</p>;
+  // Filtrado por nombre
+  const filteredCharacters = characters.filter((c) =>
+    c.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
- return (
-    <div className="card-wrapper">
-      {characters
-        .filter((c) =>
-          c.name.toLowerCase().includes(filter.toLowerCase()) // protegemos toLowerCase
-        )
-        .map((c) => (
+  return (
+    <div className="list-wrapper">
+      <div className="grid">
+        {filteredCharacters.map((c) => (
           <CharacterCard
-            key={c.id}
-            name={c.name}
-            description={c.description}
-            image={c.image}
+          key={c.id}
+    character={c} 
+    onSelectCharacter={handleSelectCharacter}
           />
         ))}
-      {loading && <p>Cargando personajes...</p>}
-      {!hasMore && <p>No hay más personajes.</p>}
+      </div>
+
+      <div ref={loaderRef} className="loader-trigger">
+        {loading && <div className="spinner"></div>}
+        {totalPages && page >= totalPages && !loading && (
+          <p className="end-message">
+            No hay más personajes (página {totalPages} de {totalPages})
+          </p>
+        )}
+      </div>
+
+      {/* Modal */}
+      <CharacterModal
+        character={selectedCharacter}
+        onClose={() => setSelectedCharacter(null)}
+      />
     </div>
-    
   );
 }
-
-export default CharacterList;

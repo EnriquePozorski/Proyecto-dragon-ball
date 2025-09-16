@@ -1,60 +1,94 @@
-
-body{
-    background: linear-gradient(to bottom, #9F2705
-, #774503);
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-.card-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 10px;
-  margin: 10px;
-}
-.card-content {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+.card {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(145deg, #ff9d2f, #ff6126);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 220px;
   display: flex;
   flex-direction: column;
-  border: 2px solid #000000;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-  margin: 0 auto 10px;
-  width: 250px;
-  height: 500px;
-  background-color: white;
-    position: relative; /* importante para que la descripción se posicione dentro */
-  overflow: hidden;
+  justify-content: space-between;
 }
-.card-title {
-  font-size: 1.5em;
-  margin: 0;
-  color: #ffffff;
-  background-color: #000000;
+
+.card.Saiyan {
+  background: linear-gradient(135deg, #ff9d2f, #ff6126);
+}
+
+.card.Human {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.card.Namekian {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.card.Android {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+.card.Majin {
+  background: linear-gradient(135deg, #da22ff, #9733ee);
+}
+.card.Frieza.Race {
+  background: linear-gradient(135deg, #b8b8d0, #8f8fb8);
+}
+.card.God {
+  background: linear-gradient(135deg, #666666, #d8c3c7);
+}
+.card.Angel {
+  background: linear-gradient(145deg, #ffc17a, #ffdf51);
+}
+.card.Nucleico {
+  background: linear-gradient(145deg, #efcafa, #da8ff1);
+}
+.card.Evil {
+  background: linear-gradient(145deg, #885656, #942d2d);
+}
+.card.Nucleico.benigno {
+  background: linear-gradient(145deg, #c683c9, #9522c2);
+}
+.card.default {
+  background: linear-gradient(145deg, #ff9d2f, #ff6126);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
 }
 
 .card-img {
-   width: 100%;
-  height: 100%;
+  width: 100%; 
+  height: 250px; 
   object-fit: contain;
-  background: linear-gradient(to bottom, #ff7d03, #774503);
+  
 }
 
-.card-footer{
-  background-color: rgb(255, 123, 0);
-  padding: 10px;
-  font-size: 1em;
-  color: #000000;
-  font-weight: bold;
-  border: #000000 solid 2px;
+.card-content {
+  padding: 1rem;
+  text-align: start;
+  color: #fff;
 }
 
-.card-description{
- overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* number of lines to show */
-  -webkit-box-orient: vertical;
-  font-size: 0.9em;
+.card-title {
+  font-weight: 700; 
+  font-size: 1.3rem;
+  margin-bottom: 0.15rem;
 }
 
+.card-subtitle {
+  font-weight: 400; 
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 0.75rem;
+  letter-spacing: 2px;
+}
+
+.card-ki, .card-max-ki {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  background: rgba(255,255,255,0.15);
+  padding: 0.3rem 0.5rem;
+  border-radius: 1rem;
+  display: block;
+}

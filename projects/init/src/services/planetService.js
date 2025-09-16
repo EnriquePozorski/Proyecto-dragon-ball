@@ -1,7 +1,7 @@
-export class CharacterService{
+export class PlanetService{
 
-  constructor(){
-        this.URL = "https://dragonball-api.com/api/characters";
+    constructor(){
+        this.URL = "https://dragonball-api.com/api/planets";
     }
 
     async getAll(page = 1, limit = 10) {
@@ -15,11 +15,11 @@ export class CharacterService{
       }
     }
 
-    async getCharacterById(id) {
+    async getPlanetById(id) {
         try {
             const url = `${this.URL}/${id}`;
             const data = await fetch(url);
-            return data.json();
+            return data;
         } 
         catch (error) {
             console.error('Error:', error);
@@ -41,4 +41,4 @@ export class CharacterService{
     }
 }
 
-export const characterService = new CharacterService();
+export const planetService = new PlanetService();

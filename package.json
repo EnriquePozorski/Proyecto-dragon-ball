@@ -16,5 +16,8 @@
     "url": "https://github.com/EnriquePozorski/Proyecto-dragon-ball/issues"
   },
   "homepage": "https://github.com/EnriquePozorski/Proyecto-dragon-ball#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "react-router-dom": "^7.8.2"
+  }
 }
