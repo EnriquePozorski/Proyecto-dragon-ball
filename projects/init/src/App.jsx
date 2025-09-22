@@ -10,12 +10,12 @@ import Footer from "./components/Footer.jsx"
 import Aside from "./components/Aside.jsx";
 import {ComparisonProvider} from "./context/ComparisonContext.jsx";
 
-function Layout({ children, filters, setFilters }) {
+function Layout({ children, filters, setFilters, showAside = true }) {
   return (
     <div className="layout">
       <Header />
       <div className="layout-body">
-        <Aside filters={filters} setFilters={setFilters} />
+        {showAside && <Aside filters={filters} setFilters={setFilters} />}
         <main className="layout-main">{children}</main>
       </div>
       <Footer />
@@ -24,7 +24,6 @@ function Layout({ children, filters, setFilters }) {
 }
 
 function App() {
-  // 🔹 Estado centralizado de filtros
   const [filters, setFilters] = useState({
     name: "",
     gender: "",
@@ -34,33 +33,33 @@ function App() {
 
   return (
     <BrowserRouter>
-    <ComparisonProvider>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Layout filters={filters} setFilters={setFilters}>
-              <Home filters={filters} />
-            </Layout>
-          }
-        />
-        <Route
-          path="/sagas"
-          element={
-            <Layout filters={filters} setFilters={setFilters}>
-              <Sagas />
-            </Layout>
-          }
-        />
-        <Route
-          path="/characters"
-          element={
-            <Layout filters={filters} setFilters={setFilters}>
-              <Characters filters={filters} />
-            </Layout>
-          }
-        />
-      </Routes>
+      <ComparisonProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout filters={filters} setFilters={setFilters} showAside={false}>
+                <Home filters={filters} />
+              </Layout>
+            }
+          />
+          <Route
+            path="/sagas"
+            element={
+              <Layout filters={filters} setFilters={setFilters}>
+                <Sagas />
+              </Layout>
+            }
+          />
+          <Route
+            path="/characters"
+            element={
+              <Layout filters={filters} setFilters={setFilters}>
+                <Characters filters={filters} />
+              </Layout>
+            }
+          />
+        </Routes>
       </ComparisonProvider>
     </BrowserRouter>
   );

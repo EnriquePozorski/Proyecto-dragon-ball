@@ -18,7 +18,7 @@
 .title-character
 {
     text-align: center;
-    color:rgb(243, 231, 60);
+    color:rgb(0, 0, 0);
 }
 .characters-wrapper {
   position: relative;
@@ -42,7 +42,7 @@
 }
 
 .divider {
-  background: linear-gradient(to bottom, #9f2705, #774503);
+  /* background: linear-gradient(to bottom, #9f2705, #774503); */
   padding: 20px;
 }
 

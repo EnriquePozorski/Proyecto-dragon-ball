@@ -11,7 +11,7 @@
 .aside-title {
   font-size: 1.2rem;
   margin-bottom: 15px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #fff;
   padding-bottom: 5px;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .aside-nav li {
-  margin: 10px 0;
+  margin: 1rem 0;
 }
 
 .aside-nav a {
@@ -38,13 +38,14 @@
 /* Buscador */
 .aside-search input {
   width: 100%;
-  padding: 8px;
+  padding: 1rem;
   border-radius: 6px;
   border: none;
   outline: none;
-  background: #2a2a3d;
-  color: #fff;
+  background: #fff;
+  color: #1e1e2f;
   margin-bottom: 20px;
+  font-size: 1rem;
 }
 
 .aside-search input::placeholder {
@@ -60,7 +61,9 @@
   flex-direction: column;
   gap: 15px;
 }
-
+.filter-group{
+  margin-bottom: 1rem;
+}
 .filter-group label {
   display: block;
   margin-bottom: 5px;
