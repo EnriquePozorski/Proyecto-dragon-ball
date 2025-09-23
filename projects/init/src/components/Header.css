@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1030;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   padding: 1rem 2rem;
@@ -60,51 +60,39 @@ body {
   z-index: 1100;
 }
 
+/* Comparison visible en desktop */
+.hd-comparison {
+  grid-column: 10/12;
+}
 /* Responsive */
-@media (max-width: 768px) {
-  .hd-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: #f15a24;
-    height: 100vh;
-    width: 70%;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    flex-direction: column;
-    justify-content: center;
+
+/* --- Responsive para tablets --- */
+@media (max-width: 1024px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    grid-column: 1/-1;
+    padding: 1rem;
   }
 
-  
-  .hd-nav.open {
-    transform: translateX(0);
+  #hd-logo {
+    width: 150px;
   }
 
-  .hd-nav-links {
-    flex-direction: column;
-    gap: 2rem;
-    font-size: 1.2rem;
+  .hd-comparison {
+    margin: 0 auto; /* se centra automáticamente */
   }
 
   .hd-toggle {
     display: block;
-  }
-}
-/* --- Responsive para tablets --- */
-@media (max-width: 1024px) {
-  #hd-logo {
-    width: 150px; /* más pequeño que desktop */
+    font-size: 2rem;
   }
 
-  .hd-nav-links a {
-    font-size: 1rem; /* ligeramente más pequeño */
-  }
-  body {
-    margin-top: 6.9rem;
+  .hd-nav {
+    display: none;
   }
 }
+
 
 /* --- Responsive para móviles --- */
 @media (max-width: 768px) {
@@ -148,6 +136,24 @@ body {
 
   .hd-nav-links a {
     padding: 0.5rem 0;
+  }
+
+  /* En móvil ocultamos Comparison por defecto */
+  .hd-comparison {
+    display: none;
+  }
+
+  /* Ocultar nav fijo en responsive */
+  .hd-nav {
+    display: none;
+  }
+
+  .hd-toggle {
+    display: block;
+  }
+
+  body {
+    margin-top: 5.5rem;
   }
 }
 

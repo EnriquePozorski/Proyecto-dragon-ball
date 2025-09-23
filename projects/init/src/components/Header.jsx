@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/Dragon-Ball-Emblema.png";
 import "./Header.css";
 import Comparison from "./Comparison.jsx";
 
-export default function Header({ menuOpen, setMenuOpen }) {
+export default function Header({ menuOpen, setMenuOpen, isHome }) {
   return (
     <header className="header">
-      {/* Logo que redirige al home */}
       <Link to="/" onClick={() => setMenuOpen(false)}>
         <img src={logo} alt="logo-dragon-ball" id="hd-logo" width="200" />
       </Link>
 
-      <nav className={`hd-nav `}>
+      <nav className={`hd-nav`}>
         <ul className="hd-nav-links">
           <li>
             <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
@@ -22,9 +21,9 @@ export default function Header({ menuOpen, setMenuOpen }) {
         </ul>
       </nav>
 
-      <Comparison />
+      {/* Comparison solo en desktop o si no estamos en Home */}
+      {!isHome && <Comparison />}
 
-      {/* Botón hamburguesa */}
       <button
         className="hd-toggle"
         onClick={() => setMenuOpen(!menuOpen)}

@@ -1,12 +1,20 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./aside.css";
 
-function Aside({ filters, setFilters, open, setOpen }) {
+function Aside({ filters, setFilters, open, setOpen, hideOnDesktop = false }) {
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFilters({ ...filters, [name]: value });
   };
 
+  const handleSearchClick = () => {
+    setOpen(false); // Cierra el aside si está abierto
+    navigate("/characters"); // Redirige a la página de personajes
+  };
 
   return (
     <>
@@ -16,7 +24,7 @@ function Aside({ filters, setFilters, open, setOpen }) {
       {open && <div className="aside-overlay" onClick={() => setOpen(false)}></div>}
 
       {/* Aside */}
-      <aside className={`aside ${open ? "open" : ""}`} onClick={(e) => e.stopPropagation()}>
+      <aside className={`aside ${open ? "open" : ""} ${hideOnDesktop ? "hide-desktop" : ""}`} onClick={(e) => e.stopPropagation()}>
         <h2 className="aside-title">Búsqueda</h2>
 
         <div className="aside-search">
@@ -27,6 +35,9 @@ function Aside({ filters, setFilters, open, setOpen }) {
             value={filters.name}
             onChange={handleChange}
           />
+           <button className="search-button" onClick={handleSearchClick}>
+              <span className="material-icons">search</span>
+            </button>
         </div>
 
         <div className="filter-group">
