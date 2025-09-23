@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1030;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   padding: 1rem 2rem;
@@ -12,6 +12,7 @@
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 body {
   margin-top: 8.9rem;
 }
@@ -25,6 +26,7 @@ body {
   display: flex;
   justify-content: flex-end;
   grid-column: 6/10;
+  margin-right: 30px;
 }
 
 .hd-nav-links {
@@ -46,3 +48,131 @@ body {
   color: #ffe600;
 }
 
+/* --- Estilos para menú hamburguesa --- */
+.hd-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  grid-column: 12/13;
+  justify-self: end;
+  z-index: 1100;
+}
+
+/* Comparison visible en desktop */
+.hd-comparison {
+  grid-column: 10/12;
+}
+/* Responsive */
+
+/* --- Responsive para tablets --- */
+@media (max-width: 1024px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  #hd-logo {
+    width: 150px;
+  }
+
+  .hd-comparison {
+    margin: 0 auto; /* se centra automáticamente */
+  }
+
+  .hd-toggle {
+    display: block;
+    font-size: 2rem;
+  }
+
+  .hd-nav {
+    display: none;
+  }
+  body {
+    margin-top: 6.9rem;
+  }
+}
+
+
+/* --- Responsive para móviles --- */
+@media (max-width: 768px) {
+  #hd-logo {
+    width: 120px; /* tamaño adecuado para móvil */
+  }
+
+  .hd-toggle {
+    display: block;
+  }
+
+  body {
+    margin-top: 5.9rem;
+  }
+  .hd-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #f15a24;
+    height: 100vh;
+    width: 70%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/-1;
+    z-index: 1050;
+  }
+
+  .hd-nav.open {
+    transform: translateX(0);
+  }
+
+  .hd-nav-links {
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .hd-nav-links a {
+    padding: 0.5rem 0;
+  }
+
+  /* En móvil ocultamos Comparison por defecto */
+  .hd-comparison {
+    display: none;
+  }
+
+  /* Ocultar nav fijo en responsive */
+  .hd-nav {
+    display: none;
+  }
+
+  .hd-toggle {
+    display: block;
+  }
+
+  body {
+    margin-top: 5.5rem;
+  }
+}
+
+/* --- Responsive para móviles muy pequeños --- */
+@media (max-width: 480px) {
+  #hd-logo {
+    width: 100px; /* aún más pequeño */
+  }
+
+  .hd-nav-links {
+    gap: 1.5rem;
+    font-size: 1rem;
+  }
+
+    body {
+    margin-top: 4.9rem;
+  }
+}

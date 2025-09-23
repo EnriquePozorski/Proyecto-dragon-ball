@@ -5,9 +5,7 @@
   padding: 2rem;
 }
 /* CharacterList.css */
-.list-wrapper {
-  padding: 2rem;
-}
+
 
 .pagination {
   display: flex;
@@ -54,4 +52,31 @@
   color: #555;
   font-weight: bold;
   margin-top: 1rem;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* dos columnas cómodas */
+    gap: 1.2rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Móviles medianos (hasta 600px) */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* forzamos dos columnas */
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+}
+
+/* Móviles chicos (hasta 400px) */
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: 1fr; /* solo una columna */
+    gap: 0.6rem;
+    padding: 0.8rem;
+  }
 }

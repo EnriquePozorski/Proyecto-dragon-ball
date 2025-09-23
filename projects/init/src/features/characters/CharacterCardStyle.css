@@ -122,3 +122,42 @@
   border-radius: 1rem;
   display: block;
 }
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .card {
+    width: 200px;
+  }
+  .card-img {
+    height: 220px;
+  }
+}
+
+/* Móviles medianos */
+@media (max-width: 600px) {
+  .card {
+    width: 160px; /* reducimos ancho para que entren dos */
+  }
+  .card-img {
+    height: 180px;
+  }
+  .card-title {
+    font-size: 1.1rem;
+  }
+  .card-subtitle {
+    font-size: 0.8rem;
+  }
+  .card-ki, .card-max-ki {
+    font-size: 0.75rem;
+  }
+}
+
+/* Móviles chicos */
+@media (max-width: 400px) {
+  .card {
+    width: 100%; /* ocupa todo el ancho en una sola columna */
+  }
+  .card-img {
+    height: 200px;
+  }
+}

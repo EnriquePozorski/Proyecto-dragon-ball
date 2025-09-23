@@ -7,19 +7,18 @@
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;               
+  display: flex;
   align-items: flex-start;
   gap: 40px;
   padding: 0 20px;
 }
-
-
 
 .footer-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin: 10px;
 }
 
 .location-info p {
@@ -30,8 +29,8 @@
 
 .top-info {
   display: flex;
-  justify-content: space-evenly; 
-  align-items: flex-start;       
+  justify-content: space-evenly;
+  align-items: flex-start;
   gap: 40px;
 }
 
@@ -48,6 +47,7 @@
   border-top: 1px solid #333;
   padding-top: 15px;
   margin-top: 15px;
+  flex-wrap: wrap; /* Para evitar que se rompa en pantallas pequeñas */
 }
 
 .footer-text {
@@ -63,13 +63,49 @@
   margin: 0;
 }
 
-.footer-links a {
+.footer-links a,
+.link-button {
   color: #f1f1f1;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.link-button:hover {
   color: #00bcd4;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* mapa arriba, info abajo */
+    align-items: center;
+    text-align: center;
+  }
+
+  .top-info {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .enterprise-info h2 {
+    margin: 10px 0;
+    font-size: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

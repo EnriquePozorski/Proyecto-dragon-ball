@@ -32,3 +32,36 @@
   transform: translateX(0);
 }
 
+/* 📱 Tablets */
+@media (max-width: 1024px) {
+  .carousel-container {
+    height: 400px;
+    width: 95%;
+  }
+}
+
+/* 📱 Mobile mediano */
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 300px;
+    width: 100%;
+  }
+
+  .carousel-image {
+    -webkit-mask-image: linear-gradient(to right, transparent 5%, black 10%, black 90%, transparent 95%);
+    mask-image: linear-gradient(to right, transparent 5%, black 10%, black 90%, transparent 95%);
+  }
+}
+
+/* 📱 Mobile chico */
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 200px;
+    width: 100%;
+  }
+
+  .carousel-image {
+    -webkit-mask-image: linear-gradient(to right, transparent 8%, black 15%, black 85%, transparent 92%);
+    mask-image: linear-gradient(to right, transparent 8%, black 15%, black 85%, transparent 92%);
+  }
+}

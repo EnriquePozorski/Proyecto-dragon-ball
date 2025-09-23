@@ -194,3 +194,90 @@
   position: relative;
   z-index: 3;
 }
+
+/* 📱 Tablets */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .feature-card {
+    padding: 3rem;
+  }
+
+  .nostalgia {
+    padding: 5rem 3rem;
+  }
+}
+
+/* 📱 Mobile mediano */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr; /* una card por fila */
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 2rem;
+  }
+
+  .nostalgia {
+    padding: 3rem 2rem;
+  }
+
+  .nostalgia-title {
+    font-size: 1.5rem;
+  }
+
+  .nostalgia-text {
+    font-size: 1rem;
+  }
+}
+
+/* 📱 Mobile chico */
+@media (max-width: 480px) {
+  .home-container {
+    padding: 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .carousel-section {
+    margin: 2rem 0;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .closing {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .nostalgia {
+    padding: 2rem 1.5rem;
+  }
+
+  .nostalgia-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
