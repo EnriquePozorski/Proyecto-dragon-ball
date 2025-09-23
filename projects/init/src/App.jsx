@@ -9,6 +9,7 @@ import Comparison from "./components/Comparison.jsx"
 import Footer from "./components/Footer.jsx"
 import Aside from "./components/Aside.jsx";
 import {ComparisonProvider} from "./context/ComparisonContext.jsx";
+import SharePage from "./components/Share/Share.jsx";
 
 function Layout({ children, filters, setFilters, showAside = true }) {
   return (
@@ -56,6 +57,14 @@ function App() {
             element={
               <Layout filters={filters} setFilters={setFilters}>
                 <Characters filters={filters} />
+              </Layout>
+            }
+          />
+            <Route
+            path="/share"
+            element={
+              <Layout filters={filters} setFilters={setFilters} showAside={false}>
+                <SharePage />
               </Layout>
             }
           />

@@ -1,0 +1,102 @@
+.share-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: Arial, sans-serif;
+}
+
+.share-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.share-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.share-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444;
+  display: block;
+}
+
+.share-container input,
+.share-container textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border 0.2s;
+}
+
+.share-container input:focus,
+.share-container textarea:focus {
+  border: 1px solid #007bff;
+  outline: none;
+}
+
+.share-container textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.share-container button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.share-container button[type="submit"] {
+  background: #28a745;
+  color: white;
+}
+
+.share-container button[type="submit"]:hover {
+  background: #218838;
+}
+
+.share-container button[type="button"] {
+  background: #dc3545;
+  color: white;
+}
+
+.share-container button[type="button"]:hover {
+  background: #c82333;
+}
+
+.share-container .form-group {
+  display: flex;
+  flex-direction: column;
+}
+.result-preview {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+.result-input {
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+}
+.result-image {
+    max-width: 150px;
+    margin-top: 10px;
+    border-radius: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
