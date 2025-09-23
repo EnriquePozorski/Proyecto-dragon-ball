@@ -26,7 +26,7 @@
 .layout-body {
   flex: 1; /* ocupa todo el espacio entre header y footer */
   display: flex;
-  min-height: 0; /* evita overflow raro */
+ 
 }
 
 /* Aside fijo a la izquierda */
@@ -37,13 +37,17 @@
   background: #f15a24;
   color: white;
   padding: 20px;
+  position:  sticky;
+  top: 130px;
+  align-self: flex-start;
+  height: fit-content;
 }
 
 /* Main ocupa lo restante */
 .layout-main {
   flex: 1;
-  background: #ebebeb;
-  overflow-y: auto; /* scroll si el contenido es largo */
+  background: linear-gradient(to bottom,rgba(146, 146, 146, 0.418),#3a3a3a);
+  
 }
 
 /* Footer siempre abajo */
