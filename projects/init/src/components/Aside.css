@@ -131,7 +131,7 @@
     z-index: 1001; /* por encima del overlay */
     
   }
-.hide-desktop {
+  .hide-desktop {
     display: block; /* Se muestra en responsive */
   }
   .aside.open {
@@ -155,11 +155,13 @@
     padding: 6.5px 6px; /* ajusta tamaño del botón */
     font-size: 1rem;
   }
+
+  .layout-body aside{
+    padding-top: 140px;
+  }
 }
 
-.layout-body aside{
-  padding-top: 140px;
-}
+
 
 @media (max-width: 768px) {
   .aside {
@@ -177,6 +179,6 @@
     font-size: 0.95rem;
   }
   .layout-body aside{
-    padding-top: 120px;
+    padding-top: 140px;
   }
 }

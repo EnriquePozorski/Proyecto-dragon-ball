@@ -26,6 +26,7 @@ body {
   display: flex;
   justify-content: flex-end;
   grid-column: 6/10;
+  margin-right: 30px;
 }
 
 .hd-nav-links {
@@ -90,6 +91,9 @@ body {
 
   .hd-nav {
     display: none;
+  }
+  body {
+    margin-top: 6.9rem;
   }
 }
 
