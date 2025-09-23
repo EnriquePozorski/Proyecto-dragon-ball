@@ -1,28 +1,29 @@
 .img-character {
   width: 100vw;
   height: 100vh;
+  object-fit: cover; /* mantiene proporciones */
 }
 
-
-.title{
+.title {
   position: absolute;
   top: 35vh;
   left: 50px;
   z-index: 10;
   font-size: 3rem;
   font-weight: bold;
-  color:white;
+  color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.title-character
-{
-    text-align: center;
-    color:rgb(0, 0, 0);
+.title-character {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
+
 .characters-wrapper {
   position: relative;
-
 }
 
 .hero {
@@ -31,7 +32,6 @@
   height: 100vh; /* ocupa toda la pantalla */
   overflow: hidden;
 }
-
 
 .overlay {
   position: absolute;
@@ -43,7 +43,6 @@
 }
 
 .divider {
-  /* background: linear-gradient(to bottom, #9f2705, #774503); */
   padding: 20px;
 }
 
@@ -52,9 +51,61 @@
   text-align: center;
 }
 
-.filters input{
+.filters input {
   width: 600px;
+  max-width: 90%; /* 👈 evita que se corte en mobile */
   padding: 10px;
   border: none;
   border-radius: 5px;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.2rem;
+    top: 30vh;
+    left: 30px;
+  }
+
+  .title-character {
+    font-size: 2rem;
+  }
+
+  .filters input {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+    top: 25vh;
+    left: 20px;
+  }
+
+  .title-character {
+    font-size: 1.6rem;
+  }
+
+  .filters input {
+    width: 95%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+    top: 20vh;
+    left: 15px;
+  }
+
+  .title-character {
+    font-size: 1.3rem;
+  }
+
+  .filters input {
+    font-size: 12px;
+    padding: 8px;
+  }
 }

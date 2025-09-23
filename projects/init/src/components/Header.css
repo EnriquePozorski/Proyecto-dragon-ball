@@ -12,6 +12,7 @@
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 body {
   margin-top: 8.9rem;
 }
@@ -46,3 +47,122 @@ body {
   color: #ffe600;
 }
 
+/* --- Estilos para menú hamburguesa --- */
+.hd-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  grid-column: 12/13;
+  justify-self: end;
+  z-index: 1100;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hd-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #f15a24;
+    height: 100vh;
+    width: 70%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/-1;
+  }
+
+  
+  .hd-nav.open {
+    transform: translateX(0);
+  }
+
+  .hd-nav-links {
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .hd-toggle {
+    display: block;
+  }
+}
+/* --- Responsive para tablets --- */
+@media (max-width: 1024px) {
+  #hd-logo {
+    width: 150px; /* más pequeño que desktop */
+  }
+
+  .hd-nav-links a {
+    font-size: 1rem; /* ligeramente más pequeño */
+  }
+  body {
+    margin-top: 6.9rem;
+  }
+}
+
+/* --- Responsive para móviles --- */
+@media (max-width: 768px) {
+  #hd-logo {
+    width: 120px; /* tamaño adecuado para móvil */
+  }
+
+  .hd-toggle {
+    display: block;
+  }
+
+  body {
+    margin-top: 5.9rem;
+  }
+  .hd-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #f15a24;
+    height: 100vh;
+    width: 70%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/-1;
+    z-index: 1050;
+  }
+
+  .hd-nav.open {
+    transform: translateX(0);
+  }
+
+  .hd-nav-links {
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .hd-nav-links a {
+    padding: 0.5rem 0;
+  }
+}
+
+/* --- Responsive para móviles muy pequeños --- */
+@media (max-width: 480px) {
+  #hd-logo {
+    width: 100px; /* aún más pequeño */
+  }
+
+  .hd-nav-links {
+    gap: 1.5rem;
+    font-size: 1rem;
+  }
+
+    body {
+    margin-top: 4.9rem;
+  }
+}

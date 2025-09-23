@@ -41,3 +41,89 @@
     width: 3rem;
     border-radius: 1rem;
 }
+
+
+/* 📱 Tablets */
+@media (max-width: 1024px) {
+  .comparison-body {
+    width: 260px;
+    max-height: 350px;
+    font-size: 0.9rem;
+  }
+  .personaje-img {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* 📱 Mobile mediano */
+@media (max-width: 768px) {
+  .comparison {
+    grid-column: 6 / 11; /* lo ubicamos en medio del logo y hamburguesa */
+    justify-self: center;
+  }
+
+  .comparison-body {
+    position: absolute; 
+    top: 100%;            
+    right: 0; 
+    width: 220px;  /* más angosto en móviles */
+    max-height: 280px;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  .comparison-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .comparison-header-title {
+    font-size: 0.9rem;
+  }
+
+  .personaje-item {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .personaje-info {
+    flex: 1;
+    margin-left: 0.5rem;
+  }
+
+  .personaje-info p {
+    font-size: 0.7rem;
+  }
+}
+
+
+/* 📱 Mobile chico */
+@media (max-width: 480px) {
+  .comparison-body {
+    max-height: 250px;
+    padding: 0.5rem;
+  }
+
+  .comparison-header img {
+    width: 2.2rem;
+  }
+
+  .comparison-header-title {
+    font-size: 0.9rem;
+  }
+
+  .personaje-item {
+    margin-bottom: 8px;
+  }
+
+  .personaje-img {
+    width: 32px;
+    height: 32px;
+  }
+}

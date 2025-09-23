@@ -11,17 +11,27 @@ import Aside from "./components/Aside.jsx";
 import {ComparisonProvider} from "./context/ComparisonContext.jsx";
 
 function Layout({ children, filters, setFilters, showAside = true }) {
+  const [menuOpen, setMenuOpen] = useState(false); // 🔹 estado compartido
+
   return (
     <div className="layout">
-      <Header />
+      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <div className="layout-body">
-        {showAside && <Aside filters={filters} setFilters={setFilters} />}
+        {showAside && (
+          <Aside
+            filters={filters}
+            setFilters={setFilters}
+            open={menuOpen}
+            setOpen={setMenuOpen}
+          />
+        )}
         <main className="layout-main">{children}</main>
       </div>
       <Footer />
     </div>
   );
 }
+
 
 function App() {
   const [filters, setFilters] = useState({
