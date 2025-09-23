@@ -58,12 +58,15 @@ export default function CharacterModal({ character, onClose }) {
         {character.originPlanet && (
           <div className="planet-section">
             <h3>Planeta de origen: {character.originPlanet.name}</h3>
-            <img
-              src={character.originPlanet.image}
-              alt={character.originPlanet.name}
-              className="planet-img"
-            />
-            <p><strong>Descripción del planeta:</strong> {character.originPlanet.description}</p>
+            <div className="planet-content">
+              <img
+                src={character.originPlanet.image}
+                alt={character.originPlanet.name}
+                className="planet-img"
+              />
+              <p><strong>Descripción del planeta:</strong> {character.originPlanet.description}</p>
+            </div>
+            
           </div>
         )}
       </div>
