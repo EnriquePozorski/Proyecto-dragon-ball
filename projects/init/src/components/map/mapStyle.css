@@ -1,21 +1,29 @@
 @import "leaflet/dist/leaflet.css";
 
 
-
-
-.map-container button:hover {
-    background-color: #0056b3;
+.map-container .leaflet-control-zoom a:hover {
+  background-color: #ff9d2f;
 }
+
+
+.map-container .leaflet-popup-content-wrapper:hover,
+.map-container .leaflet-popup-content-wrapper:hover + .leaflet-popup-tip-container .leaflet-popup-tip {
+  background: #ff9d2f;
+  color: white; 
+  
+}
+
 
 .map-container #map {
     width: 100%;
     height: 100%;
 }
 .map-container {
-  width: 220px;
-  height: 160px;
+  width: 400px;
+  height: 175px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
+  margin: 10px;
 }
