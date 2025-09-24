@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import CharacterCard from "./CharacterCard";
 import "./CharacterList.css";
-import CharacterModal from "../characterInformation/modalInformation.jsx";
 import { characterService } from "../../services/characterService.js";
 
 export default function CharacterList({ filters }) {
@@ -12,19 +12,21 @@ export default function CharacterList({ filters }) {
   const loaderRef = useRef(null);
   const observerRef = useRef(null);
 
-  const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const navigate = useNavigate();
 
-  // 👉 Cargar personajes (con o sin filtros)
+
+
+
   const loadCharacters = async () => {
     try {
       let data;
 
       if (filters && Object.values(filters).some((val) => val)) {
-        // 🔹 Con filtros: NO acumulamos, siempre reemplazamos
+    
         data = await characterService.getFiltered({ ...filters });
         setCharacters(data.items || []);
       } else {
-        // 🔹 Sin filtros: acumulamos resultados paginados
+
         data = await characterService.getAll(page, 10);
         setCharacters((prev) => [...prev, ...(data.items || [])]);
       }
@@ -35,19 +37,19 @@ export default function CharacterList({ filters }) {
 
 
 
-  // 👉 Resetear cuando cambian filtros
+
   useEffect(() => {
     setPage(1);
     setCharacters([]);
     setHasMore(true);
   }, [filters]);
 
-  // 👉 Recargar personajes cuando cambia page o filtros
+
   useEffect(() => {
-    loadCharacters(page === 1); // reset si es la primera página
+    loadCharacters(page === 1);
   }, [page, filters]);
 
-  // 👉 Scroll infinito con IntersectionObserver
+
   useEffect(() => {
     if (observerRef.current) observerRef.current.disconnect();
 
@@ -68,12 +70,11 @@ export default function CharacterList({ filters }) {
   }, [loading, hasMore]);
       console.log("se abri1o");
 
-  // 👉 Abrir modal con detalle de personaje
+  // Pagina con informacion del personaje
   const handleSelectCharacter = async (id) => {
     try {
-      console.log("se abrio");
       const character = await characterService.getCharacterById(id);
-      setSelectedCharacter(character);
+      navigate(`/character/${id}`, { state: { character } });
     } catch (err) {
       console.error(err);
     }
@@ -101,12 +102,6 @@ export default function CharacterList({ filters }) {
           <p className="end-message">No hay más personajes para mostrar</p>
         )}
       </div>
-
-      {/* Modal */}
-      <CharacterModal
-        character={selectedCharacter}
-        onClose={() => setSelectedCharacter(null)}
-      />
     </div>
   );
 }

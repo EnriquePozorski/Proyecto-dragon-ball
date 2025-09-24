@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./modalInformationStyle.css";
-import SharePage from "../../components/Share/Share";
+import { FaShareAlt } from "react-icons/fa";
 
 export default function CharacterModal({ character, onClose }) {
   const [activeIndex, setActiveIndex] = useState(0);
-    const [showModal, setShowModal] = useState(false); 
-  const navigate = useNavigate(); 
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const transformations = [
     {
@@ -44,8 +44,6 @@ export default function CharacterModal({ character, onClose }) {
         </div>
 
         <div className="modal-image-carousel-area">
-          <button onClick={() => setShowModal(true)}>Share</button>
-
           <button className="carousel-btn prev" onClick={prev}>
             &lt;
           </button>
@@ -63,22 +61,14 @@ export default function CharacterModal({ character, onClose }) {
           <p className="ki-carousel">
             <strong>Ki:</strong> {activeItem.ki}
           </p>
+          <button
+            className="share-btn"
+            onClick={() => navigate("/share", { state: { result: character } })}
+          >
+            <FaShareAlt />
+          </button>
         </div>
-        {showModal && (
-          <div className="modal-overlay">
-            <div className="modal-content">
-              <h2>Compartir resultado</h2>
-              <p>¿Quieres compartir este resultado con un amigo?</p>
-              <button
-                onClick={() => {
-                  navigate("/share", { state: { result: character } });
-                }}
-              >    Compartir con un amigo
-              </button>
-              <button onClick={() => setShowModal(false)}>Cancelar</button>
-            </div>
-          </div>
-        )}
+
         <div className="character-description-area">
           <p>
             <strong>Raza:</strong> {character.race}
@@ -100,24 +90,18 @@ export default function CharacterModal({ character, onClose }) {
         {character.originPlanet && (
           <div className="planet-section">
             <h3>Planeta de origen: {character.originPlanet.name}</h3>
-            <img
-              src={character.originPlanet.image}
-              alt={character.originPlanet.name}
-              className="planet-img"
-            />
-            <p>
-              <strong>Descripción del planeta:</strong>{" "}
-              {character.originPlanet.description}
-            </p>
+
             <div className="planet-content">
               <img
                 src={character.originPlanet.image}
                 alt={character.originPlanet.name}
                 className="planet-img"
               />
-              <p><strong>Descripción del planeta:</strong> {character.originPlanet.description}</p>
+              <p>
+                <strong>Descripción del planeta:</strong>{" "}
+                {character.originPlanet.description}
+              </p>
             </div>
-            
           </div>
         )}
       </div>

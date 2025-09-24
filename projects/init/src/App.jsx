@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home.jsx"
 import Characters from "./pages/Characters.jsx"
-import Sagas from "./pages/Sagas.jsx"
+import Sagas from "./pages/CharacterPage.jsx"
 import "./app.css"
 import Header from "./components/Header.jsx"
 import Comparison from "./components/Comparison.jsx"
@@ -10,7 +10,7 @@ import Footer from "./components/Footer.jsx"
 import Aside from "./components/Aside.jsx";
 import {ComparisonProvider} from "./context/ComparisonContext.jsx";
 import SharePage from "./components/Share/Share.jsx";
-
+import CharacterPage from "./pages/CharacterPage.jsx";
 import { useLocation } from "react-router-dom";
 
 function Layout({ children, filters, setFilters, showAside = true }) {
@@ -62,14 +62,14 @@ function App() {
               </Layout>
             }
           />
-          <Route
-            path="/sagas"
-            element={
-              <Layout filters={filters} setFilters={setFilters}>
-                <Sagas />
-              </Layout>
-            }
-          />
+        <Route
+  path="/character/:id"
+  element={
+    <Layout filters={filters} setFilters={setFilters} showAside={false}>
+      <CharacterPage />
+    </Layout>
+  }
+/>
           <Route
             path="/characters"
             element={

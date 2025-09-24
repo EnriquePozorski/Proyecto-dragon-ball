@@ -59,17 +59,20 @@
 }
 
 .share-container button[type="submit"] {
-  background: #28a745;
+  background: #f15a24;
   color: white;
+  margin:10px;
+  width: 120px;
 }
 
 .share-container button[type="submit"]:hover {
-  background: #218838;
+  background:#eb835d;
 }
 
 .share-container button[type="button"] {
-  background: #dc3545;
+  background: #f15a24;
   color: white;
+    width: 120px;
 }
 
 .share-container button[type="button"]:hover {

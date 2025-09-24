@@ -4,7 +4,7 @@ import "./ShareStyle.css";
 
 export default function SharePage() {
   const location = useLocation();
-  const resultData = location.state?.result || {}; // datos enviados desde el carrusel
+  const resultData = location.state?.result || {};
 
   const [form, setForm] = useState({
     sender: "",
@@ -12,41 +12,72 @@ export default function SharePage() {
     message: "",
   });
 
+  const [errores, setErrores] = useState({});
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const validar = () => {
+    const nuevosErrores = {};
+
+  
+    for (const [key, value] of Object.entries(form)) {
+      if (key !== "message" && !value.trim()) {
+        nuevosErrores[key] = "Este campo es obligatorio";
+      }
+    }
+
+
+    const emailRegex = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
+    if (form.sender && !emailRegex.test(form.sender)) {
+      nuevosErrores.sender = "Email inválido";
+    }
+    if (form.recipient && !emailRegex.test(form.recipient)) {
+      nuevosErrores.recipient = "Email inválido";
+    }
+
+    setErrores(nuevosErrores);
+    return Object.keys(nuevosErrores).length === 0;
+  };
+
+  const handleEnviarMail = (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el mail
-    console.log("Enviando:", { ...form, resultData });
-    alert("El mail se envió correctamente ✅");
+    if (!validar()) return;
+
+    const subject = encodeURIComponent(`Te compartieron un resultado: ${resultData.name}`);
+    const body = encodeURIComponent(`
+Hola,
+
+Te compartieron este resultado:
+
+Nombre: ${resultData.name}
+${resultData.image ? `Imagen: ${resultData.image}` : ""}
+Mensaje: ${form.message || ""}
+
+Enviado por: ${form.sender}
+`);
+
+    // Abre el cliente de correo predeterminado
+    window.location.href = `mailto:${form.recipient}?subject=${subject}&body=${body}`;
   };
 
   return (
     <div className="share-container">
       <h2>Compartir con un amigo</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Resultado compartido */}
+      <form onSubmit={handleEnviarMail}>
         <div className="result-preview">
-          <label>Resultado</label>
           <input
-          className="result-input"
+            className="result-input"
             type="text"
             value={resultData.name || ""}
             readOnly
-            required
           />
           {resultData.image && (
-            <img
-              src={resultData.image}
-              alt={resultData.name}
-              className="result-image"
-            />
+            <img src={resultData.image} alt={resultData.name} className="result-image" />
           )}
         </div>
 
-        {/* Correo emisor */}
         <div>
           <label>Tu correo</label>
           <input
@@ -54,11 +85,11 @@ export default function SharePage() {
             name="sender"
             value={form.sender}
             onChange={handleChange}
-            required
+            placeholder="ejemplo@gmail.com"
           />
+          {errores.sender && <span className="error">{errores.sender}</span>}
         </div>
 
-        {/* Correo destinatario */}
         <div>
           <label>Correo destinatario</label>
           <input
@@ -66,21 +97,21 @@ export default function SharePage() {
             name="recipient"
             value={form.recipient}
             onChange={handleChange}
-            required
+            placeholder="ejemplo@gmail.com"
           />
+          {errores.recipient && <span className="error">{errores.recipient}</span>}
         </div>
 
-        {/* Mensaje opcional */}
         <div>
-          <label>Mensaje (opcional)</label>
+          <label>Mensaje</label>
           <textarea
             name="message"
             value={form.message}
             onChange={handleChange}
+            placeholder="Escribe un mensaje (opcional)"
           />
         </div>
 
-        {/* Botones */}
         <div className="buttons">
           <button type="submit">Enviar mail</button>
           <button type="button" onClick={() => window.history.back()}>

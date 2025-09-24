@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+.character-page {
+  padding: 30px 30px 0px 30px;
+  background: linear-gradient(to bottom, rgba(146, 146, 146, 0.418), #3a3a3a);
+  color: white;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+.top-page {
+   position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.character-title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.back-btn {
+  position: absolute;
+  left: 0%;   
+  top: 50%;  
+  transform: translateY(-50%); 
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background:rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background:  #f15a24;
+ 
+}
+
+.character-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* carrusel */
+.carousel {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.carousel-img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.carousel-img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+.carousel-btn.prev:hover {   background:#f15a24; }
+.carousel-btn.next:hover {  background:#f15a24; }
+
+.carousel-title {
+  margin-top: 10px;
+  font-weight: bold;
+  color: black;
+}
+.carousel-ki {
+  margin-bottom: 10px;
+  color: black;
+}
+.share-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+.share-btn:hover {
+  background:#f15a24;
+}
+.vs-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+.vs-btn:hover {
+  background:#f15a24;
+}
+/* info */
+.character-info {
+  background: white;
+  color: black;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: justify;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  
+}
+
+.planet-section {
+  margin-top: 30px;
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+}
+.planet-section h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.planet-content {
+  display: flex;
+  gap: 15px;
+}
+.planet-content p{
+  text-align: justify;
+  line-height: 1.6;
+  letter-spacing: 2px;
+}
+
+.planet-img {
+  max-width: 200px;
+  border-radius: 8px;
+}
+
+/* Para celular */
+@media screen and (max-width: 390px) {
+   
+    .character-page {
+    padding: 20px 15px 10px 15px;
+    }
+  .character-layout {
+    grid-template-columns: 1fr;
+   
+  }
+  
+  .carousel-img {
+    max-height: 200px;
+  }
+    
+  .character-info {
+  background: white;
+  color: black;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  letter-spacing: 0.5px;
+  font-size: smaller;
+}
+.planet-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+.planet-section h3 {
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+  letter-spacing: 0.5px;
+  font-size: medium;
+}
+
+.planet-content p{
+font-size: smaller;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+.planet-img {
+  max-width: 200px;
+  border-radius: 8px;
+  justify-self: center;
+}
+
+.back-btn:active,
+.carousel-btn:active,
+.share-btn:active
+.vs-btn:active {
+  background: #f15a24; 
+  transform: scale(0.95);
+  transition: background 0.3s ease, transform 0.3s ease;     
+}
+.back-text {
+    display: none;
+  }
+
+}
+/* Para tablets */
+@media screen and (max-width: 810px) {
+      .character-page {
+    padding: 20px 15px 10px 15px;
+    }
+  .character-title {
+    font-size: 1.5rem;
+  }
+    .character-layout {
+    grid-template-columns: 1fr;
+   
+  }
+  .back-btn:active,
+.carousel-btn:active,
+.share-btn:active
+.vs-btn:active {
+  background: #f15a24; 
+  transform: scale(0.95);
+  transition: background 0.3s ease, transform 0.3s ease;     
+}
+.planet-img {
+  max-width: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+}

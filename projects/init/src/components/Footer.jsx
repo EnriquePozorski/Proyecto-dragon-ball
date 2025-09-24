@@ -13,7 +13,7 @@ const Footer = () => {
         <MapComponent
           latitud={-34.9227408045059}
           longitud={-57.95626086708341}
-          nombre="Catedral de la Plata"
+          nombre="Innovatech"
         />
 
    
