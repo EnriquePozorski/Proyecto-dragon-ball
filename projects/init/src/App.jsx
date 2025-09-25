@@ -8,10 +8,12 @@ import Header from "./components/Header.jsx"
 import Comparison from "./components/Comparison.jsx"
 import Footer from "./components/Footer.jsx"
 import Aside from "./components/Aside.jsx";
-import {ComparisonProvider} from "./context/ComparisonContext.jsx";
+import {ComparisonProvider} from "./context/ComparisonProvider.jsx";
 import SharePage from "./components/Share/Share.jsx";
 import CharacterPage from "./pages/CharacterPage.jsx";
 import { useLocation } from "react-router-dom";
+import ComparePage from "./pages/ComparePage";
+
 
 function Layout({ children, filters, setFilters, showAside = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -86,6 +88,7 @@ function App() {
               </Layout>
             }
           />
+        <Route path="/compare" element={<ComparePage />} /> {/* 🔥 registro */}
         </Routes>
       </ComparisonProvider>
     </BrowserRouter>
