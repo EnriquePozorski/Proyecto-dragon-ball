@@ -57,7 +57,7 @@
 /* Tablets */
 @media (max-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr); /* dos columnas cómodas */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 1.2rem;
     padding: 1.5rem;
   }
@@ -74,6 +74,11 @@
 
 /* Móviles chicos (hasta 400px) */
 @media (max-width: 400px) {
+  .list-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .grid {
     grid-template-columns: 1fr; /* solo una columna */
     gap: 0.6rem;

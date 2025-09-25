@@ -80,7 +80,7 @@
 }
 
 /* 📱 Responsive */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .footer-container {
     flex-direction: column; /* mapa arriba, info abajo */
     align-items: center;

@@ -81,18 +81,12 @@
 }
 
 /* Celulares (pantallas chicas) */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .layout-body {
     flex-direction: column;
     margin-top: 10px;
   }
 
-  /* Ocultar el aside de layout, usar hamburguesa */
-  /* .layout-body aside {
-    display: none;
-  } */
-
-  
 
   .layout > footer {
     height: auto;
