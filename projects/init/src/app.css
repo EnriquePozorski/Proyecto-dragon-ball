@@ -46,7 +46,7 @@
   overflow-y: auto; /* ← Scroll interno si el contenido es muy largo */
   z-index: 999; /* ← Asegura que esté por encima del contenido */
   transition: all 0.3s ease-in-out;
-  
+  box-shadow: 4px 0 30px rgba(0,0,0,0.6);
 }
 
 /* Main - AJUSTADO */
@@ -102,62 +102,34 @@
 }
 
 /* Celulares (pantallas chicas) */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .layout-body {
     flex-direction: column;
     margin-top: 10px;
   }
+
+  /* Ocultar el aside de layout, usar hamburguesa */
+  /* .layout-body aside {
+    display: none;
+  } */
+
   
-  .layout-main {
-    min-height: calc(100vh - 100px - 200px); /* Ajuste para móviles */
-  }
-  
+
   .layout > footer {
     height: auto;
     padding: 20px;
   }
 }
-
-
-/* --- MEDIA QUERIES RESPONSIVE --- */
-/* Responsive: tablets y móviles */
+/* Tablets y móviles */
 @media (max-width: 1024px) {
-  .layout-body aside {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100vh;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-    margin-left: 0; /* ← Reset para móviles */
-  }
-  
-  .layout-body aside.open {
-    transform: translateX(0);
-  }
-  
-  /* En móviles, el main ocupa todo el ancho */
   .layout-main {
-    margin-left: 0;
-    width: 100%;
+    margin-left: 0 !important; /* ← Quitamos el margen cuando el aside es responsive */
   }
 }
 
 /* Celulares (pantallas chicas) */
-@media (max-width: 768px) {
-  .layout-body {
-    flex-direction: column;
-    margin-top: 10px;
-  }
-  
+@media (max-width: 960px) {
   .layout-main {
-    min-height: calc(100vh - 100px - 200px);
-  }
-  
-  .layout > footer {
-    height: auto;
-    padding: 20px;
+    margin-left: 0 !important; /* ← También para móviles */
   }
 }

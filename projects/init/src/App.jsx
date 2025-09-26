@@ -18,9 +18,9 @@ import PlanetDetail from "./pages/PlanetDetail.jsx";
 
 function Layout({ children, filters, setFilters, showAside = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation(); // Obtener ruta actual
+  const location = useLocation(); 
 
-  const isHome = location.pathname === "/"; // Saber si estamos en home
+  const isHome = location.pathname === "/"; 
 
   return (
     <div className="layout">
@@ -33,7 +33,7 @@ function Layout({ children, filters, setFilters, showAside = true }) {
             setFilters={setFilters}
             open={menuOpen}
             setOpen={setMenuOpen}
-            hideOnDesktop={isHome} // Pasamos prop para ocultar en home desktop
+            hideOnDesktop={isHome} 
           />
         )}
 
@@ -65,14 +65,14 @@ function App() {
               </Layout>
             }
           />
-          <Route
-            path="/character/:id"
-            element={
-              <Layout filters={filters} setFilters={setFilters} showAside={true}>
-                <CharacterPage />
-              </Layout>
-            }
-          />
+        <Route
+  path="/character/:id"
+  element={
+    <Layout filters={filters} setFilters={setFilters} showAside={false}>
+      <CharacterPage />
+    </Layout>
+  }
+/>
           <Route
             path="/characters"
             element={
