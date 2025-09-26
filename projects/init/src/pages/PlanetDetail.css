@@ -1,6 +1,6 @@
 /* Página de detalle */
 .planet-detail-page {
-  max-width: 900px;
+  max-width: 1500px;
   margin: 2rem auto;
   padding: 2rem;
   background: linear-gradient(145deg, #1a1a1a, #222);
@@ -60,36 +60,46 @@
 /* Grid de personajes */
 .character-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1.2rem;
-  margin-top: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* un poco más ancho */
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 /* Card de cada personaje */
 .character-card {
   background: linear-gradient(145deg, #292929, #1c1c1c);
-  padding: 0.8rem;
+  padding: 1rem;
   border-radius: 12px;
   color: white;
   text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
   border: 1px solid rgba(255, 152, 0, 0.2);
-}
-
-.character-card:hover {
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 8px 18px rgba(255, 152, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 240px; /* altura más generosa */
 }
 
 /* Imagen de personaje */
 .character-image {
   width: 100%;
-  height: 120px;
-  object-fit: cover;
+  height: 160px; /* un poco más alta */
+  object-fit: cover; /* mantiene proporción y recorta lo mínimo */
   border-radius: 10px;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
 }
+
+/* Nombre del personaje */
+.character-card p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffcc80;
+  word-wrap: break-word; /* evita que el texto se desborde */
+}
+
 
 /* Botón volver */
 .scroll-top-btn {
@@ -109,4 +119,94 @@
 .scroll-top-btn:hover {
   background: #ffcc80;
   transform: translateY(-3px);
+}
+/* Wrapper para manejar botón y contenedor */
+.planet-detail-wrapper {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.planet-detail-wrapper .back-btn {
+  position: absolute;
+  top: 2.5rem;   /* separación del borde superior */
+  left: 1rem;  /* separación del borde izquierdo */
+  padding: 0.6rem 1.2rem;
+  background:rgba(0,0,0,0.6);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+  z-index: 1000;  /* asegurar que esté arriba de todo */
+}
+
+
+.planet-detail-wrapper .back-btn:hover {
+  background:  #f15a24;
+  
+}
+
+/* Página de detalle */
+.planet-detail-page {
+  margin-top: 2.5rem; /* espacio para el botón */
+  padding: 2rem;
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  color: #eee;
+  text-align: center;
+}
+
+/* Imagen principal ajustada */
+.planet-detail-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto; /* ajusta proporcionalmente */
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.5);
+  margin: 1rem 0;
+  margin-bottom:40px;
+}
+
+/* Grid de personajes ajustado */
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Card de personaje */
+.character-card {
+  background: linear-gradient(145deg, #292929, #1c1c1c);
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 152, 0, 0.2);
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Imagen personaje */
+.character-image {
+  width: 100%;
+  height: 160px;
+  object-fit: contain; /* mantiene la imagen completa */
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+@media screen and (max-width: 490px) {
+    .planet-detail-wrapper .back-btn {
+        top: 3.0rem;
+    }
 }

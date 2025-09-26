@@ -11,8 +11,6 @@
   background-color: #f15a24;
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
-  
 }
 
 body {
@@ -50,7 +48,7 @@ body {
   color: #ffe600;
 }
 
-/* --- Estilos para menú hamburguesa --- */
+/* --- Botón hamburguesa (oculto en desktop) --- */
 .hd-toggle {
   display: none;
   background: transparent;
@@ -67,9 +65,8 @@ body {
 .hd-comparison {
   grid-column: 10/12;
 }
-/* Responsive */
 
-/* --- Responsive para tablets --- */
+/* --- Responsive tablets --- */
 @media (max-width: 1024px) {
   .header {
     display: flex;
@@ -83,27 +80,28 @@ body {
   }
 
   .hd-comparison {
-    margin: 0 auto; /* se centra automáticamente */
+    margin: 0 auto;
   }
 
   .hd-toggle {
     display: block;
     font-size: 2rem;
   }
-
-  .hd-nav {
-    display: none;
+  .hd-nav{
+    margin-top: 60px;
+    margin-right: 0;
+    z-index: 1;
   }
+
   body {
     margin-top: 6.9rem;
   }
 }
 
-
-/* --- Responsive para móviles --- */
+/* --- Responsive móviles --- */
 @media (max-width: 768px) {
   #hd-logo {
-    width: 120px; /* tamaño adecuado para móvil */
+    width: 120px;
   }
 
   .hd-toggle {
@@ -113,6 +111,7 @@ body {
   body {
     margin-top: 5.9rem;
   }
+
   .hd-nav {
     position: fixed;
     top: 0;
@@ -125,7 +124,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    grid-column: 1/-1;
     z-index: 1050;
   }
 
@@ -144,29 +142,16 @@ body {
     padding: 0.5rem 0;
   }
 
-  /* En móvil ocultamos Comparison por defecto */
+  /* Ocultar Comparison en mobile */
   .hd-comparison {
     display: none;
   }
-
-  /* Ocultar nav fijo en responsive */
-  .hd-nav {
-    display: none;
-  }
-
-  .hd-toggle {
-    display: block;
-  }
-
-  body {
-    margin-top: 5.5rem;
-  }
 }
 
-/* --- Responsive para móviles muy pequeños --- */
+/* --- Responsive móviles muy pequeños --- */
 @media (max-width: 480px) {
   #hd-logo {
-    width: 100px; /* aún más pequeño */
+    width: 100px;
   }
 
   .hd-nav-links {
@@ -174,7 +159,103 @@ body {
     font-size: 1rem;
   }
 
-    body {
+  body {
     margin-top: 4.9rem;
   }
+}
+
+/* --- Botones en responsive --- */
+.hd-buttons {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .hd-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .hd-toggle,
+  .hd-search {
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 2100;
+  }
+
+  /* Menú hamburguesa (nav en panel lateral) */
+  .hd-nav {
+    position: fixed;
+    top: 80px; /* debajo del header */
+    right: -100%;
+    width: 250px;
+    height: calc(100vh - 80px);
+    background-color: #111;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 2rem;
+    transition: right 0.3s ease-in-out;
+    z-index: 2000;
+  }
+
+  .hd-nav.open {
+    right: 0;
+  }
+
+  .hd-nav-links {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+/* Menú hamburguesa (nav lateral) */
+.hd-nav {
+  position: fixed;
+  top: 0; /* nav empieza desde el top del header */
+  right: -100%;
+  width: 250px; /* ancho lateral */
+  height: 100vh; /* ocupar todo el alto de la pantalla */
+  background: linear-gradient(180deg, #f15a24 0%, #d84315 100%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* empieza desde arriba */
+  padding-top: 80px; /* espacio para el header */
+  transition: right 0.3s ease-in-out;
+  z-index: 2000;
+}
+
+/* Cuando está abierto */
+.hd-nav.open {
+  right: 0;
+}
+
+/* Links del nav */
+.hd-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.hd-nav-links a {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: block;
+  padding: 1rem 0;
+  transition: all 0.3s;
+}
+
+.hd-nav-links a:hover {
+  color: #ffe600;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
 }

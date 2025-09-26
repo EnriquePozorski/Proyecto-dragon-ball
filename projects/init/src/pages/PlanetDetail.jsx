@@ -30,45 +30,48 @@ export default function PlanetDetail() {
   if (!planet) return <p style={{ textAlign: "center" }}>Planeta no encontrado</p>;
 
   return (
-    <div className="planet-detail-page">
-      <h2>{planet.name}</h2>
-      <img
-        src={planet.image || "https://via.placeholder.com/300"}
-        alt={planet.name}
-        className="planet-detail-image"
-      />
-      <p>{planet.description}</p>
-      <div className="planet-info">
-        <p><strong>Tipo:</strong> {planet.type || "Desconocido"}</p>
-        <p><strong>Población:</strong> {planet.population || "N/A"}</p>
-        <p><strong>Dimensión:</strong> {planet.dimension || "Desconocida"}</p>
-        <p><strong>Destruido:</strong> {planet.isDestroyed ? "Sí" : "No"}</p>
-      </div>
+   <div className="planet-detail-wrapper">
+  <button
+    className="back-btn"
+    onClick={() => navigate(-1)}
+  >
+    ← Volver
+  </button>
 
-      {planet.characters && planet.characters.length > 0 && (
-        <>
-          <h3>Personajes del planeta</h3>
-          <div className="character-grid">
-            {planet.characters.map((char) => (
-              <div key={char.id} className="character-card">
-                <img
-                  src={char.image || "https://via.placeholder.com/100"}
-                  alt={char.name}
-                  className="character-image"
-                />
-                <p>{char.name}</p>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-
-      <button
-        className="scroll-top-btn"
-        onClick={() => navigate(-1)} // <-- vuelve a la página anterior
-      >
-        ← Volver
-      </button>
+  <div className="planet-detail-page">
+    <h2>{planet.name}</h2>
+    <img
+      src={planet.image || "https://via.placeholder.com/300"}
+      alt={planet.name}
+      className="planet-detail-image"
+    />
+    <p>{planet.description}</p>
+    <div className="planet-info">
+      <p><strong>Tipo:</strong> {planet.type || "Desconocido"}</p>
+      <p><strong>Población:</strong> {planet.population || "N/A"}</p>
+      <p><strong>Dimensión:</strong> {planet.dimension || "Desconocida"}</p>
+      <p><strong>Destruido:</strong> {planet.isDestroyed ? "Sí" : "No"}</p>
     </div>
+
+    {planet.characters && planet.characters.length > 0 && (
+      <>
+        <h3>Personajes del planeta</h3>
+        <div className="character-grid">
+          {planet.characters.map((char) => (
+            <div key={char.id} className="character-card">
+              <img
+                src={char.image || "https://via.placeholder.com/100"}
+                alt={char.name}
+                className="character-image"
+              />
+              <p>{char.name}</p>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+</div>
+
   );
 }

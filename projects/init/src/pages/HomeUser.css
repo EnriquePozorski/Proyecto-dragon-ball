@@ -222,3 +222,147 @@ a:hover {
     background-position: center; /* Centra la imagen dentro del contenedor */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
+
+
+/* Responsive para tablets grandes */
+@media (max-width: 1200px) {
+  .char-card {
+    width: 100px;
+  }
+
+  .char-card img {
+    height: 200px;
+  }
+
+  .quick-btn {
+    width: 150px;
+    height: 150px;
+  }
+
+  .big-card {
+    width: 45%;
+    padding: 3rem 2rem;
+  }
+}
+
+/* Responsive para tablets y móviles grandes */
+@media (max-width: 900px) {
+  .card-grid {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .char-card {
+    width: 100px;
+  }
+
+  .char-card img {
+    height: 180px;
+  }
+
+  .quick-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .quick-btn {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .big-cards {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .big-card {
+    width: 90%;
+    padding: 2rem 1rem;
+  }
+}
+
+/* Responsive para móviles pequeños */
+@media (max-width: 600px) {
+  .welcome {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.3rem;
+  }
+
+  .char-card {
+    width: 80px;
+  }
+
+  .char-card img {
+    height: 140px;
+  }
+
+  .char-card p {
+    font-size: 0.75rem;
+    height: 1.2rem;
+  }
+
+  .quick-btn {
+    width: 100px;
+    height: 100px;
+    padding: 0.4rem;
+  }
+
+  .big-card {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+/* Aplicar box-sizing global para incluir padding y border en el ancho */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Sección general */
+.section {
+  width: 100%;
+  max-width: 100%; /* Evita que se salga del viewport */
+  margin: 2.5rem auto;
+  padding: 2rem;
+  border-radius: 15px;
+  overflow: hidden; /* evita que el contenido sobresalga */
+}
+
+/* Grid de cards */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Accesos rápidos */
+.quick-links {
+  display: flex;
+  flex-wrap: wrap; /* permite bajar botones en varias filas */
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Big cards */
+.big-cards {
+  display: flex;
+  flex-wrap: wrap; /* permite que bajen en móviles */
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Big-card individual */
+.big-card {
+  max-width: 95%; /* nunca más ancho que la pantalla */
+  width: 45%; /* ancho por defecto en escritorio */
+  min-width: 300px; /* evita que se achique demasiado */
+}
