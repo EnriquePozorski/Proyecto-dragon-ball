@@ -1,4 +1,4 @@
-/* --- Reset y fuente --- */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,6 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* Layout general */
 .layout {
   display: flex;
   flex-direction: column;
@@ -14,7 +13,6 @@
   overflow-x: hidden;
 }
 
-/* Header */
 .layout > header {
   width: 100%;
   color: white;
@@ -22,7 +20,7 @@
   text-align: center;
 }
 
-/* Contenedor body: aside + main */
+
 .layout-body {
   flex: 1;
   display: flex;
@@ -30,7 +28,7 @@
   background-image: url("../src/assets/img/fondo/6.png");
 }
 
-/* Aside - CORREGIDO */
+
 .layout-body aside {
   width: 15%;
   max-width: 400px;
@@ -49,7 +47,7 @@
   box-shadow: 4px 0 30px rgba(0, 0, 0, 0.6);
 }
 
-/* Main - AJUSTADO */
+
 .layout-main {
   flex: 1;
   background-size: cover;
@@ -68,7 +66,7 @@
 .layout-main.home-main {
   margin-left: 0;
 }
-/* Footer */
+
 .layout > footer {
   width: 100%;
   height: 250px;

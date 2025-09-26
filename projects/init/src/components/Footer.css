@@ -47,7 +47,7 @@
   border-top: 1px solid #333;
   padding-top: 15px;
   margin-top: 15px;
-  flex-wrap: wrap; /* Para evitar que se rompa en pantallas pequeñas */
+  flex-wrap: wrap; 
 }
 
 .footer-text {
@@ -79,7 +79,7 @@
   color: #00bcd4;
 }
 
-/* 📱 Responsive */
+
 @media (max-width: 960px) {
   .footer-container {
     flex-direction: column; /* mapa arriba, info abajo */

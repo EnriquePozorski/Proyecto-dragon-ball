@@ -21,7 +21,7 @@
   transform: translateZ(30px);
 }
 
-/* favoritos y visitados */
+
 
 .section {
   margin: 2.5rem auto;
@@ -61,7 +61,7 @@
 .char-card {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  width: 120px;         /* ancho fijo */
+  width: 120px;        
   padding: 0.5rem;
   text-align: center;
   display: flex;
@@ -73,22 +73,22 @@
 
 .char-card img {
   width: 100%;
-  height: 250px;        /* altura fija */
-  object-fit: cover;    /* mantiene proporción y recorta si hace falta */
+  height: 250px;       
+  object-fit: cover;    
   border-radius: 8px;
   margin-bottom: 0.5rem;
 }
 
 .char-card p {
   margin: 0;
-  height: 2rem;         /* altura fija para que todos los nombres estén alineados */
+  height: 2rem;       
   display: flex;
-  align-items: center;  /* centra el texto verticalmente */
+  align-items: center;  
   justify-content: center;
   font-size: 0.9rem;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;  /* evita que el texto se rompa en varias líneas */
+  white-space: nowrap;  
 }
 
 
@@ -97,17 +97,17 @@
 }
 
 a {
-  color: inherit;          /* toma el color del contenedor o poné el que quieras */
-  text-decoration: none;   /* quita el subrayado */
+  color: inherit;          
+  text-decoration: none;  
 }
 
 a:hover {
-  color: #ff9800;          /* opcional: color al pasar el mouse */
-  text-decoration: none;   /* mantiene sin subrayado al hover */
+  color: #ff9800;         
+  text-decoration: none;  
 }
 
 
-/* accesos directos */
+
 
 .quick-links {
   display: flex;
@@ -128,12 +128,12 @@ a:hover {
   align-items: center;
   text-align: center;
   overflow: hidden;
-  position: relative; /* Para poder usar overlay */
+  position: relative; 
   transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
   background-size: cover;
   background-position: center;
 }
-/* Overlay oscuro para resaltar texto */
+
 .quick-btn::before {
   content: "";
   position: absolute;
@@ -141,14 +141,14 @@ a:hover {
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0,0,0,0.4); /* sombra semitransparente */
+  background: rgba(0,0,0,0.4); 
   border-radius: 50%;
   z-index: 1;
   transition: background 0.3s;
 }
 .quick-btn span {
   position: relative;
-  z-index: 2; /* Para que el texto quede por encima del overlay */
+  z-index: 2; 
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 .villano{
@@ -174,7 +174,7 @@ a:hover {
 }
 
 .quick-btn:hover::before {
-  background: rgba(0,0,0,0.25); /* overlay un poco más claro al hover */
+  background: rgba(0,0,0,0.25); 
 }
 
 .big-cards {
@@ -218,7 +218,7 @@ a:hover {
 .character,
 .planet,
 .big-card {
-    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
-    background-position: center; /* Centra la imagen dentro del contenedor */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
 }

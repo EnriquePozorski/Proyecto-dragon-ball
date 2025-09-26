@@ -4,7 +4,7 @@
   gap: 1.5rem;
   padding: 2rem;
 }
-/* CharacterList.css */
+
 
 
 .pagination {
@@ -33,7 +33,7 @@
   color: #777;
 }
 
-/* Spinner circular */
+
 .spinner {
   margin: 1rem auto;
   width: 40px;
@@ -66,7 +66,7 @@
 
 @media (max-width: 600px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr); /* forzamos dos columnas */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 0.8rem;
     padding: 1rem;
     justify-items: center;

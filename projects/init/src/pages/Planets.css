@@ -11,9 +11,9 @@
 
 .planet-grid {
   display: flex;
-  flex-wrap: wrap; /* permite que las cards bajen a la siguiente fila */
+  flex-wrap: wrap; 
   gap: 1.5rem;
-  justify-content: center; /* centra las cards en cada fila */
+  justify-content: center; 
   margin-top: 2rem;
 }
 
@@ -21,7 +21,7 @@
   height: 500px;
   width: 300px;
   
-  background: #ff9800; /* color llamativo plano como en personajes */
+  background: #ff9800; 
   color: white;
   padding: 1rem;
   border-radius: 16px;
@@ -42,10 +42,10 @@
 .planet-image {
   width: 100%;
   height: 50%;
-  object-fit: cover; /* rellena todo el espacio y recorta si es necesario */
-  border-radius: 5%; /* opcional: para que sean circulares */
+  object-fit: cover; 
+  border-radius: 5%; 
   margin-bottom: 1rem;
-  background-color: #ffa726; /* opcional: color de fondo mientras carga la imagen */
+  background-color: #ffa726;
 }
 
 
@@ -58,7 +58,7 @@
 .planet-card p {
   font-size: 0.9rem;
   margin: 0.3rem 0;
-  text-align: justify; /* Justifica el texto */
+  text-align: justify; 
 }
 .descripcion{
     height: 20%;

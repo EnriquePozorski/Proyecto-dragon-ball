@@ -12,18 +12,18 @@ function Aside({ filters, setFilters, open, setOpen, hideOnDesktop = false }) {
   };
 
   const handleSearchClick = () => {
-    setOpen(false); // Cierra el aside si está abierto
-    navigate("/characters"); // Redirige a la página de personajes
+    setOpen(false); 
+    navigate("/characters"); 
   };
 
   return (
     <>
       
 
-      {/* Overlay */}
+    
       {open && <div className="aside-overlay" onClick={() => setOpen(false)}></div>}
 
-      {/* Aside */}
+
       <aside className={`aside ${open ? "open" : ""} ${hideOnDesktop ? "hide-desktop" : ""}`} onClick={(e) => e.stopPropagation()}>
         <h2 className="aside-title">Búsqueda</h2>
 

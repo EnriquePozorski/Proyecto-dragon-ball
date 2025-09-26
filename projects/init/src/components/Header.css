@@ -50,7 +50,6 @@ body {
   color: #ffe600;
 }
 
-/* --- Estilos para menú hamburguesa --- */
 .hd-toggle {
   display: none;
   background: transparent;
@@ -63,13 +62,11 @@ body {
   z-index: 1100;
 }
 
-/* Comparison visible en desktop */
 .hd-comparison {
   grid-column: 10/12;
 }
-/* Responsive */
 
-/* --- Responsive para tablets --- */
+
 @media (max-width: 1024px) {
   .header {
     display: flex;
@@ -100,10 +97,9 @@ body {
 }
 
 
-/* --- Responsive para móviles --- */
 @media (max-width: 768px) {
   #hd-logo {
-    width: 120px; /* tamaño adecuado para móvil */
+    width: 120px; 
   }
 
   .hd-toggle {
@@ -144,12 +140,11 @@ body {
     padding: 0.5rem 0;
   }
 
-  /* En móvil ocultamos Comparison por defecto */
+
   .hd-comparison {
     display: none;
   }
 
-  /* Ocultar nav fijo en responsive */
   .hd-nav {
     display: none;
   }
@@ -163,10 +158,10 @@ body {
   }
 }
 
-/* --- Responsive para móviles muy pequeños --- */
+
 @media (max-width: 480px) {
   #hd-logo {
-    width: 100px; /* aún más pequeño */
+    width: 100px; 
   }
 
   .hd-nav-links {

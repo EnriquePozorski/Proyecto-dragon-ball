@@ -65,7 +65,7 @@ export default function PlanetDetail() {
 
       <button
         className="scroll-top-btn"
-        onClick={() => navigate(-1)} // <-- vuelve a la página anterior
+        onClick={() => navigate(-1)} 
       >
         ← Volver
       </button>

@@ -12,7 +12,7 @@ export default function Planets() {
   const navigate = useNavigate();
   const observerRef = useRef(null);
 
-  // 👉 Función para obtener planetas
+
   const fetchPlanets = useCallback(async (pageNumber) => {
     setLoading(true);
     try {
@@ -26,12 +26,11 @@ export default function Planets() {
     }
   }, []);
 
-  // 👉 Cargar primera página
   useEffect(() => {
     fetchPlanets(page);
   }, [page, fetchPlanets]);
 
-  // 👉 Scroll infinito con IntersectionObserver
+
   useEffect(() => {
     if (loading) return;
     if (observerRef.current) observerRef.current.disconnect();
@@ -83,7 +82,7 @@ export default function Planets() {
         ))}
       </div>
 
-      {/* Loader + Sentinel */}
+
       {loading && <p style={{ marginTop: "1rem" }}>Cargando...</p>}
       <div id="sentinel" style={{ height: "20px" }}></div>
     </div>

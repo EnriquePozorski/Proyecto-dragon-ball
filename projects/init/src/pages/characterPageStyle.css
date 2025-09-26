@@ -124,7 +124,7 @@
 .vs-btn:hover {
   background:#f15a24;
 }
-/* info */
+
 .character-info {
   background: white;
   color: black;
@@ -167,7 +167,7 @@
   border-radius: 8px;
 }
 
-/* Para celular */
+
 @media screen and (max-width: 390px) {
    
     .character-page {
@@ -228,7 +228,7 @@ font-size: smaller;
   }
 
 }
-/* Para tablets */
+
 @media screen and (max-width: 810px) {
       .character-page {
     padding: 20px 15px 10px 15px;
