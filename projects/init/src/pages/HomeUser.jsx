@@ -1,4 +1,4 @@
-// src/pages/HomeUser.jsx
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./HomeUser.css";
@@ -22,23 +22,7 @@ function HomeUser() {
     <div className="home-user">
       <h1 className="welcome">¡Bienvenido Saiyajin!</h1>
 
-      {/* Favoritos */}
-      <section className="section">
-        <h2>⭐ Tus favoritos</h2>
-        <div className="card-grid">
-          {recent.length > 0 ? (
-            recent.map((char) => (
-              <Link key={char.id} to={`/character/${char.id}`} className="char-card">
-                <img src={char.image} alt={char.name} />
-                <p>{char.name}</p>
-              </Link>
-            ))
-          ) : (
-            <p>Aún no has visitado ningún personaje.</p>
-          )}
-        </div>
-      </section>
-
+    
 
       <section className="section">
         <h2>🕓 Últimos visitados</h2>
@@ -56,31 +40,30 @@ function HomeUser() {
         </div>
       </section>
 
-      {/* Accesos rápidos */}
+
         <section className="section">
         <h2>⚡ Accesos rápidos</h2>
         <div className="quick-links">
-            {/* Guerreros Z */}
+  
             <Link to="/characters?affiliation=Z Fighter" className="quick-btn guerrero-z">
             <span>Guerreros Z</span>
             </Link>
 
-            {/* Villanos */}
+
             <Link to="/characters?affiliation=Villain" className="quick-btn villano">
             <span>Villanos</span>
             </Link>
 
-            {/* Humanos */}
             <Link to="/characters?race=Human" className="quick-btn humano">
             <span>Humanos</span>
             </Link>
 
-            {/* Androides */}
+
             <Link to="/characters?race=Android" className="quick-btn androide">
             <span>Androides</span>
             </Link>
 
-            {/* Saiyajins */}
+   
             <Link to="/characters?race=Saiyan" className="quick-btn saiyajin">
             <span>Saiyajins</span>
             </Link>
@@ -88,7 +71,7 @@ function HomeUser() {
         </section>
 
 
-      {/* Dos Cards grandes */}
+
       <section className="section big-cards">
         <Link to="/characters" className="big-card character">
           <h3>Personajes</h3>

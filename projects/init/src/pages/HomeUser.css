@@ -27,11 +27,11 @@
   margin: 2.5rem auto;
   padding: 2rem;
   max-width: 1800px;
-  background: linear-gradient(135deg, #555353, #e0e0e0); /* degradado suave */
+  background: linear-gradient(135deg, #555353, #e0e0e0); 
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* sombra sutil */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: rgba(0,0,0,0.6); /* semitransparente para ver el fondo */
+  background: rgba(0,0,0,0.6); 
 }
 
 .section:hover {
@@ -224,7 +224,7 @@ a:hover {
 }
 
 
-/* Responsive para tablets grandes */
+
 @media (max-width: 1200px) {
   .char-card {
     width: 100px;
@@ -245,7 +245,7 @@ a:hover {
   }
 }
 
-/* Responsive para tablets y móviles grandes */
+
 @media (max-width: 900px) {
   .card-grid {
     justify-content: center;
@@ -283,7 +283,7 @@ a:hover {
   }
 }
 
-/* Responsive para móviles pequeños */
+
 @media (max-width: 600px) {
   .welcome {
     font-size: 1.8rem;
@@ -318,22 +318,22 @@ a:hover {
     padding: 1.5rem;
   }
 }
-/* Aplicar box-sizing global para incluir padding y border en el ancho */
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* Sección general */
+
 .section {
   width: 100%;
-  max-width: 100%; /* Evita que se salga del viewport */
+  max-width: 100%; 
   margin: 2.5rem auto;
   padding: 2rem;
   border-radius: 15px;
-  overflow: hidden; /* evita que el contenido sobresalga */
+  overflow: hidden; 
 }
 
-/* Grid de cards */
+
 .card-grid {
   display: flex;
   flex-wrap: wrap;
@@ -342,27 +342,27 @@ a:hover {
   width: 100%;
 }
 
-/* Accesos rápidos */
+
 .quick-links {
   display: flex;
-  flex-wrap: wrap; /* permite bajar botones en varias filas */
+  flex-wrap: wrap; 
   justify-content: center;
   gap: 1rem;
   width: 100%;
 }
 
-/* Big cards */
+
 .big-cards {
   display: flex;
-  flex-wrap: wrap; /* permite que bajen en móviles */
+  flex-wrap: wrap; 
   justify-content: center;
   gap: 1.5rem;
   width: 100%;
 }
 
-/* Big-card individual */
+
 .big-card {
-  max-width: 95%; /* nunca más ancho que la pantalla */
-  width: 45%; /* ancho por defecto en escritorio */
-  min-width: 300px; /* evita que se achique demasiado */
+  max-width: 95%; 
+  width: 45%; 
+  min-width: 300px; 
 }
