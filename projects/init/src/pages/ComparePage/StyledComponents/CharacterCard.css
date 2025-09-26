@@ -1,0 +1,150 @@
+.character-card {
+  position: relative;
+  width: 260px;
+  min-height: 420px;
+  background: linear-gradient(to bottom, #1c1c1c, #2a2a2a);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  border: 2px solid #444;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInCard 0.6s ease forwards;
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.character-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.character-header h2 {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.race {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.character-image {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  transition: transform 0.8s ease;
+}
+
+.character-card:hover .character-image {
+  transform: scale(2.05);
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.carousel-content {
+  flex: 1;
+}
+
+.transformation-name {
+  font-weight: bold;
+  color: #eee;
+}
+
+.counter {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.progress-bar {
+  background: #333;
+  height: 10px;
+  border-radius: 5px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.progress {
+  background: linear-gradient(to right, #4cafef, #00c6ff);
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.6s ease;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.winner-badge {
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  background: gold;
+  color: black;
+  padding: 0.4rem 0.8rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transform: rotate(-10deg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.ki-wrapper {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.ki-radar {
+  width: 40px;
+}
+
+.ki-value {
+  font-weight: bold;
+  color: #fff;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: radial-gradient(circle at center, #ff4d4d 0%, #b30000 100%);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.5), 0 0 2px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+}
+
+.remove-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 4px rgba(0, 0, 0, 0.4);
+  background: radial-gradient(circle at center, #ff1a1a 0%, #990000 100%);
+}

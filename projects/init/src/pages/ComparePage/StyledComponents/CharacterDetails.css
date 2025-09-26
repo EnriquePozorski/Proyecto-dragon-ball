@@ -1,0 +1,28 @@
+.character-details {
+  background: #111;
+  color: #eee;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.detail-section {
+  margin-bottom: 1.5rem;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.planet-image {
+  margin-top: 0.5rem;
+  max-width: 200px;
+  border-radius: 8px;
+}

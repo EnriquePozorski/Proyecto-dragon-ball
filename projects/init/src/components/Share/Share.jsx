@@ -47,11 +47,12 @@ export default function SharePage() {
 
     const subject = encodeURIComponent(`Te compartieron un resultado: ${resultData.name}`);
     const body = encodeURIComponent(`
-Hola,
+Buenassss,
 
-Te compartieron este resultado:
+Te comparto este personaje de Dragon Ball:
 
 Nombre: ${resultData.name}
+Ki:${resultData.ki}
 ${resultData.image ? `Imagen: ${resultData.image}` : ""}
 Mensaje: ${form.message || ""}
 

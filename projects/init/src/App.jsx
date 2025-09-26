@@ -12,14 +12,14 @@ import {ComparisonProvider} from "./context/ComparisonProvider.jsx";
 import SharePage from "./components/Share/Share.jsx";
 import CharacterPage from "./pages/CharacterPage.jsx";
 import { useLocation } from "react-router-dom";
-import ComparePage from "./pages/ComparePage";
+import ComparePage from "./pages/ComparePage/ComparePage.jsx";
 
 
 function Layout({ children, filters, setFilters, showAside = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation(); // Obtener ruta actual
+  const location = useLocation(); 
 
-  const isHome = location.pathname === "/"; // Saber si estamos en home
+  const isHome = location.pathname === "/"; 
 
   return (
     <div className="layout">
@@ -32,10 +32,9 @@ function Layout({ children, filters, setFilters, showAside = true }) {
             setFilters={setFilters}
             open={menuOpen}
             setOpen={setMenuOpen}
-            hideOnDesktop={isHome} // Pasamos prop para ocultar en home desktop
+            hideOnDesktop={isHome} 
           />
         )}
-
         <main className="layout-main">{children}</main>
       </div>
       <Footer />
@@ -65,13 +64,12 @@ function App() {
             }
           />
         <Route
-  path="/character/:id"
-  element={
-    <Layout filters={filters} setFilters={setFilters} showAside={false}>
-      <CharacterPage />
-    </Layout>
-  }
-/>
+          path="/character/:id"
+          element={
+            <Layout filters={filters} setFilters={setFilters} >
+              <CharacterPage />
+            </Layout>
+          }/>
           <Route
             path="/characters"
             element={
@@ -81,14 +79,14 @@ function App() {
             }
           />
             <Route
-            path="/share"
-            element={
-              <Layout filters={filters} setFilters={setFilters} showAside={false}>
-                <SharePage />
-              </Layout>
-            }
-          />
-        <Route path="/compare" element={<ComparePage />} /> {/* 🔥 registro */}
+              path="/share"
+              element={
+                <Layout filters={filters} setFilters={setFilters} showAside={false}>
+                  <SharePage />
+                </Layout>
+            }/>
+          
+        <Route path="/compare" element={<Layout  filters={filters} setFilters={setFilters} showAside={true}> <ComparePage /></Layout>} />
         </Routes>
       </ComparisonProvider>
     </BrowserRouter>

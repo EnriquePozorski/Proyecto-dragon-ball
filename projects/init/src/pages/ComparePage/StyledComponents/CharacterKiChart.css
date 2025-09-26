@@ -1,0 +1,51 @@
+/* src/features/ComparePage/Styles/CharacterKiChart.css */
+
+.chart-card {
+  max-width: 860px;
+  margin: 24px auto;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.chart-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.chart-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.chart-title h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.chart-subtitle {
+  font-size: 12px;
+  color: #666;
+}
+
+.chart-wrapper {
+  height: 360px; /* Hace el gráfico responsive */
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .chart-card {
+    margin: 12px;
+    padding: 12px;
+  }
+  .chart-wrapper {
+    height: 280px;
+  }
+}

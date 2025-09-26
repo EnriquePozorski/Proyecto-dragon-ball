@@ -1,0 +1,78 @@
+.compare-page {
+  padding: 20px;
+  text-align: center;
+  background: #121212;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.compare-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vs-label {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 1rem;
+  align-self: center;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: red;
+}
+
+.history-section, .planet-section {
+  margin-top: 2rem;
+}
+
+.history-block, .planet-block {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.planet-info {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+.planet-img {
+  max-width: 150px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .card-wrapper {
+    flex-direction: column;
+  }
+
+  .history-block, .planet-block, .planet-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .planet-img {
+    margin-top: 1rem;
+  }
+}

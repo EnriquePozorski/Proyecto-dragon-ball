@@ -23,7 +23,7 @@ export default function CharacterCard({ character, onSelectCharacter }) {
   <button 
     className="card-add-btn" 
     onClick={(e) => {
-      e.stopPropagation(); 
+      e.stopPropagation();
       addCharacter(character);
     }}
   >

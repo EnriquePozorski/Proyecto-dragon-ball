@@ -35,6 +35,7 @@ export default function CharacterPage() {
     },
     ...(character.transformations?.filter((t) => t.name) || []),
   ];
+      console.log(character);
 
   const activeItem = transformations[activeIndex];
 
