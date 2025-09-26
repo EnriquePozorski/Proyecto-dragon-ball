@@ -1,0 +1,198 @@
+.compare-character-card {
+  position: relative;
+  width: 300px; /* antes 260px */
+  min-height: 480px; /* antes 420px */
+  background: linear-gradient(to bottom, #1c1c1c, #2a2a2a);
+  border-radius: 20px;
+  padding: 1.2rem;
+  text-align: center;
+  border: 2px solid #555;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInCard 0.6s ease forwards;
+}
+
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.character-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.compare-character-header h2 {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.race {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.compare-character-image{
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  transition: transform 0.8s ease;
+}
+
+.compare-character-card:hover .compare-character-image {
+  transform: scale(2.05);
+}
+
+.compare-carousel {
+    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.compare-carousel-content {
+  flex: 1;
+}
+.compare-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(to bottom, #ff9900, #ff6600);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 3; /* 👈 Asegura que esté por encima de otros elementos */
+}
+
+.compare-carousel-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.8);
+}
+.compare-carousel-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(100%) brightness(0.6);
+  box-shadow: none;
+}
+
+.compare-carousel-btn.next
+{    
+  right: 1rem;
+}
+
+
+.compare-carousel-btn.prev{
+  left: 1rem;
+}
+
+.transformation-name {
+  font-weight: bold;
+  color: #eee;
+}
+
+.counter {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.progress-bar {
+  background: #222;
+  height: 16px; /* antes 10px */
+  border-radius: 8px;
+  margin-top: 16px;
+  overflow: hidden;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.6);
+}
+
+.progress {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.6s ease;
+  background: linear-gradient(90deg, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff, #0000ff, #9900ff);
+  background-size: 300% 100%;
+  animation: powerFlow 6s ease-in-out infinite; /* 👈 Más lento y suave */
+
+}
+
+@keyframes powerFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+
+.compare-img-wrapper {
+  position: relative;
+}
+
+.winner-badge {
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  background: gold;
+  color: black;
+  padding: 0.4rem 0.8rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transform: rotate(-10deg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.compare-ki-wrapper {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.ki-radar {
+  width: 3.5rem;
+}
+
+.ki-value {
+  font-weight: bold;
+  color: #fff;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: radial-gradient(circle at center, #ff4d4d 0%, #b30000 100%);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.5), 0 0 2px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+}
+
+.remove-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 4px rgba(0, 0, 0, 0.4);
+  background: radial-gradient(circle at center, #ff1a1a 0%, #990000 100%);
+}

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Carousel from "../components/Carousel.jsx";
 import "./Home.css";
+import "../components/Carousel.css"
 
 export default function Home() {
   useEffect(() => {

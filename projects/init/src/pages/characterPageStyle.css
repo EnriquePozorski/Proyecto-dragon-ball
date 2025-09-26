@@ -230,8 +230,9 @@ font-size: smaller;
 }
 
 @media screen and (max-width: 810px) {
-      .character-page {
-    padding: 20px 15px 10px 15px;
+
+    .character-page {
+    padding: 40px 15px 10px 15px;
     }
   .character-title {
     font-size: 1.5rem;

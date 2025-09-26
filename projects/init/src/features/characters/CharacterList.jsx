@@ -68,9 +68,7 @@ export default function CharacterList({ filters }) {
       if (observerRef.current) observerRef.current.disconnect();
     };
   }, [loading, hasMore]);
-      console.log("se abri1o");
 
-  // Pagina con informacion del personaje
   const handleSelectCharacter = async (id) => {
     try {
       const character = await characterService.getCharacterById(id);

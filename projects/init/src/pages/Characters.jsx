@@ -6,7 +6,6 @@ import "./CharacterStyle.css";
 function Characters({ filters, setFilters }) {
   const location = useLocation();
 
-  // Obtenemos filtros desde query params
   const query = useMemo(() => new URLSearchParams(location.search), [location.search]);
 
   useEffect(() => {
@@ -17,7 +16,6 @@ function Characters({ filters, setFilters }) {
       affiliation: query.get("affiliation") || "",
     };
 
-    // Solo aplicamos filtros de la URL si existen (para no pisar los del aside)
     if (query.get("name") || query.get("gender") || query.get("race") || query.get("affiliation")) {
       setFilters((prev) => ({ ...prev, ...queryFilters }));
     }
@@ -26,7 +24,7 @@ function Characters({ filters, setFilters }) {
   return (
     <div className="characters-wrapper">
       <div className="divider">
-        <h1 className="title-character">Personajes</h1>
+        <h1 className="title-character welcome">Personajes</h1>
         <CharacterList filters={filters} />
       </div>
     </div>
