@@ -39,9 +39,9 @@ export default function ComparePage() {
 
   return (
     <div className="compare-page">
-      <h1>Comparación de personajes</h1>
+      <h1 className="welcome">Comparación de personajes</h1>
 
-      {/* ARRIBA: Cards de personajes */}
+   
       <div className="compare-container">
         {selectedCharacters.map((p, i) => (
           <div key={p.id} className="card-wrapper">
@@ -54,40 +54,6 @@ export default function ComparePage() {
               onRemove={handleRemoveCharacter}
             />
             {i < selectedCharacters.length - 1 && <div className="vs-label">VS</div>}
-          </div>
-        ))}
-      </div>
-
-      {/* HISTORIA */}
-      <h2>Historia</h2>
-      <div className="history-section">
-        {selectedCharacters.map((char) => (
-          <div className="history-block" key={char.id}>
-            <img src={char.image} alt={char.name} />
-            <div>
-              <h3>{char.name}</h3>
-              <p>{char.description || "Sin historia disponible"}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* PLANETAS */}
-      <h2>Planetas</h2>
-      <div className="planet-section">
-        {selectedCharacters.map((char) => (
-          <div className="planet-block" key={char.id}>
-            <div className="planet-info">
-              <img src={char.image} alt={char.name} />
-              <div>
-                <h3>{char.name}</h3>
-                <p>{char.planet?.description}</p>
-                <p>Estado: {char.planet?.destroyed ? "Destruido" : "Existente"}</p>
-              </div>
-            </div>
-            {char.planet?.image && (
-              <img src={char.planet.image} alt={char.planet.name} className="planet-img" />
-            )}
           </div>
         ))}
       </div>

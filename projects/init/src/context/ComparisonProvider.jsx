@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 import { ComparisonContext } from "./ComparisonContext.jsx";
 import { characterService } from "../services/characterService.js";
 
-//Para manejar estados globales
 
 export function ComparisonProvider ({ children }){
     const [characters, setCharacters] = useState([]);
-    //vamos a cargar desde el local storage al inicio
     useEffect(() => { 
         const guardados = JSON.parse(localStorage.getItem("personajes")) || [];
         setCharacters(guardados);    

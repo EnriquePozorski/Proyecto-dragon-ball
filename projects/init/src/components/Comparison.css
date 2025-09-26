@@ -77,9 +77,12 @@
 .personaje-img {
   width: 45px;
   height: 45px;
-  object-fit: cover;
+  object-fit: contain; /* 👈 mantiene proporción sin recortar */
+  object-position: center;
   border-radius: 50%;
   margin-right: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.1); /* opcional para contraste */
+  padding: 2px; /* opcional para que no se pegue al borde */
 }
 
 .personaje-info {
@@ -153,4 +156,24 @@
   .personaje-info p {
     font-size: 0.65rem;
   }
+}
+
+.comparison-btn{
+    display: inline-flex
+;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: background 0.3s 
+ease;
+}
+.comparison-btn:hover{
+    background:  #ffffff;
+    color: #f15a24;
 }

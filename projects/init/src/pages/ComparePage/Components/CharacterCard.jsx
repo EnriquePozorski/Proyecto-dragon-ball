@@ -25,28 +25,28 @@ export default function CharacterCard({ character, globalMax, isWinner, index, o
   };
 
   return (
-    <div className="character-card">
+    <div className="compare-character-card">
       <button className="remove-btn" onClick={() => onRemove(character.id)}>✕</button>
 
-      <div className="character-header">
+      <div className="compare-character-header">
         <h2>{character.name}</h2>
         <span className="race">{character.race}</span>
       </div>
 
-      <div className="carousel">
-        <button className="carousel-btn prev" onClick={handlePrev} disabled={index === 0}>
+      <div className="compare-carousel">
+        <button className="compare-carousel-btn prev" onClick={handlePrev} disabled={index === 0}>
           <FaArrowLeft />
         </button>
 
-        <div className="carousel-content">
-          <div className="img-wrapper">
-            <img src={current.image} alt={current.name} className="character-image" />
-            {isWinner && <span className="winner-badge">🏆 GANADOR</span>}
+        <div className="compare-carousel-content">
+          <div className="compare-img-wrapper">
+            <img src={current.image} alt={current.name} className="compare-character-image" />
+            {isWinner && <span className="winner-badge">GANADOR</span>}
           </div>
 
           <p className="transformation-name">{current.name}</p>
 
-          <div className="ki-wrapper">
+          <div className="compare-ki-wrapper">
             <img src={kiRadar} alt="Ki Radar" className="ki-radar" />
             <span className="ki-value">{current.ki}</span>
           </div>
@@ -54,7 +54,7 @@ export default function CharacterCard({ character, globalMax, isWinner, index, o
           <p className="counter">{index + 1} / {transformations.length}</p>
         </div>
 
-        <button className="carousel-btn next" onClick={handleNext} disabled={index === transformations.length - 1}>
+        <button className="compare-carousel-btn next" onClick={handleNext} disabled={index === transformations.length - 1}>
           <FaArrowRight />
         </button>
       </div>

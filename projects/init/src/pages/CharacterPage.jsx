@@ -4,22 +4,26 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./characterPageStyle.css";
 import { characterService } from "../services/characterService.js";
 import { FaShareAlt, FaArrowLeft, FaPlusCircle } from "react-icons/fa";
+import { useContext } from "react";
+import { ComparisonContext } from "../../src/context/ComparisonContext.jsx";
 
 export default function CharacterPage() {
+  const { characters, addCharacter, removeCharacter } = useContext(ComparisonContext);
+
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [character, setCharacter] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // ✅ Traer personaje desde la API
+
   useEffect(() => {
     characterService.getCharacterById(id).then(setCharacter);
   }, [id]);
 
-  // ✅ Guardar en "últimos visitados"
+
   useEffect(() => {
-    if (!character) return; // ⛔ no correr si todavía no hay personaje
+    if (!character) return; 
 
     const visited = JSON.parse(localStorage.getItem("recentCharacters")) || [];
 
@@ -37,12 +41,12 @@ export default function CharacterPage() {
     localStorage.setItem("recentCharacters", JSON.stringify(updated));
   }, [character]);
 
-  // ✅ Reiniciar carrusel al cargar personaje
+ 
   useEffect(() => {
     setActiveIndex(0);
   }, [character]);
 
-  // ✅ Scroll al inicio
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
@@ -68,6 +72,15 @@ export default function CharacterPage() {
     );
   const next = () => setActiveIndex((i) => (i + 1) % transformations.length);
 
+   const isSelected = characters.some(c => c.id === id);
+    const handleToggle = (e) => {
+    e.stopPropagation();
+    if (isSelected) {
+      removeCharacter(id);
+    } else {
+      addCharacter(character);
+    }
+  };
   return (
     <div className="character-page">
       <div className="top-page">
@@ -104,7 +117,7 @@ export default function CharacterPage() {
           >
             <FaShareAlt />
           </button>
-          <button className="vs-btn">
+          <button className="vs-btn" onClick={handleToggle}>
             <FaPlusCircle />
           </button>
         </div>

@@ -60,7 +60,7 @@ export default function Planets() {
 
   return (
     <div className="planets-page">
-      <h2>Planetas</h2>
+      <h2 className="welcome">Planetas</h2>
 
       <div className="planet-grid">
         {planets.map((planet) => (

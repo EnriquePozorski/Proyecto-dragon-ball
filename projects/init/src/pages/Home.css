@@ -239,8 +239,9 @@
 }
 
 @media (max-width: 480px) {
+
   .home-container {
-    padding: 1rem;
+    padding: 3rem;
   }
 
   .hero-title {

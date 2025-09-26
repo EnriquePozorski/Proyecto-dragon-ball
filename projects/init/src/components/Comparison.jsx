@@ -45,7 +45,7 @@ export default function Comparison() {
             ))}
           </ul>
           {characters.length > 1 && (
-            <button onClick={handleCompare}>Comparar</button>
+            <button className="comparison-btn" onClick={handleCompare}>Comparar</button>
           )}
         </div>
       )}
