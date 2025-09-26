@@ -63,16 +63,17 @@
   }
 }
 
-/* Móviles medianos (hasta 600px) */
+
 @media (max-width: 600px) {
   .grid {
     grid-template-columns: repeat(2, 1fr); /* forzamos dos columnas */
     gap: 0.8rem;
     padding: 1rem;
+    justify-items: center;
   }
 }
 
-/* Móviles chicos (hasta 400px) */
+
 @media (max-width: 400px) {
   .list-wrapper {
     display: flex;
