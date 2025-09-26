@@ -1,0 +1,368 @@
+.home-user {
+  padding: 2rem;
+  color: #fff;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+}
+
+.welcome {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  color: #FFD700;
+  text-shadow: 
+    2px 2px 0 #000, 
+    4px 4px 10px rgba(0,0,0,0.5);
+  transform: translateZ(30px);
+}
+
+
+
+.section {
+  margin: 2.5rem auto;
+  padding: 2rem;
+  max-width: 1800px;
+  background: linear-gradient(135deg, #555353, #e0e0e0); 
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(0,0,0,0.6); 
+}
+
+.section:hover {
+  
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+
+}
+
+.section h2 {
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.555);
+  margin-bottom: 1.5rem;
+}
+
+.card-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+}
+
+.char-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  width: 120px;        
+  padding: 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+}
+
+.char-card img {
+  width: 100%;
+  height: 250px;       
+  object-fit: cover;    
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.char-card p {
+  margin: 0;
+  height: 2rem;       
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;  
+}
+
+
+.char-card:hover {
+  transform: scale(1.05);
+}
+
+a {
+  color: inherit;          
+  text-decoration: none;  
+}
+
+a:hover {
+  color: #ff9800;         
+  text-decoration: none;  
+}
+
+
+
+
+.quick-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.quick-btn {
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative; 
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+  background-size: cover;
+  background-position: center;
+}
+
+.quick-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4); 
+  border-radius: 50%;
+  z-index: 1;
+  transition: background 0.3s;
+}
+.quick-btn span {
+  position: relative;
+  z-index: 2; 
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+.villano{
+    background-image: url("../assets/img/villanos.webp");
+}
+.humano{
+    background-image: url("../assets/img/humanos.jpg");
+}
+.saiyajin{
+    background-image: url("../assets/img/saiyajins.jpg");
+}
+.androide{
+    background-image: url("../assets/img/androides.jpg");
+}
+.guerrero-z{
+    background-image: url("../assets/img/guerreros-z.jpg");
+}
+/* Hover effect */
+.quick-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  filter: brightness(1.1);
+}
+
+.quick-btn:hover::before {
+  background: rgba(0,0,0,0.25); 
+}
+
+.big-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.big-card {
+  width: 40%;
+  min-width: 400px;
+  padding: 2rem;
+  padding-bottom: 8rem;
+  padding-top: 8rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff9800, #f44336);
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s;
+  background-image: url("../assets/img/personajes.webp");
+}
+
+.big-card:hover {
+  transform: translateY(-5px);
+}
+.character{
+    background-image: url("../assets/img/personajes.webp");
+}
+.planet{
+    background-image: url("../assets/img/planetas.jpg");
+}
+
+.villano,
+.humano,
+.saiyajin,
+.androide,
+.guerrero-z,
+.character,
+.planet,
+.big-card {
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+
+
+@media (max-width: 1200px) {
+  .char-card {
+    width: 100px;
+  }
+
+  .char-card img {
+    height: 200px;
+  }
+
+  .quick-btn {
+    width: 150px;
+    height: 150px;
+  }
+
+  .big-card {
+    width: 45%;
+    padding: 3rem 2rem;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .card-grid {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .char-card {
+    width: 100px;
+  }
+
+  .char-card img {
+    height: 180px;
+  }
+
+  .quick-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .quick-btn {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .big-cards {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .big-card {
+    width: 90%;
+    padding: 2rem 1rem;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .welcome {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.3rem;
+  }
+
+  .char-card {
+    width: 80px;
+  }
+
+  .char-card img {
+    height: 140px;
+  }
+
+  .char-card p {
+    font-size: 0.75rem;
+    height: 1.2rem;
+  }
+
+  .quick-btn {
+    width: 100px;
+    height: 100px;
+    padding: 0.4rem;
+  }
+
+  .big-card {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+.section {
+  width: 100%;
+  max-width: 100%; 
+  margin: 2.5rem auto;
+  padding: 2rem;
+  border-radius: 15px;
+  overflow: hidden; 
+}
+
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+
+.big-cards {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+
+.big-card {
+  max-width: 95%; 
+  width: 45%; 
+  min-width: 300px; 
+}

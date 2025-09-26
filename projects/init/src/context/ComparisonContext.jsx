@@ -5,13 +5,13 @@ export const ComparisonContext = createContext();
 export function ComparisonProvider ({ children }){
     const [characters, setCharacters] = useState([]);
     
-    //vamos a cargar desde el local storage al inicio
+
     useEffect(() => { 
         const guardados = JSON.parse(localStorage.getItem("personajes")) || [];
         setCharacters(guardados);    
     }, []);
 
-    //guardar en el localStorage cuando cambie
+
     useEffect(() => {
         localStorage.setItem("personajes", JSON.stringify(characters))
     },[characters]);

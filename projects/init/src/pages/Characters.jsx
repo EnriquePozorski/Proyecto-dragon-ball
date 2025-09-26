@@ -1,29 +1,38 @@
+import { useEffect, useMemo } from "react";
+import { useLocation } from "react-router-dom";
 import CharacterList from "../features/characters/CharacterList";
 import "./CharacterStyle.css";
-//import dragonballImg from "../assets/img/dragon-ball-z-3840x2160.jpg";
 
+function Characters({ filters, setFilters }) {
+  const location = useLocation();
 
+  // Obtenemos filtros desde query params
+  const query = useMemo(() => new URLSearchParams(location.search), [location.search]);
 
+  useEffect(() => {
+    const queryFilters = {
+      name: query.get("name") || "",
+      gender: query.get("gender") || "",
+      race: query.get("race") || "",
+      affiliation: query.get("affiliation") || "",
+    };
 
+    // Solo aplicamos filtros de la URL si existen (para no pisar los del aside)
+    if (query.get("name") || query.get("gender") || query.get("race") || query.get("affiliation")) {
+      setFilters((prev) => ({ ...prev, ...queryFilters }));
+    }
+  }, [query, setFilters]);
 
-
-function Characters({ filters }) {
   return (
-
     <div className="characters-wrapper">
-      {/* <h1 className="title">Dragon Ball</h1>
-      <div className="hero">
-        <img src={dragonballImg} className="img-character" alt="Dragon Ball Z" />
-        <div className="overlay"></div> 
-      </div> */}
       <div className="divider">
         <h1 className="title-character">Personajes</h1>
-        {/* 👇 usamos el filtro que viene del Aside */}
         <CharacterList filters={filters} />
       </div>
     </div>
-  )
+  );
 }
 
 export default Characters;
+
 

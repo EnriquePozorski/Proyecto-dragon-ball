@@ -9,14 +9,14 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* 🗺️ Mapa */}
+   
         <MapComponent
           latitud={-34.9227408045059}
           longitud={-57.95626086708341}
-          nombre="Buenos Aires"
+          nombre="Innovatech"
         />
 
-        {/* 📍 Contenido */}
+   
         <div className="footer-content">
           <div className="top-info">
             <div className="location-info">

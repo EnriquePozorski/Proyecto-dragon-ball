@@ -6,7 +6,7 @@ export class CharacterService {
   async getAll(page = 1, limit = 10) {
     const url = `${this.URL}?page=${page}&limit=${limit}`;
     const res = await fetch(url);
-    return await res.json(); // ya trae { items, meta, links }
+    return await res.json(); 
   }
 
   async getCharacterById(id) {
@@ -26,7 +26,7 @@ export class CharacterService {
     const res = await fetch(url);
     const data = await res.json();
 
-    // 👇 unificar formato
+
     if (Array.isArray(data)) {
       return { 
         items: data, 
@@ -34,7 +34,7 @@ export class CharacterService {
       };
     }
 
-    return data; // si ya es { items, meta }
+    return data; 
   }
 }
 
