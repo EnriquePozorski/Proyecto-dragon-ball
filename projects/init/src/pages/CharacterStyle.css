@@ -17,8 +17,10 @@
 
 .title-character {
   text-align: center;
-  color: rgb(0, 0, 0);
-  font-size: 2.5rem;
+  
+    color: #fff;
+    font-size: 3.5rem;
+
   margin-bottom: 20px;
 }
 
@@ -29,7 +31,7 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* ocupa toda la pantalla */
+  height: 100vh; 
   overflow: hidden;
 }
 
@@ -53,18 +55,21 @@
 
 .filters input {
   width: 600px;
-  max-width: 90%; /* 👈 evita que se corte en mobile */
+  max-width: 90%; 
   padding: 10px;
   border: none;
   border-radius: 5px;
 }
 
-/* 📱 RESPONSIVE */
+
 @media (max-width: 1024px) {
   .title {
     font-size: 2.2rem;
     top: 30vh;
     left: 30px;
+  }
+  .characters-wrapper{
+    margin-top: 10px;
   }
 
   .title-character {

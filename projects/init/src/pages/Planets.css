@@ -1,0 +1,92 @@
+.planets-page {
+  padding: 2rem;
+  text-align: center;
+  
+  min-height: 100vh;
+}
+.planets-page h2{
+    color: #fff;
+    font-size: 3.5rem;
+}
+
+.planet-grid {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 1.5rem;
+  justify-content: center; 
+  margin-top: 2rem;
+}
+
+.planet-card {
+  height: 500px;
+  width: 300px;
+  
+  background: linear-gradient(145deg, #3b3a3a6e, #ce8a3d, #4e4e4e);
+  color: white;
+  padding: 1rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.planet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.planet-image {
+  width: 100%;
+  height: 50%;
+  object-fit: cover; 
+  border-radius: 5%; 
+  margin-bottom: 1rem;
+  background-color: #ffa726;
+}
+
+
+.planet-card h3 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+  height: 10%;
+}
+
+.planet-card p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  text-align: justify; 
+}
+.descripcion{
+    height: 20%;
+}
+.destruido{
+    height: 10%;
+}
+
+.pagination {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  background: #888;
+  cursor: not-allowed;
+}

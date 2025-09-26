@@ -12,30 +12,38 @@ import {ComparisonProvider} from "./context/ComparisonProvider.jsx";
 import SharePage from "./components/Share/Share.jsx";
 import CharacterPage from "./pages/CharacterPage.jsx";
 import { useLocation } from "react-router-dom";
-import ComparePage from "./pages/ComparePage/ComparePage.jsx";
-
+import HomeUser from "./pages/HomeUser.jsx";
+import Planets from "./pages/Planets.jsx";
+import PlanetDetail from "./pages/PlanetDetail.jsx";
+import ComparePage from "./pages/ComparePage/ComparePage.jsx"
 
 function Layout({ children, filters, setFilters, showAside = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation(); 
+  
+  const [asideOpen, setAsideOpen] = useState(false); // controla el aside
 
   const isHome = location.pathname === "/"; 
 
   return (
     <div className="layout">
-      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} isHome={isHome} />
+      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} isHome={isHome}asideOpen={asideOpen} 
+        setAsideOpen={setAsideOpen} />
+      
 
       <div className="layout-body">
         {showAside && (
           <Aside
             filters={filters}
             setFilters={setFilters}
-            open={menuOpen}
-            setOpen={setMenuOpen}
+            open={asideOpen}   // ← antes usabas menuOpen
+            setOpen={setAsideOpen} // ← ahora controlás con asideOpen
             hideOnDesktop={isHome} 
           />
+
         )}
-        <main className="layout-main">{children}</main>
+
+        <main className={`layout-main ${isHome ? "home-main" : ""}`}>{children}</main>
       </div>
       <Footer />
     </div>
@@ -66,27 +74,53 @@ function App() {
         <Route
           path="/character/:id"
           element={
-            <Layout filters={filters} setFilters={setFilters} >
+            <Layout filters={filters} setFilters={setFilters} showAside={true}>
               <CharacterPage />
             </Layout>
-          }/>
+          }
+        />
           <Route
             path="/characters"
             element={
               <Layout filters={filters} setFilters={setFilters}>
-                <Characters filters={filters} />
+                <Characters filters={filters} setFilters={setFilters} />
               </Layout>
             }
           />
-            <Route
-              path="/share"
-              element={
-                <Layout filters={filters} setFilters={setFilters} showAside={false}>
-                  <SharePage />
-                </Layout>
-            }/>
+          <Route path="/compare" element={<Layout  filters={filters} setFilters={setFilters} showAside={true}> <ComparePage /></Layout>} />
+          <Route
+            path="/share"
+            element={
+              <Layout filters={filters} setFilters={setFilters} showAside={false}>
+                <SharePage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/home"
+            element={
+              <Layout filters={filters} setFilters={setFilters} showAside={true}>
+                <HomeUser />
+              </Layout>
+            }
+          />
+          <Route
+            path="/planets"
+            element={
+              <Layout filters={filters} setFilters={setFilters}>
+                <Planets />
+              </Layout>
+            }
+          />
+          <Route
+            path="/planet/:id"
+            element={
+              <Layout filters={filters} setFilters={setFilters} >
+                <PlanetDetail />
+              </Layout>
+            }
+          />
           
-        <Route path="/compare" element={<Layout  filters={filters} setFilters={setFilters} showAside={true}> <ComparePage /></Layout>} />
         </Routes>
       </ComparisonProvider>
     </BrowserRouter>

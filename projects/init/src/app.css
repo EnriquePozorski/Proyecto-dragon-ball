@@ -1,4 +1,4 @@
-/* --- Reset y fuente --- */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,14 +6,13 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* Layout general */
 .layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Header */
 .layout > header {
   width: 100%;
   color: white;
@@ -21,13 +20,15 @@
   text-align: center;
 }
 
-/* Contenedor body: aside + main */
+
 .layout-body {
   flex: 1;
   display: flex;
+  overflow: hidden;
+  background-image: url("../src/assets/img/fondo/6.png");
 }
 
-/* Aside */
+
 .layout-body aside {
   width: 15%;
   max-width: 400px;
@@ -36,20 +37,36 @@
   color: white;
   padding: 20px;
   padding-top: 40px;
-  position: sticky;
+  position: fixed;
   top: 130px;
-  align-self: flex-start;
-  height: fit-content;
+  left: 0;
+  height: calc(100vh - 130px);
+  overflow-y: auto;
+  z-index: 999;
   transition: all 0.3s ease-in-out;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.6);
 }
 
-/* Main */
+
 .layout-main {
   flex: 1;
-  background: linear-gradient(to bottom, rgba(146, 146, 146, 0.418), #3a3a3a);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: auto;
+  margin-left: 15%;
+
+  max-width: 2800px;
+  min-height: calc(100vh - 130px - 250px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: auto;
+}
+.layout-main.home-main {
+  margin-left: 0;
 }
 
-/* Footer */
 .layout > footer {
   width: 100%;
   height: 250px;
@@ -58,35 +75,37 @@
   padding: 10px;
   text-align: center;
   padding-top: 30px;
+  z-index: 3000;
 }
 
-/* --- MEDIA QUERIES RESPONSIVE --- */
-
-/* Responsive: tablets y móviles */
 @media (max-width: 1024px) {
   .layout-body aside {
-    position: fixed; /* sale del flujo */
+    position: fixed;
     top: 0;
     left: 0;
     width: 250px;
     height: 100vh;
-    transform: translateX(-100%); /* escondido por defecto */
+    transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
   }
 
   .layout-body aside.open {
-    transform: translateX(0); /* visible cuando se abre */
+    transform: translateX(0);
   }
 }
 
-/* Celulares (pantallas chicas) */
 @media (max-width: 960px) {
   .layout-body {
     flex-direction: column;
-    margin-top: 10px;
+    
+    
   }
-
+   .layout-main {
+    margin-left: 0; 
+    width: 100%;    
+   
+  }
 
   .layout > footer {
     height: auto;

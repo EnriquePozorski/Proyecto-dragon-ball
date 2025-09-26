@@ -50,14 +50,14 @@
 .character-card:hover .character-image {
   transform: scale(2.05);
 }
-
+/*
 .carousel {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
 }
-
+*/
 .carousel-content {
   flex: 1;
 }

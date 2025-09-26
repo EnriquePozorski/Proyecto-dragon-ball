@@ -39,14 +39,14 @@
   border-radius: 12px;
   transition: transform 0.3s ease, background 0.3s ease;
 }
-/* Home.css */
+
 .feature-card {
   background: rgba(255, 255, 255, 0.05);
   padding: 3.5rem;
   border-radius: 12px;
   transition: transform 0.3s ease, background 0.3s ease;
   
-  /* Inicialmente invisibles */
+ 
   opacity: 0;
   transform: translateY(40px);
 }
@@ -75,7 +75,6 @@
   padding: 8rem;
   background: rgba(14, 13, 13, 0.014);
   border-radius: 12px;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
   text-align: center;
 }
 
@@ -83,7 +82,6 @@
   font-size: 2rem;
   color: #ffcc00;
   margin-bottom: 1rem;
-  /* text-shadow: 2px 2px 6px #000; */
 }
 
 .nostalgia-text {
@@ -91,18 +89,18 @@
   line-height: 1.6;
   color: #eee;
 }
-/* Inicial (invisibles) */
+
 .feature-card, 
 .nostalgia {
   opacity: 0;
   transform: translateX(100px) scale(0.9);
 }
 
-/* Animación cuando aparecen */
+
 .feature-card.show {
   opacity: 1;
   transform: translateX(0) scale(1);
-  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* resorte */
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
 }
 
 .nostalgia.show {
@@ -111,7 +109,7 @@
   transition: all 0.8s ease-out;
 }
 
-/* Features generales */
+
 .feature-card {
   background: rgba(255, 255, 255, 0.05);
   padding: 5.5rem;
@@ -124,14 +122,13 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Nostalgia */
+
 .nostalgia {
   margin: 4rem auto;
   max-width: 1200px;
   padding: 8rem;
   background: rgba(14, 13, 13, 0.014);
   border-radius: 12px;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
   text-align: center;
   transform: translateY(40px) scale(0.9);
 }
@@ -140,7 +137,6 @@
   font-size: 2rem;
   color: #ffcc00;
   margin-bottom: 1rem;
-  /* text-shadow: 2px 2px 6px #000; */
 }
 
 .nostalgia-text {
@@ -157,14 +153,11 @@
   color: white;
   border-radius: 20px;
   overflow: hidden;
-
-  /* Imagen de fondo */
   background-image: url("../assets/img/home1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  /* Overlay de difuminado en costados */
 }
 .nostal-container::before {
   content: "";
@@ -172,16 +165,16 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    #0d0d0d 0%,          /* color del fondo de tu página */
+    #0d0d0d 0%,        
     transparent 10%,
     transparent 95%,
-    #0d0d0d 100%         /* vuelve al color del fondo */
+    #0d0d0d 100%        
   );
   z-index: 1;
-  pointer-events: none; /* no bloquea clics */
+  pointer-events: none; 
 }
 
-/* Overlay para contraste del texto */
+
 .nostal-container::after {
   content: "";
   position: absolute;
@@ -195,7 +188,7 @@
   z-index: 3;
 }
 
-/* 📱 Tablets */
+
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 2.5rem;
@@ -214,7 +207,7 @@
   }
 }
 
-/* 📱 Mobile mediano */
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2rem;
@@ -224,7 +217,7 @@
   }
 
   .features {
-    grid-template-columns: 1fr; /* una card por fila */
+    grid-template-columns: 1fr; 
     gap: 1.5rem;
   }
 
@@ -245,7 +238,6 @@
   }
 }
 
-/* 📱 Mobile chico */
 @media (max-width: 480px) {
   .home-container {
     padding: 1rem;

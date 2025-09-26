@@ -1,0 +1,205 @@
+
+.planet-detail-page {
+  max-width: 1500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  color: #eee;
+  text-align: center;
+}
+
+
+.planet-detail-page h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #ff9800;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+
+.planet-detail-image {
+  max-width: 350px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.5);
+  margin: 1rem 0;
+}
+
+.planet-detail-page p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #ddd;
+}
+
+
+.planet-info {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.planet-info p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+
+.planet-detail-page h3 {
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  color: #ffcc80;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.character-card {
+  background: linear-gradient(145deg, #292929, #1c1c1c);
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 152, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 240px; 
+}
+
+.character-image {
+  width: 100%;
+  height: 160px; 
+  object-fit: cover; 
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+
+.character-card p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffcc80;
+  word-wrap: break-word; 
+}
+
+
+.scroll-top-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.6rem;
+  background: #ff9800;
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.scroll-top-btn:hover {
+  background: #ffcc80;
+  transform: translateY(-3px);
+}
+
+.planet-detail-wrapper {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.planet-detail-wrapper .back-btn {
+  position: absolute;
+  top: 2.5rem;   
+  left: 1rem; 
+  padding: 0.6rem 1.2rem;
+  background:rgba(0,0,0,0.6);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+  z-index: 1000;  
+}
+
+
+.planet-detail-wrapper .back-btn:hover {
+  background:  #f15a24;
+  
+}
+
+
+.planet-detail-page {
+  margin-top: 2.5rem; 
+  padding: 2rem;
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  color: #eee;
+  text-align: center;
+}
+
+
+.planet-detail-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.5);
+  margin: 1rem 0;
+  margin-bottom:40px;
+}
+
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+
+.character-card {
+  background: linear-gradient(145deg, #292929, #1c1c1c);
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 152, 0, 0.2);
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.character-image {
+  width: 100%;
+  height: 160px;
+  object-fit: contain; 
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+@media screen and (max-width: 490px) {
+    .planet-detail-wrapper .back-btn {
+        top: 3.0rem;
+    }
+}
