@@ -56,9 +56,9 @@ export default function PlanetDetail() {
     {planet.characters && planet.characters.length > 0 && (
       <>
         <h3>Personajes del planeta</h3>
-        <div className="character-grid">
+        <div className="character-grid-planet">
           {planet.characters.map((char) => (
-            <div key={char.id} className="character-card">
+            <div key={char.id} className="character-card-planet">
               <img
                 src={char.image || "https://via.placeholder.com/100"}
                 alt={char.name}

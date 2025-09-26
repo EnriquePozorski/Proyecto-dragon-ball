@@ -20,7 +20,7 @@ export default function Carousel() {
   }, [images.length]);
 
   return (
-    <div className="carousel-conainer">
+    <div className="carousel-container">
       {images.map((img, index) => (
         <img
           key={index}
