@@ -4,12 +4,14 @@
   background-color: #1e1e2f;
   color: #fff;
   padding: 20px;
-
+  box-shadow: 4px 0 30px rgba(0,0,0,0.6);
   min-height: 100vh;
   position: relative;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
 }
+
+
 
 /* Título */
 .aside-title {
@@ -78,12 +80,29 @@
   margin-bottom: 5px;
   font-weight: bold;
 }
+/* Selects estilo moderno / Dragon Ball */
 .filter-group select {
   width: 100%;
-  padding: 6px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid #f15a24; /* borde naranja */
+  background: #fff;       /* mismo color que el aside */
+  color: #000000;
+  font-size: 1rem;
+  appearance: none;           /* elimina estilo nativo */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+/* Hover y focus */
+.filter-group select:hover,
+.filter-group select:focus {
+  border-color: #ffd700; /* amarillo estilo Dragon Ball */
+ 
+  outline: none;
 }
 
 /* Botón hamburguesa */

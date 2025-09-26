@@ -13,10 +13,13 @@ export default function Header({ menuOpen, setMenuOpen, isHome }) {
       <nav className={`hd-nav`}>
         <ul className="hd-nav-links">
           <li>
-            <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
+            <Link to="/home" onClick={() => setMenuOpen(false)}>Inicio</Link>
           </li>
           <li>
             <Link to="/characters" onClick={() => setMenuOpen(false)}>Personajes</Link>
+          </li>
+          <li>
+            <Link to="/planets" onClick={() => setMenuOpen(false)}>Planetas</Link>
           </li>
         </ul>
       </nav>

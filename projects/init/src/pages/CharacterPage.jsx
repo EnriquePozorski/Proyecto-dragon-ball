@@ -1,28 +1,51 @@
+// src/pages/CharacterPage.jsx
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./characterPageStyle.css";
 import { characterService } from "../services/characterService.js";
-import { FaShareAlt, FaArrowLeft, FaPlus, FaPlusCircle } from "react-icons/fa";
+import { FaShareAlt, FaArrowLeft, FaPlusCircle } from "react-icons/fa";
 
 export default function CharacterPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
 
-  // ✅ Inicializamos bien los estados
-  const [character, setCharacter] = useState(location.state?.character || null);
+  const [character, setCharacter] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // ✅ Traer personaje desde la API
   useEffect(() => {
-    if (!character) {
-      // Si no lo recibimos desde state, lo pedimos por la API
-      characterService.getCharacterById(id).then(setCharacter);
-    }
+    characterService.getCharacterById(id).then(setCharacter);
   }, [id]);
 
+  // ✅ Guardar en "últimos visitados"
   useEffect(() => {
-    setActiveIndex(0); // reinicia el carrusel al cargar nuevo personaje
+    if (!character) return; // ⛔ no correr si todavía no hay personaje
+
+    const visited = JSON.parse(localStorage.getItem("recentCharacters")) || [];
+
+    const newEntry = {
+      id: character.id,
+      name: character.name,
+      image: character.image,
+    };
+
+    const filtered = visited.filter((item) => item.id !== character.id);
+    const updated = [newEntry, ...filtered];
+
+    if (updated.length > 10) updated.pop();
+
+    localStorage.setItem("recentCharacters", JSON.stringify(updated));
   }, [character]);
+
+  // ✅ Reiniciar carrusel al cargar personaje
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [character]);
+
+  // ✅ Scroll al inicio
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   if (!character) return <p>Cargando personaje...</p>;
 
@@ -44,18 +67,15 @@ export default function CharacterPage() {
     );
   const next = () => setActiveIndex((i) => (i + 1) % transformations.length);
 
-    useEffect(() => {
-    window.scrollTo(0, 0); 
-  }, [id]);
-
   return (
     <div className="character-page">
-     <div className="top-page">
-  <button className="back-btn" onClick={() => navigate(-1)}>
-    <FaArrowLeft /> <span className="back-text">Regresar</span>
-  </button>
-  <h1 className="character-title">{character.name}</h1>
-</div>
+      <div className="top-page">
+        <button className="back-btn" onClick={() => navigate(-1)}>
+          <FaArrowLeft /> <span className="back-text">Regresar</span>
+        </button>
+        <h1 className="character-title">{character.name}</h1>
+      </div>
+
       <div className="character-layout">
         {/* Carrusel */}
         <div className="carousel">
@@ -77,13 +97,13 @@ export default function CharacterPage() {
           </p>
           <button
             className="share-btn"
-            onClick={() => navigate("/share", { state: { result: activeItem } })}
+            onClick={() =>
+              navigate("/share", { state: { result: activeItem } })
+            }
           >
             <FaShareAlt />
           </button>
-          <button
-            className="vs-btn"  
-          >
+          <button className="vs-btn">
             <FaPlusCircle />
           </button>
         </div>

@@ -1,0 +1,224 @@
+.home-user {
+  padding: 2rem;
+  color: #fff;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+}
+
+.welcome {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  color: #FFD700;
+  text-shadow: 
+    2px 2px 0 #000, 
+    4px 4px 10px rgba(0,0,0,0.5);
+  transform: translateZ(30px);
+}
+
+/* favoritos y visitados */
+
+.section {
+  margin: 2.5rem auto;
+  padding: 2rem;
+  max-width: 1800px;
+  background: linear-gradient(135deg, #555353, #e0e0e0); /* degradado suave */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(0,0,0,0.6); /* semitransparente para ver el fondo */
+}
+
+.section:hover {
+  
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+
+}
+
+.section h2 {
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.555);
+  margin-bottom: 1.5rem;
+}
+
+.card-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+}
+
+.char-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  width: 120px;         /* ancho fijo */
+  padding: 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+}
+
+.char-card img {
+  width: 100%;
+  height: 250px;        /* altura fija */
+  object-fit: cover;    /* mantiene proporción y recorta si hace falta */
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.char-card p {
+  margin: 0;
+  height: 2rem;         /* altura fija para que todos los nombres estén alineados */
+  display: flex;
+  align-items: center;  /* centra el texto verticalmente */
+  justify-content: center;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;  /* evita que el texto se rompa en varias líneas */
+}
+
+
+.char-card:hover {
+  transform: scale(1.05);
+}
+
+a {
+  color: inherit;          /* toma el color del contenedor o poné el que quieras */
+  text-decoration: none;   /* quita el subrayado */
+}
+
+a:hover {
+  color: #ff9800;          /* opcional: color al pasar el mouse */
+  text-decoration: none;   /* mantiene sin subrayado al hover */
+}
+
+
+/* accesos directos */
+
+.quick-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.quick-btn {
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative; /* Para poder usar overlay */
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+  background-size: cover;
+  background-position: center;
+}
+/* Overlay oscuro para resaltar texto */
+.quick-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4); /* sombra semitransparente */
+  border-radius: 50%;
+  z-index: 1;
+  transition: background 0.3s;
+}
+.quick-btn span {
+  position: relative;
+  z-index: 2; /* Para que el texto quede por encima del overlay */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+.villano{
+    background-image: url("../assets/img/villanos.webp");
+}
+.humano{
+    background-image: url("../assets/img/humanos.jpg");
+}
+.saiyajin{
+    background-image: url("../assets/img/saiyajins.jpg");
+}
+.androide{
+    background-image: url("../assets/img/androides.jpg");
+}
+.guerrero-z{
+    background-image: url("../assets/img/guerreros-z.jpg");
+}
+/* Hover effect */
+.quick-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  filter: brightness(1.1);
+}
+
+.quick-btn:hover::before {
+  background: rgba(0,0,0,0.25); /* overlay un poco más claro al hover */
+}
+
+.big-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.big-card {
+  width: 40%;
+  min-width: 400px;
+  padding: 2rem;
+  padding-bottom: 8rem;
+  padding-top: 8rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff9800, #f44336);
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s;
+  background-image: url("../assets/img/personajes.webp");
+}
+
+.big-card:hover {
+  transform: translateY(-5px);
+}
+.character{
+    background-image: url("../assets/img/personajes.webp");
+}
+.planet{
+    background-image: url("../assets/img/planetas.jpg");
+}
+
+.villano,
+.humano,
+.saiyajin,
+.androide,
+.guerrero-z,
+.character,
+.planet,
+.big-card {
+    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}

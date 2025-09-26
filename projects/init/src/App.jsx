@@ -12,6 +12,9 @@ import {ComparisonProvider} from "./context/ComparisonContext.jsx";
 import SharePage from "./components/Share/Share.jsx";
 import CharacterPage from "./pages/CharacterPage.jsx";
 import { useLocation } from "react-router-dom";
+import HomeUser from "./pages/HomeUser.jsx";
+import Planets from "./pages/Planets.jsx";
+import PlanetDetail from "./pages/PlanetDetail.jsx";
 
 function Layout({ children, filters, setFilters, showAside = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,7 +37,7 @@ function Layout({ children, filters, setFilters, showAside = true }) {
           />
         )}
 
-        <main className="layout-main">{children}</main>
+        <main className={`layout-main ${isHome ? "home-main" : ""}`}>{children}</main>
       </div>
       <Footer />
     </div>
@@ -62,27 +65,51 @@ function App() {
               </Layout>
             }
           />
-        <Route
-  path="/character/:id"
-  element={
-    <Layout filters={filters} setFilters={setFilters} showAside={false}>
-      <CharacterPage />
-    </Layout>
-  }
-/>
+          <Route
+            path="/character/:id"
+            element={
+              <Layout filters={filters} setFilters={setFilters} showAside={true}>
+                <CharacterPage />
+              </Layout>
+            }
+          />
           <Route
             path="/characters"
             element={
               <Layout filters={filters} setFilters={setFilters}>
-                <Characters filters={filters} />
+                <Characters filters={filters} setFilters={setFilters} />
               </Layout>
             }
           />
-            <Route
+          <Route
             path="/share"
             element={
               <Layout filters={filters} setFilters={setFilters} showAside={false}>
                 <SharePage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/home"
+            element={
+              <Layout filters={filters} setFilters={setFilters} showAside={true}>
+                <HomeUser />
+              </Layout>
+            }
+          />
+          <Route
+            path="/planets"
+            element={
+              <Layout filters={filters} setFilters={setFilters}>
+                <Planets />
+              </Layout>
+            }
+          />
+          <Route
+            path="/planet/:id"
+            element={
+              <Layout filters={filters} setFilters={setFilters}>
+                <PlanetDetail />
               </Layout>
             }
           />
