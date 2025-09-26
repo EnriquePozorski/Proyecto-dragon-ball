@@ -5,7 +5,7 @@ import "./HomeUser.css";
 
 
 function HomeUser() {
-  // Simulación de datos (después podés traerlos de context o localStorage)
+
   const favoritos = [
     { id: 1, name: "Goku", image: "https://dragonball-api.com/characters/goku.jpg" },
     { id: 2, name: "Vegeta", image: "https://dragonball-api.com/characters/vegeta.jpg" },
@@ -39,7 +39,7 @@ function HomeUser() {
         </div>
       </section>
 
-      {/* Últimos visitados */}
+
       <section className="section">
         <h2>🕓 Últimos visitados</h2>
         <div className="card-grid">

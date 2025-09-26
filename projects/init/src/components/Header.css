@@ -48,7 +48,6 @@ body {
   color: #ffe600;
 }
 
-/* --- Botón hamburguesa (oculto en desktop) --- */
 .hd-toggle {
   display: none;
   background: transparent;
@@ -61,12 +60,11 @@ body {
   z-index: 1100;
 }
 
-/* Comparison visible en desktop */
 .hd-comparison {
   grid-column: 10/12;
 }
 
-/* --- Responsive tablets --- */
+
 @media (max-width: 1024px) {
   .header {
     display: flex;
@@ -98,10 +96,10 @@ body {
   }
 }
 
-/* --- Responsive móviles --- */
+
 @media (max-width: 768px) {
   #hd-logo {
-    width: 120px;
+    width: 120px; 
   }
 
   .hd-toggle {
@@ -142,16 +140,26 @@ body {
     padding: 0.5rem 0;
   }
 
-  /* Ocultar Comparison en mobile */
+
   .hd-comparison {
     display: none;
   }
+
+  
+
+  .hd-toggle {
+    display: block;
+  }
+
+  body {
+    margin-top: 5.5rem;
+  }
 }
 
-/* --- Responsive móviles muy pequeños --- */
+
 @media (max-width: 480px) {
   #hd-logo {
-    width: 100px;
+    width: 100px; 
   }
 
   .hd-nav-links {
@@ -164,7 +172,6 @@ body {
   }
 }
 
-/* --- Botones en responsive --- */
 .hd-buttons {
   display: none;
 }
@@ -185,10 +192,9 @@ body {
     z-index: 2100;
   }
 
-  /* Menú hamburguesa (nav en panel lateral) */
   .hd-nav {
     position: fixed;
-    top: 80px; /* debajo del header */
+    top: 80px; 
     right: -100%;
     width: 250px;
     height: calc(100vh - 80px);
@@ -210,28 +216,28 @@ body {
     gap: 2rem;
   }
 
-/* Menú hamburguesa (nav lateral) */
+
 .hd-nav {
   position: fixed;
-  top: 0; /* nav empieza desde el top del header */
+  top: 0; 
   right: -100%;
-  width: 250px; /* ancho lateral */
-  height: 100vh; /* ocupar todo el alto de la pantalla */
+  width: 250px; 
+  height: 100vh; 
   background: linear-gradient(180deg, #f15a24 0%, #d84315 100%);
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* empieza desde arriba */
-  padding-top: 80px; /* espacio para el header */
+  justify-content: flex-start; 
+  padding-top: 80px; 
   transition: right 0.3s ease-in-out;
   z-index: 2000;
 }
 
-/* Cuando está abierto */
+
 .hd-nav.open {
   right: 0;
 }
 
-/* Links del nav */
+
 .hd-nav-links {
   display: flex;
   flex-direction: column;
@@ -259,3 +265,4 @@ body {
 }
 
 }
+

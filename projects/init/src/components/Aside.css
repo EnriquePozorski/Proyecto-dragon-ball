@@ -13,7 +13,7 @@
 
 
 
-/* Título */
+
 .aside-title {
   font-size: 1.2rem;
   margin-bottom: 15px;
@@ -21,7 +21,7 @@
   padding-bottom: 5px;
 }
 
-/* Contenedor del input + icono */
+
 .aside-search {
   display: flex;
   align-items: center;
@@ -29,11 +29,11 @@
   margin-bottom: 20px;
 }
 
-/* Input de búsqueda */
+
 .aside-search input {
-  flex: 1; /* Ocupa todo el ancho disponible */
+  flex: 1; 
   padding: 10px 12px;
-  border-radius: 6px 0 0 6px; /* redondeado solo a la izquierda */
+  border-radius: 6px 0 0 6px; 
   border: 1px solid #ccc;
   outline: none;
   font-size: 1rem;
@@ -42,13 +42,13 @@
   width: 80%;
 }
 
-/* Botón de búsqueda */
+
 .search-button {
   padding: 10px 12px;
   background-color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 0 6px 6px 0; /* redondeado solo a la derecha */
+  border-radius: 0 6px 6px 0; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,13 +65,13 @@
   color: #fff;
 }
 
-/* Icono de lupa */
+
 .search-button .material-icons {
   font-size: 20px;
 }
 
 
-/* Filtros */
+
 .filter-group {
   margin-bottom: 1rem;
 }
@@ -80,16 +80,16 @@
   margin-bottom: 5px;
   font-weight: bold;
 }
-/* Selects estilo moderno / Dragon Ball */
+
 .filter-group select {
   width: 100%;
   padding: 10px 12px;
   border-radius: 8px;
-  border: 2px solid #f15a24; /* borde naranja */
-  background: #fff;       /* mismo color que el aside */
+  border: 2px solid #f15a24; 
+  background: #fff;       
   color: #000000;
   font-size: 1rem;
-  appearance: none;           /* elimina estilo nativo */
+  appearance: none;          
   -webkit-appearance: none;
   -moz-appearance: none;
   cursor: pointer;
@@ -97,15 +97,15 @@
   position: relative;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
-/* Hover y focus */
+
 .filter-group select:hover,
 .filter-group select:focus {
-  border-color: #ffd700; /* amarillo estilo Dragon Ball */
+  border-color: #ffd700;
  
   outline: none;
 }
 
-/* Botón hamburguesa */
+
 .aside-toggle {
   display: none;
   background: #f15a24;
@@ -121,37 +121,37 @@
   border-radius: 6px;
 }
 
-/* Overlay */
+
 .aside-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.5);
-  z-index: 1000; /* debajo del aside pero encima del contenido */
+  z-index: 1000; 
 }
-/* Ocultar Aside en desktop cuando hideOnDesktop es true */
+
 .hide-desktop {
   display: none;
 }
 
-/* --- Responsive para tablets y móviles --- */
+
 @media (max-width: 1024px) {
-  /* Aside */
+
   .aside {
     width: 250px;
     background-color: #1e1e2f;
     color: #fff;
     padding: 20px;
     min-height: 100vh;
-    position: fixed; /* fijo sobre todo */
+    position: fixed; 
     top: 0;
     left: 0;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
-    z-index: 1001; /* por encima del overlay */
+    z-index: 1001; 
     
   }
   .hide-desktop {
-    display: block; /* Se muestra en responsive */
+    display: block; 
   }
   .aside.open {
     transform: translateX(0);
@@ -171,7 +171,7 @@
   }
 
   .search-button {
-    padding: 6.5px 6px; /* ajusta tamaño del botón */
+    padding: 6.5px 6px; 
     font-size: 1rem;
   }
 

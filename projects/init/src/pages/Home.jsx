@@ -12,7 +12,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.3 } // se activa cuando 30% es visible
+      { threshold: 0.3 } 
     );
 
     const elements = document.querySelectorAll(".feature-card, .nostalgia");
@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      {/* Hero con título y descripción */}
+
       <section className="hero-home">
         <h1 className="hero-title">Wiki-Ball Z</h1>
         <p className="hero-subtitle">
@@ -30,12 +30,12 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Carrusel de imágenes */}
+
       <section className="carousel-section">
         <Carousel />
       </section>
 
-      {/* Secciones destacadas */}
+
       <section className="features">
         <div className="feature-card">
           <h2>🥋 Personajes</h2>
@@ -70,7 +70,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección de nostalgia */}
+
       <div className="nostal-container">
         <section className="nostalgia">
           <h2 className="nostalgia-title">✨ La nostalgia que nos une</h2>
@@ -83,7 +83,7 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Frase motivadora final */}
+
         <section className="closing">
           <p>
             🌟 Revive la leyenda de Dragon Ball como nunca antes. ¡Todo el universo Z en un solo lugar!

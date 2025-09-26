@@ -17,7 +17,7 @@
   transform: translateX(100%);
   transition: all 0.5s ease-in-out;
 
-  /* efecto degradado en los costados */
+
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
@@ -32,7 +32,7 @@
   transform: translateX(0);
 }
 
-/* 📱 Tablets */
+
 @media (max-width: 1024px) {
   .carousel-container {
     height: 400px;
@@ -40,7 +40,6 @@
   }
 }
 
-/* 📱 Mobile mediano */
 @media (max-width: 768px) {
   .carousel-container {
     height: 300px;
@@ -53,7 +52,7 @@
   }
 }
 
-/* 📱 Mobile chico */
+
 @media (max-width: 480px) {
   .carousel-container {
     height: 200px;

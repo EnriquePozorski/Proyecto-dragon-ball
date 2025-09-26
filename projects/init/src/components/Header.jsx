@@ -10,7 +10,7 @@ export default function Header({ menuOpen, setMenuOpen, asideOpen, setAsideOpen,
         <img src={logo} alt="logo-dragon-ball" id="hd-logo" width="200" />
       </Link>
 
-      {/* Nav con clase condicional para mobile */}
+      
       <nav className={`hd-nav ${menuOpen ? "open" : ""}`}>
         <ul className="hd-nav-links">
           <li>
@@ -25,14 +25,13 @@ export default function Header({ menuOpen, setMenuOpen, asideOpen, setAsideOpen,
         </ul>
       </nav>
 
-      {/* Comparison solo en desktop */}
+    
       {!isHome && <Comparison />}
 
-      {/* Botones solo visibles en responsive */}
+      
       <div className="hd-buttons">
         
 
-        {/* Lupa -> abre/cierra aside */}
         <button
           className="hd-search"
           onClick={() => setAsideOpen(!asideOpen)}
@@ -41,7 +40,7 @@ export default function Header({ menuOpen, setMenuOpen, asideOpen, setAsideOpen,
           🔍
         </button>
 
-        {/* Hamburguesa -> abre/cierra nav */}
+       
         <button
           className="hd-toggle"
           onClick={() => setMenuOpen(!menuOpen)}

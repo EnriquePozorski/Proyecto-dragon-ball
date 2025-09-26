@@ -52,7 +52,7 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Items */
+
 .comparison-body-list {
   list-style: none;
   margin: 0;
@@ -100,7 +100,7 @@
   line-height: 1.2;
 }
 
-/* Botón cerrar */
+
 .personaje-item button {
   background: transparent;
   border: none;
@@ -117,7 +117,7 @@
   color: #ffe600;
 }
 
-/* Responsive ajustes */
+
 @media (max-width: 768px) {
   .comparison {
     grid-column: auto;

@@ -77,7 +77,7 @@ export default function CharacterPage() {
       </div>
 
       <div className="character-layout">
-        {/* Carrusel */}
+    
         <div className="carousel">
           <button className="carousel-btn prev" onClick={prev}>
             &lt;
@@ -108,7 +108,7 @@ export default function CharacterPage() {
           </button>
         </div>
 
-        {/* Descripción */}
+        
         <div className="character-info">
           <p>
             <strong>Raza:</strong> {character.race}
