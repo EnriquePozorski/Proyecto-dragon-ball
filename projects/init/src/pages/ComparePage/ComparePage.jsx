@@ -3,19 +3,13 @@ import "./ComparePageStyle.css";
 import useNormalizeKi from "./Hooks/useNormalizeKi.jsx";
 import CharacterCard from "./Components/CharacterCard.jsx";
 import { useState } from "react";
+import { useContext } from "react";
+import { ComparisonContext } from "../../context/ComparisonContext.jsx";
 
 export default function ComparePage() {
-  const [searchsParams] = useSearchParams();
-  const ids = searchsParams.getAll("id");
-  const cart = JSON.parse(localStorage.getItem("personajes")) || [];
-
-  const [selectedCharacters, setSelectedCharacters] = useState(
-  ids.length > 0 ? cart.filter((c) => ids.includes(String(c.id))) : cart
-);
-
-
+  const { characters, removeCharacter } = useContext(ComparisonContext);
   const [indices, setIndices] = useState(
-    Object.fromEntries(selectedCharacters.map(c => [c.id, 0]))
+    Object.fromEntries(characters.map(c => [c.id, 0]))
   );
 
   const handleIndexChange = (id, newIndex) => {
@@ -23,10 +17,14 @@ export default function ComparePage() {
   };
 
   const handleRemoveCharacter = (idToRemove) => {
-    setSelectedCharacters(prev => prev.filter(c => c.id !== idToRemove));
+    removeCharacter(idToRemove); 
+    setIndices(prev => {
+      const { [idToRemove]: _, ...rest } = prev; // elimina también el índice
+      return rest;
+    });
   };
 
-  const powers = selectedCharacters.map(c => {
+  const powers = characters.map(c => {
     const transformations = [
       { id: c.id, name: c.name, image: c.image, ki: c.ki },
       ...(c.transformations || [])
@@ -38,13 +36,14 @@ export default function ComparePage() {
   const globalMax = Math.max(...powers.map(p => p.ki));
   const winner = powers.find(p => p.ki === globalMax);
 
+  if (characters.length === 0) return <p className="welcome no-hay">No hay personajes para comparar.</p>;
+
   return (
     <div className="compare-page">
       <h1 className="welcome">Comparación de personajes</h1>
 
-   
       <div className="compare-container">
-        {selectedCharacters.map((p, i) => (
+        {characters.map((p, i) => (
           <div key={p.id} className="card-wrapper">
             <CharacterCard
               character={p}
@@ -54,7 +53,7 @@ export default function ComparePage() {
               onIndexChange={(newIndex) => handleIndexChange(p.id, newIndex)}
               onRemove={handleRemoveCharacter}
             />
-            {i < selectedCharacters.length - 1 && <div className="vs-label">VS</div>}
+            {i < characters.length - 1 && <div className="vs-label">VS</div>}
           </div>
         ))}
       </div>

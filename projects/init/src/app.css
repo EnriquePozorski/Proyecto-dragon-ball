@@ -81,9 +81,7 @@
 }
 
 @media (max-width: 1024px) {
-  .layout-body{
-    
-  }
+  
   .layout-body aside {
     position: fixed;
     top: 0;

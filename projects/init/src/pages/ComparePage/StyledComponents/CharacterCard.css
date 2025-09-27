@@ -196,3 +196,21 @@
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 4px rgba(0, 0, 0, 0.4);
   background: radial-gradient(circle at center, #ff1a1a 0%, #990000 100%);
 }
+
+
+@media (max-width: 480px) {
+  .compare-character-card{
+    min-height: auto;
+    width: 250px;
+    padding: 0.7rem;
+  }
+  .compare-character-image{
+    max-height: 100px;
+  }
+  .compare-character-card:hover .compare-character-image{
+    transform: scale(1.55);
+  }
+  .ki-radar{
+    width: 2.5rem;
+  }
+}

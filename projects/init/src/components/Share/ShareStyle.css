@@ -4,6 +4,7 @@
   background: #fff;
   padding: 30px;
   border-radius: 12px;
+  border: 1px solid #f15a24;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   font-family: Arial, sans-serif;
 }
@@ -48,6 +49,10 @@
   resize: vertical;
 }
 
+.share-container input::placeholder,
+.share-container textarea::placeholder {
+  color:#d1c6c6;
+}
 .share-container button {
   padding: 12px;
   border-radius: 8px;

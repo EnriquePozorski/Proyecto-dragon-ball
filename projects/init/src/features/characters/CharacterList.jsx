@@ -90,14 +90,14 @@ export default function CharacterList({ filters }) {
             />
           ))
         ) : (
-          !loading && <p className="no-results">No se encontraron personajes</p>
+          !loading && <p className="no-results welcome">No se encontraron personajes</p>
         )}
       </div>
 
       <div ref={loaderRef} className="loader-trigger">
         {loading && <div className="spinner"></div>}
         {!hasMore && !loading && characters.length > 0 && (
-          <p className="end-message">No hay más personajes para mostrar</p>
+          <p className="end-message welcome">No hay más personajes para mostrar</p>
         )}
       </div>
     </div>
