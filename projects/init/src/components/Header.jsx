@@ -2,11 +2,39 @@ import { Link } from "react-router-dom";
 import logo from "../assets/Dragon-Ball-Emblema.png";
 import "./Header.css";
 import Comparison from "./Comparison.jsx";
+import { useEffect, useRef } from "react";
 
 export default function Header({ menuOpen, setMenuOpen, asideOpen, setAsideOpen, isHome }) {
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setMenuOpen(false);
+        setAsideOpen(false); 
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [setMenuOpen, setAsideOpen]);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    if (!menuOpen) setAsideOpen(false); 
+  };
+
+  const toggleAside = () => {
+    setAsideOpen(!asideOpen);
+    if (!asideOpen) setMenuOpen(false); 
+  };
+
   return (
-    <header className="header">
-      <Link to="/" onClick={() => setMenuOpen(false)}>
+    <header className="header" ref={headerRef}>
+      <Link to="/" onClick={() => { setMenuOpen(false); setAsideOpen(false); }}>
         <img src={logo} alt="logo-dragon-ball" id="hd-logo" width="200" />
       </Link>
 
@@ -34,7 +62,7 @@ export default function Header({ menuOpen, setMenuOpen, asideOpen, setAsideOpen,
 
         <button
           className="hd-search"
-          onClick={() => setAsideOpen(!asideOpen)}
+          onClick={toggleAside}
           aria-label="Toggle search"
         >
           🔍
@@ -43,7 +71,7 @@ export default function Header({ menuOpen, setMenuOpen, asideOpen, setAsideOpen,
        
         <button
           className="hd-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={toggleMenu}
           aria-label="Toggle navigation"
         >
           ☰
