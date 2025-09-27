@@ -24,7 +24,8 @@ export default function CharacterCard({ character, onSelectCharacter }) {
   };
 
   return (
-    <div className={`card ${race || "default"}`} onClick={handleOpenModal}>
+    <div
+      className={`card ${race || "default"} ${isSelected ? "selected" : ""}`} onClick={handleOpenModal}>
       <button className="card-add-btn" onClick={handleToggle}>
         {isSelected ? "✕" : "+"}
       </button>

@@ -1,7 +1,8 @@
 .comparison {
   position: relative;
-  grid-column: 10/13;
+  width: 300px;
   font-family: "Poppins", sans-serif;
+  justify-items: center;
 }
 
 /* Header */

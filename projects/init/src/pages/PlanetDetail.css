@@ -200,6 +200,9 @@
 
 @media screen and (max-width: 490px) {
     .planet-detail-wrapper .back-btn {
-        top: 3.0rem;
+        top: 4.0rem;
+    }
+    .planet-detail-wrapper{
+        padding-top: 4rem;
     }
 }

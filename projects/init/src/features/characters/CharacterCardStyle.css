@@ -21,7 +21,7 @@
   color: #ff6126;
   font-size: 1.2rem;
   font-weight: bold;
-  border: none;
+  border: 1px solid #ff6126;
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -120,6 +120,12 @@
   padding: 0.3rem 0.5rem;
   border-radius: 1rem;
   display: block;
+}
+.card.selected {
+  box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.7); 
+  transform: scale(1.05); 
+  transition: all 0.3s ease;
+  filter: brightness(1.05);
 }
 
 @media (max-width: 1024px) {

@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
+  justify-items: center;
 }
 
 
@@ -71,9 +72,10 @@
 @media (max-width: 600px) {
   .grid {
     grid-template-columns: repeat(2, 1fr); 
-    gap: 0.8rem;
+    gap: 2.8rem;
     padding: 1rem;
     justify-items: center;
+    justify-content: center;
   }
 }
 
@@ -85,8 +87,9 @@
     align-items: center;
   }
   .grid {
-    grid-template-columns: 1fr; /* solo una columna */
-    gap: 0.6rem;
+    grid-template-columns: 1fr; 
+    gap: 2.6rem;
     padding: 0.8rem;
+    justify-content: center;
   }
 }

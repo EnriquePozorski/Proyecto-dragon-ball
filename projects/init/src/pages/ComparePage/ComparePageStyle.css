@@ -4,7 +4,8 @@
   background: #121212;
   min-height: 100vh;
   color: #fff;
-  background: linear-gradient(145deg, #1a1a1a, #222)
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  padding-top: 30px;
 }
 
 .compare-container {
@@ -64,8 +65,8 @@
 }
 
 @media (max-width: 768px) {
-  .layout{
-    padding-top: 25px;
+  .compare-page{
+    padding-top: 45px;
   }
   .card-wrapper {
     flex-direction: column;

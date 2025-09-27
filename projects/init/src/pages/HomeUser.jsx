@@ -74,12 +74,16 @@ function HomeUser() {
 
       <section className="section big-cards">
         <Link to="/characters" className="big-card character">
-          <h3>Personajes</h3>
-          <p>Explora todos los héroes y villanos del universo Dragon Ball</p>
+            <div className="feature-card-text">
+                <h3>Personajes</h3>
+                <p>Explora todos los héroes y villanos del universo Dragon Ball</p>
+            </div>
         </Link>
         <Link to="/planets" className="big-card planet">
-          <h3>Planetas</h3>
-          <p>Descubre Namek, la Tierra y muchos más</p>
+            <div className="feature-card-text">
+                <h3>Planetas</h3>
+                <p>Descubre Namek, la Tierra y muchos más</p>
+            </div>
         </Link>
       </section>
     </div>

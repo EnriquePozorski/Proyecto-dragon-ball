@@ -72,15 +72,17 @@ export default function CharacterPage() {
     );
   const next = () => setActiveIndex((i) => (i + 1) % transformations.length);
 
-   const isSelected = characters.some(c => c.id === id);
-    const handleToggle = (e) => {
+  const isSelected = characters.some(c => c.id === activeItem.id);
+
+  const handleToggle = (e) => {
     e.stopPropagation();
     if (isSelected) {
-      removeCharacter(id);
+      removeCharacter(activeItem.id);
     } else {
-      addCharacter(character);
+      addCharacter(activeItem);
     }
   };
+  
   return (
     <div className="character-page">
       <div className="top-page">
@@ -117,9 +119,11 @@ export default function CharacterPage() {
           >
             <FaShareAlt />
           </button>
-          <button className="vs-btn" onClick={handleToggle}>
-            <FaPlusCircle />
-          </button>
+          <div className={` ${isSelected ? "selected" : ""}`}>
+            <button className="card-add-btn" onClick={handleToggle}>
+              {isSelected ? "✕" : "+"}
+            </button>
+          </div>
         </div>
 
         

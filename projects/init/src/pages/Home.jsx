@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Carousel from "../components/Carousel.jsx";
 import "./Home.css";
 import "../components/Carousel.css"
@@ -38,37 +39,35 @@ export default function Home() {
 
 
       <section className="features">
-        <div className="feature-card">
-          <h2>🥋 Personajes</h2>
-          <p>
-            Biografías, habilidades y técnicas de los héroes y villanos más 
-            legendarios del universo Dragon Ball.
-          </p>
-        </div>
+        <Link to="/characters" className="feature-card personajes-home">
+          <div className="feature-card-text">
+            <h2>🥋 Personajes</h2>
+            <p>
+              Biografías, habilidades y técnicas de los héroes y villanos más 
+              legendarios del universo Dragon Ball.
+            </p>
+          </div>
+        </Link>
 
-        <div className="feature-card">
-          <h2>🔥 Transformaciones</h2>
-          <p>
-            Desde Super Saiyajin hasta Ultra Instinto. Descubre todas las 
-            fases de poder y su historia.
-          </p>
-        </div>
+        <Link to="/planets" className="feature-card planetas-home">
+          <div className="feature-card-text">
+            <h2>🌍 Planetas</h2>
+            <p>
+              Conoce los mundos más icónicos como Namek, la Tierra y el 
+              planeta Vegeta.
+            </p>
+          </div>
+        </Link>
 
-        <div className="feature-card">
-          <h2>🌍 Planetas</h2>
-          <p>
-            Conoce los mundos más icónicos como Namek, la Tierra y el 
-            planeta Vegeta.
-          </p>
-        </div>
-
-        <div className="feature-card">
-          <h2>⚡ Comparador de Ki</h2>
-          <p>
-            Elige dos luchadores y enfrenta su poder. ¿Quién dominaría 
-            la batalla?
-          </p>
-        </div>
+        <Link to="/compare" className="feature-card camparar-ki-home">
+          <div className="feature-card-text">
+            <h2>⚡ Comparador de Ki</h2>
+            <p>
+              Elige dos luchadores y enfrenta su poder. ¿Quién dominaría 
+              la batalla?
+            </p>
+          </div>
+        </Link>
       </section>
 
 

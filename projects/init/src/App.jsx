@@ -91,7 +91,7 @@ function App() {
           <Route
             path="/share"
             element={
-              <Layout filters={filters} setFilters={setFilters} showAside={false}>
+              <Layout filters={filters} setFilters={setFilters} showAside={true}>
                 <SharePage />
               </Layout>
             }

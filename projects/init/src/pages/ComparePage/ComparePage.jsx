@@ -10,8 +10,9 @@ export default function ComparePage() {
   const cart = JSON.parse(localStorage.getItem("personajes")) || [];
 
   const [selectedCharacters, setSelectedCharacters] = useState(
-    cart.filter((c) => ids.includes(String(c.id)))
-  );
+  ids.length > 0 ? cart.filter((c) => ids.includes(String(c.id))) : cart
+);
+
 
   const [indices, setIndices] = useState(
     Object.fromEntries(selectedCharacters.map(c => [c.id, 0]))
