@@ -50,7 +50,7 @@ const options = {
   },
   scales: {
     y: {
-      type: "logarithmic", // 👈 escala logarítmica
+      type: "logarithmic",
       beginAtZero: false,
       title: { display: true, text: "KI (escala log)" },
       ticks: {

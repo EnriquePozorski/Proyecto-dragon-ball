@@ -30,7 +30,7 @@ export function ComparisonProvider ({ children }){
     };*/
     const addCharacter = async (character) => {
   try {
-    const charac = await characterService.getCharacterById(character.id); // 👈 acá resolvés
+    const charac = await characterService.getCharacterById(character.id);
     setCharacters((prev) => {
       if (prev.some((p) => p.id === character.id)) return prev;
       return [...prev, charac];

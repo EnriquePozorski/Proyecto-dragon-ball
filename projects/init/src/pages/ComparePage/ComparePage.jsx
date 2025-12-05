@@ -3,11 +3,16 @@ import "./ComparePageStyle.css";
 import useNormalizeKi from "./Hooks/useNormalizeKi.jsx";
 import CharacterCard from "./Components/CharacterCard.jsx";
 import { useState } from "react";
+import {useContext} from 'react';
+import { ComparisonContext } from "../../context/ComparisonContext.jsx";
+import { ComparisonProvider } from "../../context/ComparisonProvider.jsx";
 
 export default function ComparePage() {
   const [searchsParams] = useSearchParams();
   const ids = searchsParams.getAll("id");
   const cart = JSON.parse(localStorage.getItem("personajes")) || [];
+  const {removeCharacter} = useContext(ComparisonContext);
+
 
   const [selectedCharacters, setSelectedCharacters] = useState(
     cart.filter((c) => ids.includes(String(c.id)))
@@ -23,6 +28,7 @@ export default function ComparePage() {
 
   const handleRemoveCharacter = (idToRemove) => {
     setSelectedCharacters(prev => prev.filter(c => c.id !== idToRemove));
+    removeCharacter(idToRemove);
   };
 
   const powers = selectedCharacters.map(c => {

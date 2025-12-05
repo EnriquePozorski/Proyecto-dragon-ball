@@ -4,7 +4,7 @@ import { useState, useContext } from "react";
 import { ComparisonContext  }  from "../context/ComparisonContext.jsx";
 import { useNavigate }  from "react-router-dom";
 
-
+//carrito
 export default function Comparison() {
   const {characters, removeCharacter} = useContext(ComparisonContext);
   const [abierto, setAbierto] = useState(false);

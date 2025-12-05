@@ -36,8 +36,8 @@ function Layout({ children, filters, setFilters, showAside = true }) {
           <Aside
             filters={filters}
             setFilters={setFilters}
-            open={asideOpen}   // ← antes usabas menuOpen
-            setOpen={setAsideOpen} // ← ahora controlás con asideOpen
+            open={asideOpen}   
+            setOpen={setAsideOpen} 
             hideOnDesktop={isHome} 
           />
 
@@ -60,7 +60,7 @@ function App() {
   });
 
   return (
-    <BrowserRouter>
+    <BrowserRouter> 
       <ComparisonProvider>
         <Routes>
           <Route
