@@ -22,7 +22,7 @@ export function ComparisonProvider ({ children }){
 
 /*    const addCharacter  = (character) => {
         console.log("desde addCharacter");
-        setCharacters((prev)=> {
+        setCharacters((prev)=> {v                          
             if (prev.some((p)=> p.id === character.id))
                 return prev;
             return [...prev, character];

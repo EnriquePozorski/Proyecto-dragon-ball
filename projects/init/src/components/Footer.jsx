@@ -51,12 +51,7 @@ const Footer = () => {
                   Califica Nuestra Web
                 </button>
               </li>
-              <li>
-                <a href="/contact">Contacto</a>
-              </li>
-              <li>
-                <a href="/privacy">Privacidad</a>
-              </li>
+              
             </ul>
           </div>
         </div>

@@ -29,7 +29,7 @@
 
 .top-info {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
 }
@@ -76,7 +76,7 @@
 
 .footer-links a:hover,
 .link-button:hover {
-  color: #00bcd4;
+  color: #f15a24;
 }
 
 

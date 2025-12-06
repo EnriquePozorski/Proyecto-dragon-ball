@@ -24,9 +24,11 @@
 
 .aside-search {
   display: flex;
-  align-items: center;
+  
   width: 100%;
   margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 
@@ -40,6 +42,10 @@
   background: #fff;
   color: #1e1e2f;
   width: 80%;
+  
+}
+.aside-search:focus{
+  border-color: #ffd700;
 }
 
 

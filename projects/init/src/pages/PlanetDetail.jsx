@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { planetService } from "../services/planetService.js";
+import { FaShareAlt, FaArrowLeft, FaPlusCircle } from "react-icons/fa";
 import "./PlanetDetail.css";
 
 export default function PlanetDetail() {
@@ -31,12 +32,9 @@ export default function PlanetDetail() {
 
   return (
    <div className="planet-detail-wrapper">
-  <button
-    className="back-btn"
-    onClick={() => navigate(-1)}
-  >
-    ← Volver
-  </button>
+    <button className="back-btn" onClick={() => navigate(-1)}>
+        <FaArrowLeft /> <span className="back-text">Regresar</span>
+    </button>
 
   <div className="planet-detail-page">
     <h2>{planet.name}</h2>
